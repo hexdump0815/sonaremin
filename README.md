@@ -124,7 +124,9 @@ a lot more info will come here over time - just some basic points already:
 
 # thanks, issues, more documentation
 
-a lot of thanks go to all who made this possible, like the respective authors of the included or used open source projects like vcvrack, armbian - especially the tv box related part, the vc4 raspberry pi gpu driver, the linux-meson project for amlogic arm linux mainline support and many many more ... 
+a lot of thanks go to all who made this possible, like the respective authors of the included or used open source projects like andrew belt for vcvrack, armbian - especially the tv box related part maintained by oleg, the vc4 raspberry pi gpu driver by eric anholt, the linux-meson project for amlogic arm linux mainline support and many many more ...
+
+the generative-01.vcv patch is based on this patch https://www.youtube.com/watch?v=WVeP1a04DOs from omri cohen, but modified to fit the sonaremin, the other patches are built by myself.
 
 please use the issues for this github project to give feedback if it works well or not, for which hardware it works well, if you find solutions for possible problems or if you run into unexpected problems, but please keep in mind that this is a one person project so far and my time to work on it is limited.
 
