@@ -1,0 +1,1 @@
+# this script is sourced in at the end of /etc/rc.local on bootup just before the x session is started

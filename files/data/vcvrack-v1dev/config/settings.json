@@ -1,0 +1,26 @@
+{
+  "token": "",
+  "windowSize": [
+    0.0,
+    0.0
+  ],
+  "windowPos": [
+    0.0,
+    0.0
+  ],
+  "zoom": 1.0,
+  "invertZoom": false,
+  "cableOpacity": 0.5,
+  "cableTension": 0.5,
+  "allowCursorLock": true,
+  "sampleRate": 32000.0,
+  "threadCount": 2,
+  "paramTooltip": false,
+  "cpuMeter": false,
+  "lockModules": false,
+  "checkVersion": false,
+  "frameRateLimit": 15.0,
+  "frameRateSync": false,
+  "patchPath": "/data/vcvrack-v1dev/generative.vcv",
+  "favoriteModels": []
+}

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+# this script is run in the x session after a delay of 15 seconds

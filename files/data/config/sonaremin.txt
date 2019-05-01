@@ -1,0 +1,26 @@
+# a line beginning with a # is treated as comment und thus not used
+# comment out the settings you want and uncomment the ones not wanted
+
+# start with a hdmi monitor connected (display) or headless
+DISPLAY_MODE=display
+#DISPLAY_MODE=headless
+
+# enable tuning for audio usage
+AUDIO_TUNE=on
+#AUDIO_TUNE=off
+
+# start qjackctl automatically
+QJACKCTL_START=yes
+#QJACKCTL_START=no
+
+# start vcvrack automatically
+VCVRACK_START=yes
+#VCVRACK_START=no
+
+# which vcvrack version to start automativally
+VCVRACK_VERSION=v0
+#VCVRACK_VERSION=v1dev
+
+# limit the cpu clock to avoid overheating - used for the tinkerboard
+MAX_CPU_CLOCK=1200000
+# possible useful values for the tinkerboard: 1008000 1200000 1416000 1512000 1608000

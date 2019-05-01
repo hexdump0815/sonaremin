@@ -1,0 +1,17 @@
+Section "Device"
+	Identifier	"device"
+	Driver		"modesetting"
+EndSection
+
+Section "Monitor"
+	Identifier	"monitor"
+#	Option		"PreferredMode" "1024x768"
+#	Option		"PreferredMode" "1280x1024"
+#	Option		"PreferredMode" "1920x1080"
+EndSection
+
+Section "Screen"
+	Identifier 	"screen"
+	Device     	"device"
+	Monitor		"monitor"
+EndSection
