@@ -1,2 +1,124 @@
-# sonaremin
-vcvrack in a box or roll your own synth
+## the sonaremin
+
+welcome to the wonderful world of the sonaremin. the name sonaremin is combined from the latin word for sound: sonare and the end of theremin, the name of an unconventional instrument for its time in the 1920s. what is the sonaremin? it is following the philosophy of modular synthesizers by plugging together several excellent open source software projects to create something new. those projects are in its first incarnation (sonaremin one)i: vcvrack, linux, ubuntu, jack, xpra, overlayroot, fluxbox and many more. the goal is to create a a very flexible and easy to use device which can be used to create electronic music without the need of a computer. as soon as it gets plugged into the power socket it will start and it will be ready in about a minute. one just needs to connect a midi controller to it for playing it and at the end it can simply be unplugged from power to turn it off.
+
+for creating sounds it uses the wonderful vcvrack modular synthesizer by running special sound-patches created for it, which can then be played and/or manipulated by a connected midi controller. the sonaremin has two modes of operation: display mode and headless mode.
+
+besides that it might also be used as a good prototyping platoform for audio experiments running on linux and small arm based computers. it runs on multiple devices, is based on a recent mainline linux kernel (4.19 and 5.0 right now), a long term supported standard ubuntu distribution (18.04 lts), it has some audio optimizations applied and has gpu accelerated opengl support (as good as possible for the different devices).
+
+# display mode
+
+in display mode the sonaremin will operate like a regular vcvrack installation: you connect the sonaremin to a hdmi monitor, connect a keyboard, a mouse, maybe a midi controller and an amplifier to it and can create or modify patches with it.
+
+# headless mode
+
+in headless mode the sonaremin does not need a mouse, a keyboard and a monitor. it will work either completely on its own endlessly playing a generative patch or can be used as an instrument with a midi controller attached. both is possible by simply copying a properly prepared patch to a certain location which it will then automatically use on startup. even in headless mode it is possible to connect to the sonaremin via ethernet and share the screen with its running vcvrack via the xpra software (https://xpra.org/), which offers desktop viewing applications for linux, macos and windows. this mode is only useable for checking the operation or changing some settings (like jack connection or midi learn setup), as in this mode there is no gpu acceleration available for the screen rendering which results in all cpu power being eaten up by the graphics and close to none being left for audio, but for simple tasks this is still sufficent.
+
+# supported hardware
+
+the sonaremin currently runs on the following arm cpu based devices:
+
+- odroid c2 (pcm2704)
+- asus tinkerboard (cooling, pcm2704) and tinkerboard s (untested, cooling, pcm2704)
+- raspberry pi in 32bit [2b (untested, limited, 22khz), 3b & 3b+] (cooling) and 64bit mode [3b & 3b+] (cooling)
+- amlogic s905w/s905x based android tv boxes (pcm2704)
+- allwinner h3 based android tv boxes (22khz)
+- bananapi m1 (limited, pcm2704)
+
+the comments in the brackets mean:
+
+- pcm2704: a pcm2704 usb audio adapter is required - you can find it easily for around 3 euro on ebay
+- cooling: a fan is required to cool the device, otherwise it will reduce its power automatically resulting in degraded audio performance (the tinkerboard will by default be run at a reduced clock speed to avoid the need of a fan, but with a fan it can be run at full speed with more cpu power)
+- 22khz: running with a sampling frequency of 22,05khz instead of the regular 32khz of the sonaremin as the cpu power of the device it too low for hight sampling frequencies
+- untested: i have no access to such a device, so i could not test them, but in theory they should work
+- limited: those devices have too little cpu power for even medium sized patches like the supplied example pathches, but they might still be used for very small and simple patches and to get an idea how the sonaremin works - using them for a longer time will most probably not a very pleasant experience
+
+the basic functionally is the same for all devices, but their cpu performance and thus possible maximum size of the possible patches differs a bit - here is an overview of the cpu usage of the different devices with the generative-01.vcv sample patch (vcvrack is configured for two audio threads, so it can at maximum utilize about 200% cpu for audio - more threads do not make sense, as vcvrack does not scale well with more threads):
+
+- odroid c2: 60-62%
+- amlogic s905w/s905x tv box: 80%%
+- tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher clock)
+- raspberry pi 3b in 64bit mode: 80%
+- raspberry pi 3b in 32bit mode: 105-120%
+- h3 tv box: 155-160% (22khz)
+
+as a result recommended are the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram) and come with a case and power supply already. the other devices are only recommended if they are around already anyway: the tinkerboard is quite good, but expensive - the raspberry pi's are ok, but vcvrack pushes its gpu and graphics system to its borders, in headless mode they should work very good as well - the h3 tv box is at the low performance end and the bananapi even below that :)
+
+please keep in mind, that with the exception of the raspberry pi's and the h3 tv box all other devices will need an extra pcm2704 usb audio adapter (just google for pcm2704, they cost around 3 euro) as the internal audio is not working well enough for low latency audio or does not support a 32khz sampling frequency. the raspberry pi's work with the built in audio, but it has slightly worse latency and and quality compared to the pcm2704.
+
+# installation
+
+for installing the sonaremin on one of the devices the provided images need to be downloaded (see the releases section on github), decompressed (gunzip to get rid of the .gz) and then flashed to an sd card of at least 8gb size (more is not a problem). please refer to the many ressources on the internet on how to decompress the .gz files and how to flash the images properly to an sd card depending on what operating system you are doing this on.
+
+in the case of the amlogic s905w/s905x tv boxes there is an extra step required to enable multi boot mode. first a disclaimer: this worked for me and for others for many tv boxes and is usually a very easy and reliable process, but there is always a small risk that it might brick the tv box - you have been warned. the procedure to enable multi boot mode is described here: https://forum.armbian.com/topic/2419-armbian-for-amlogic-s905-and-s905x-ver-544/ - the basic steps relevant are:
+
+- boot the tv box into android
+- open the app "update & backup"
+- click on "select" local update and chose the file on the removable media (aml_update.zip) aml_autoscript.zip
+- start "update"
+- system will reboot twice and then start running the system from the sd card, i.e. sonaremin
+
+for some devices an adjustment for the dtb file is required - see the comments in the file menu/extlinux.conf (if there are any comments) in the BOOT partition of the written sd card.
+
+# configuration
+
+the basic configuration of the sonaremin device is done in the menu/extlinux.conf file on the BOOT partition of the written sd card (see above as well) for setting the overlayroot mode or not and the file config/sonaremin.txt in the DATA partition of the written sd card: here the display mode (display or headless) is the most important. besides that it is possible to turn off the audio tuning on boot, turn off the automatic start of qjackctl and vcvrack and change the maximum cpu clock in the case of a tinkerboard to avoid it overheating. it is also possible to switch to a v1 development version of vcvrack - this is not yet useable properly, but might be interesting to get an idea about the new version.
+
+there are more options to configure the sonaremin, which will be described here later (rc.boot-local, rc.xsession-local, config/systems directory, qjackctl directory)
+
+the default patch used in headless mode is always vcvrack-v0/sonaremin.vcv (vcvrack-v1dev/sonaremin.vcv for the v1dev version), so the desired patch to be run in headless mode should be copied there. by default the generative-01.vcv patch is copied there, so that the sonaremin should give some sound about a minute after it starts if everything is working well.
+
+# overlayroot mode
+
+by default the sonaremin is running in overlayroot mode, i.e. the rootfilesystem is mounted read-only and and top of that a memory filesystem is mounted read-write. this means, that all changes to the systems are lost when the device is powered off and this allows to simply power off the device without a proper shutdown in headless mode. the DATA and BOOT partitions are mounted regularly in read-write mode, so that configuration changes done in files located on them and patches saved onto the DATA partition are not lost after a reboot. this is also the reason while various configuration files of qjackctl, vcvrack etc. are symbolically linked from the system partition to the DATA partition.
+
+if permanent changes should be done to the system (for instance installation of software) it can be switched between overlayroot and non overlayroot mode in the menu/extlinux.conf file and rebooting the sonaremin.
+
+# known problems and things to keep in mind
+
+in general the sonaremin already works quite well - this is a list of things i have noticed and which should be kept in mind and maybe should be fixed one day:
+
+- on bootup there is an error visible about an fsck problem - this is most probably due to the update-initramfs task in the image creation for some reason sone not put the proper fsck binaries into the initramfs - it seems to be no big deal for now though
+- the tinkerboard does only a shutdown when reboot is requested - most probably some kernel patch is still missing - i do not see this as a bit problem for now
+- tv boxes might also behave strange on shutdown or reboot (for instance do only one of the two, do them in reverse or simply hang in that case) - this is due to the widely variying hardware
+- the raspberries are quite at the limit with their gpu driver and opengl implementation and vcvrack - this has two side effects: a lot of memory is required for the gpu (about half of the 1gb) resulting in the sonaremin sometimes hanging for up to a minute when it starts swapping as there is not enough memory left - the other effect are rendering errors (for instance the rails are missing on the raspberry pi's) and one should be more careful with the graphics (for instance always first empty the vcvrack patch before opening another one)
+- some devices definitely need a fan for cooling (see hardware section above) - simple passive cooling with a small heat sink is definitely not enough
+- as all this is running on the arm architecture only non commercial plugins, which are available in source form (so that they can be compiled and included into the sonaremin) can be used, so no bought plugins can be used and some popolar other ones cannot be used neither as there is no source available for them (vult, nysthi, turing machine) - this is less of a problem than it sounds as for many of them there are open sourced alternatives available (for instance the random sampler from audible instruments can take over some tasks of the turing machine)
+- those little arm devices have much less cpu power than a normal pc or laptop, thus it is recommended to use modules which use less cpu power for the same task (for instance a perco filter instead of the fundamental vcf or the 21khz palm loop instead of the fundamental vco) - the power meter option in vcvrack is your friend in finding out which modules eat the most cpu (it is normal that the audio output is usually among the most cpu intensive ones, but this is by design and can't be changed)
+- all controllers used via midi cc need to be wiggled a bit, so that they transmit their initial settings to vcvrack after startup (only the akai midi mix seems to have a button to send all the current settings at once) - this is not special for the sonaremin, but the way midi-cc works in vcvrack
+- network connections are only supported via etherenet (no wlan) and keyboard and mouse have to be usb (no bluetooth)
+- the patches need to be expicitely configured (qjackctl patching and vcvrack midi learning etc.) in the patch in a display or xpra session first, before it can be used headless
+
+# tecnical notes
+
+a lot more info will come here over time - just some basic points already:
+- the linux system of the sonaremin is a regular ubuntu 18.04 lts
+- the vcvrack is a regular vcvrack (the rcomian fork in the case of the v0.6.2c one), so the patches should be fully compatible as long as all used plugins are available
+- configuration details: coming later
+- adding support for anothe device: coming later
+
+# tips and tricks
+
+a lot more info will come here over time - just some basic points already:
+
+- how to use jackd network functionality to communicate with other devices over network: coming later
+- how to use multiple sonaremins in parallel: coming later
+
+# possible future plans and ideas
+
+- support for rk3328 based tv boxes
+- support for more powerful arm devices like the odroid n2, rockpi 4 or nvidia jetson nano
+- work on sonaremin two (zynaddsubfx based) and further ones based on surge, helm, linuxsampler, ...
+- maybe introduce a mapping layer between different midi controllers and vcvrack (via ididings maybe?)
+
+# thanks, issues, more documentation
+
+a lot of thanks go to all who made this possible, like the respective authors of the included or used open source projects like vcvrack, armbian - especially the tv box related part, the vc4 raspberry pi gpu driver, the linux-meson project for amlogic arm linux mainline support and many many more ... 
+
+please use the issues for this github project to give feedback if it works well or not, for which hardware it works well, if you find solutions for possible problems or if you run into unexpected problems, but please keep in mind that this is a one man project so far and my time to work on it is limited.
+
+this documentation is the first draft to get the initial version of the sonaremin out - it is by far not complete yet and does not cover all topics, but it is at least a start and i tried to cover the most important parts.
+
+now enjoy the sonaremin!
+
+  best wishes - hexdump
