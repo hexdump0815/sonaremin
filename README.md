@@ -35,11 +35,11 @@ the comments in the brackets mean:
 - untested: i have no access to such a device, so i could not test them, but in theory they should work
 - limited: those devices have too little cpu power for even medium sized patches like the supplied example patches, but they might still be used for very small and simple patches and to get an idea how the sonaremin works - using them for a longer time will most probably not be a very pleasant experience
 
-the basic functionally is the same for all devices, but their cpu performance and thus possible maximum size of the possible patches differs a bit - here is an overview of the cpu usage of the different devices with the generative-01.vcv sample patch (vcvrack is configured for two audio threads, so it can at maximum utilize about 200% cpu for audio - more threads do not make sense, as vcvrack does not scale well with more threads):
+the basic functionally is the same for all devices, but their cpu performance and thus possible maximum size of the possible patches differs a bit - here is an overview of the cpu usage of the different devices with the generative-01.vcv sample patch (vcvrack is configured for two audio threads, so it can at maximum utilize about 200% cpu for audio - more threads do not make sense, as vcvrack does not scale well with more threads - cpu usage should be measured in iconified mode, as this way the ui does not eat any extra cpu):
 
 - odroid c2: 60-62%
-- amlogic s905w/s905x tv box: 80%
-- tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher clock)
+- amlogic s905w/s905x tv box: 80% (s905w) / 70% (s905x)
+- tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
 - raspberry pi 3b in 64bit mode: 80%
 - raspberry pi 3b in 32bit mode: 105-120%
 - h3 tv box: 155-160% (22khz)
@@ -118,7 +118,7 @@ a lot more info will come here over time - just some basic points already:
 # possible future plans and ideas
 
 - support for rockchip rk3328 based tv boxes
-- support for more powerful arm devices like the odroid n2 (amlogic s922x), rockpi 4 (rockchip rk3399) or nvidia jetson nano
+- support for more powerful arm devices like amlogic s905x2 tv boxes (sadly no gpu accelerated opengl in x11 yet), the odroid n2 (amlogic s922x - sadly no gpu accelerated opengl in x11 yet), rockpi 4 (rockchip rk3399 - gpu accelerated opengl in x11 should be possible, but linux mainline device support not very mature yet), nvidia jetson nano (very good gpu opengl support with nvidia 4.9 kernel), allwinner h6 tv boxes (linux mainline device support not very mature yet, gpu accelerated opengl unclear)
 - work on sonaremin two (zynaddsubfx based) and further ones based on surge, helm, linuxsampler, ... maybe
 - maybe introduce a mapping layer between different midi controllers and vcvrack (via ididings maybe?) to abstract them
 
