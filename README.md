@@ -42,7 +42,7 @@ the basic functionally is the same for all devices, but their cpu performance an
 - tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
 - raspberry pi 3b in 64bit mode: 80%
 - raspberry pi 3b in 32bit mode: 105-120%
-- h3 tv box: 155-160% (22khz)
+- h3 tv box: 100-110% (22khz)
 
 as a result recommended is the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram which is even better, but 1gb works well too) and come with a case and power supply already. the other devices are only recommended if they are around already: the tinkerboard is quite good, but expensive - the raspberry pi's are ok, but vcvrack pushes its gpu and graphics system to its limits, in headless mode they should work very good as well - the h3 tv box is at the low performance end and the bananapi even below that :)
 
