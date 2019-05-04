@@ -31,7 +31,7 @@ the comments in the brackets mean:
 
 - pcm2704: a pcm2704 usb audio adapter is required - you can find it easily for around 3 euro on ebay
 - cooling: a fan is required to cool the device, otherwise it will reduce its power automatically due to the create heat resulting in degraded audio performance (the tinkerboard will by default be run at a reduced clock speed to avoid the need of a fan, but with a fan it can be run at full speed with more cpu power)
-- 22khz: running with a sampling frequency of 22,05khz instead of the regular 32khz of the sonaremin as the cpu power of the device it too low for higher sampling frequencies
+- 22khz: running with a sampling frequency of 22,05khz instead of the regular 32khz of the sonaremin as the cpu power of the device it too low for higher sampling frequencies - please be aware that some modules (for example the texture and the modal synthesizer from audible instruments) use a 32khz sampling frequency internally and actually need more cpu power at 22khz, in this case running on 32khz is preferred even on slow hardware
 - untested: i have no access to such a device, so i could not test them, but in theory they should work
 - limited: those devices have too little cpu power for even medium sized patches like the supplied example patches, but they might still be used for very small and simple patches and to get an idea how the sonaremin works - using them for a longer time will most probably not be a very pleasant experience
 
@@ -41,7 +41,7 @@ the basic functionally is the same for all devices, but their cpu performance an
 - amlogic s905w/s905x tv box: 80% (s905w) / 70% (s905x)
 - tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
 - raspberry pi 3b in 64bit mode: 80%
-- raspberry pi 3b in 32bit mode: 105-120%
+- raspberry pi 3b in 32bit mode: 105-120% (the slowdown compared to the 64bit version comes alone from the use of the 64bit armv8 cpu instructions)
 - h3 tv box: 100-110% (22khz)
 
 as a result recommended is the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram which is even better, but 1gb works well too) and come with a case and power supply already. the other devices are only recommended if they are around already: the tinkerboard is quite good, but expensive - the raspberry pi's are ok, but vcvrack pushes its gpu and graphics system to its limits, in headless mode they should work very good as well - the h3 tv box is at the low performance end and the bananapi even below that :)
