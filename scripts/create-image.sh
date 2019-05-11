@@ -9,6 +9,8 @@ if [ "$#" != "2" ]; then
   echo "- tinkerboard (armhf)"
   echo "- odroid_c2 (arm64)"
   echo "- amlogic_s905_w_x_tv_box (arm64)"
+  echo "- amlogic_s905_tv_box (arm64)"
+  echo "- allwinner_h3_tv_box (armhf)"
   echo "- bananapi_m1 (armhf)"
   echo ""
   echo "possible armversion options:"

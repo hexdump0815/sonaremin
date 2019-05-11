@@ -23,7 +23,7 @@ the sonaremin currently runs (more or less) on the following arm cpu based devic
 - odroid c2 (pcm2704)
 - asus tinkerboard (cooling, pcm2704) and tinkerboard s (untested, cooling, pcm2704)
 - raspberry pi in 32bit [2b (untested, limited, 22khz), 3b & 3b+] (cooling) and 64bit mode [3b & 3b+] (cooling)
-- amlogic s905w/s905x based android tv boxes (pcm2704) - tested on x96 mini and tx3 mini l
+- amlogic s905w/s905x/s905 based android tv boxes (pcm2704) - tested on x96 mini (s905w), t95m (s905x), tx3 mini l (s905w) and mxq pro 4k (the s905 version - beware: there are other versions of this box with the same name with other cpus as well) - it should run on nearly any s905w, s905x, s905 based tv box i guess
 - allwinner h3 based android tv boxes (22khz) - tested on tx1
 - bananapi m1 (limited, pcm2704)
 
@@ -39,6 +39,7 @@ the basic functionally is the same for all devices, but their cpu performance an
 
 - odroid c2: 60-62%
 - amlogic s905w/s905x tv box: 80% (s905w) / 70% (s905x)
+- amlogic s905 tv box: 62-65%
 - tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
 - raspberry pi 3b in 64bit mode: 80%
 - raspberry pi 3b in 32bit mode: 105-120% (the slowdown compared to the 64bit version comes alone from the use of the 64bit armv8 cpu instructions)
@@ -90,6 +91,7 @@ in general the sonaremin already works quite well - this is a list of things i h
 
 - on bootup there is an error visible about an fsck problem - this is most probably due to the update-initramfs task in the image creation for some reason does not put the proper fsck binaries into the initramfs - it seems to be no big deal for now though
 - the tinkerboard does only a shutdown when a reboot is requested - most probably some kernel patch is still missing - i do not see this as a big problem for now
+- the allwinner s905 tv boxes might not work with all sd cards - maybe try another one in case you get mmc errors on boot, also some of the usb ports might not work
 - tv boxes might also behave strange on shutdown or reboot (for instance do only one of the two, do them in reverse or simply hang in that case) - this is due to the widely variying hardware of those devices
 - the raspberries are quite at the limit with their gpu driver and opengl implementation and vcvrack - this has two side effects: a lot of memory is required for the gpu (about half of the 1gb) resulting in the sonaremin sometimes hanging for up to a minute when it starts swapping as there is not enough memory left (so just be patient for a moment) - the other effect are rendering errors (for instance the rails are missing on the raspberry pi's) and one should be more careful with the graphics (for instance always first empty the vcvrack patch - top left button - before opening another one)
 - some devices definitely need a fan for cooling (see hardware section above) - simple passive cooling with a small heat sink is definitely not enough
@@ -112,6 +114,7 @@ a lot more info will come here over time - just some basic points already:
 
 a lot more info will come here over time - just some basic points already:
 
+- it is possible to run vcvrack in sonaremin at 32khz smapling rate and to run jackd on the sonaremin at 44.1khz - in this case resampling is done inside of vcvrack which will cost about 10% of extra cpu usage, but might get relevant when using the sonaremin with the jackd network functionality and other gear, which does not support 32khz
 - how to use jackd network functionality to communicate with other devices over network: coming later
 - how to use multiple sonaremins in parallel: coming later
 

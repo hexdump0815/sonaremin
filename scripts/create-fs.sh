@@ -9,6 +9,7 @@ if [ "$#" != "2" ]; then
   echo "- tinkerboard (armhf)"
   echo "- odroid_c2 (arm64)"
   echo "- amlogic_s905_w_x_tv_box (arm64)"
+  echo "- amlogic_s905_tv_box (arm64)"
   echo "- allwinner_h3_tv_box (armhf)"
   echo "- bananapi_m1 (armhf)"
   echo ""
@@ -50,7 +51,7 @@ cp -r ${WORKDIR}/files/data/* .
 cd ${BUILD_ROOT}
 rm -f create-chroot.sh
 tar --numeric-owner -xzf ${WORKDIR}/files/extra-files.tar.gz
-if [ "${1}" = "odroid_c2" ]; then
+if [ "${1}" = "odroid_c2" ] || [ "${1}" = "amlogic_s905_tv_box" ]; then
   cp etc/fstab.mmc1 etc/fstab
 else
   cp etc/fstab.mmc0 etc/fstab
