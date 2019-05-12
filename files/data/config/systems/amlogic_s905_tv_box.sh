@@ -1,4 +1,4 @@
-grep -q 'Amlogic Meson GXBB P201 Development Board$' /proc/device-tree/model
+grep -q 'NEXBOX A95X$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # amlogic s905 tv box
   ln -s /opt/mali-s905 /opt/libgl
