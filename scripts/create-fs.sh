@@ -57,8 +57,15 @@ else
   cp etc/fstab.mmc0 etc/fstab
 fi
 tar --numeric-owner -xzf ${WORKDIR}/files/binaries-${1}-${2}.tar.gz
+tar --numeric-owner -xzf ${WORKDIR}/files/binaries-${2}.tar.gz
 tar --numeric-owner -xzf ${WORKDIR}/files/vcvrack-v0-${2}.tar.gz
 tar --numeric-owner -xzf ${WORKDIR}/files/vcvrack-v1dev-${2}.tar.gz
+
+cp ${BUILD_ROOT}/data/config/qjackctl/qjackctl-patchbay.xml ${BUILD_ROOT}/data/config/qjackctl/qjackctl-patchbay.xml.backup
+
+# this does not seem to work well as it uses the version of the chroot base env
+# which does not have to be the same as the chroot - lets see if it works without it ...
+#chroot ${BUILD_ROOT} depmod -a
 
 export KERNEL_VERSION=`ls ${BUILD_ROOT}/boot/*Image-* | sed 's,.*Image-,,g'`
 

@@ -1,1 +1,7 @@
 # this script is sourced in at the end of /etc/rc.local on bootup just before the x session is started
+#
+# in case you want to change the hostname of the sonaremin, first boot into
+# no_overlayroot mode and then change the following two lines accordingly
+# and reboot once - it should come up with the new name afterwards ...
+#sed -i 's,sonaremin,yournewname,g' /etc/hosts
+#sed -i 's,sonaremin,yournewname,g' /etc/hostname

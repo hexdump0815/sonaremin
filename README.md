@@ -43,10 +43,10 @@ the basic functionally is the same for all devices, but their cpu performance an
 - tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
 - raspberry pi 3b in 64bit mode: 80%
 - raspberry pi 3b in 32bit mode: 105-120% (the slowdown compared to the 64bit version comes alone from not using the 64bit armv8 cpu instructions)
-- h3 tv box: 100-110% (22khz)
+- h3 tv box: 140-155% (32khz) - 100-110% (22khz)
 - t9 tv box (rockchip rk3328 @1296mhz - surprisingly slower than an amlogic s905w @1200mz): 80-90% (just some basic test - not yet supported)
 - rock pi 4b (rockchip rk3399 2x a72 cores @1800mhz via taskset): 42% (just some basic test - not yet supported)
-- intel atom baytrail z3740d system: 105-110% (just some basic test - not supported, just for comparison)
+- intel atom baytrail z3740d system: 95-105% (just some basic test - not supported, just for comparison)
 
 as a result recommended is the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram which is even better, but 1gb works well too) and come with a case and power supply already. the other devices are only recommended if they are around already: the tinkerboard is quite good, but expensive - the raspberry pi's are ok, but vcvrack pushes its gpu and graphics system to its limits, in headless mode they should work very good as well - the h3 tv box is at the low performance end and the bananapi even below that :)
 
@@ -123,8 +123,8 @@ a lot more info will come here over time - just some basic points already:
 
 # possible future plans and ideas
 
-- support for rockchip rk3328 based tv boxes
-- support for more powerful arm devices like amlogic s905x2 tv boxes (sadly no gpu accelerated opengl in x11 yet), the odroid n2 (amlogic s922x - sadly no gpu accelerated opengl in x11 yet), rockpi 4 (rockchip rk3399 - gpu accelerated opengl in x11 should be possible, but linux mainline device support not very mature yet), nvidia jetson nano (very good gpu opengl support with nvidia 4.9 kernel), allwinner h6 tv boxes (linux mainline device support not very mature yet, gpu accelerated opengl unclear)
+- support for rockchip rk3328 based tv boxes (proof of concept test done)
+- support for more powerful arm devices like amlogic s905x2 tv boxes (sadly no gpu accelerated opengl in x11 yet), the odroid n2 (amlogic s922x - sadly no gpu accelerated opengl in x11 yet), rockpi 4 (rockchip rk3399 - gpu accelerated opengl in x11 should be possible, but linux mainline device support not very mature yet), nvidia jetson nano (very good gpu opengl support with nvidia 4.9 kernel), allwinner h6 tv boxes (linux mainline device support not very mature yet, gpu accelerated opengl unclear), odroid xu4 (exynos 5422 - at least for kernel 4.14 gpu accelerated opengl in x11 should be possible)
 - work on sonaremin two (zynaddsubfx based) and further ones based on surge, helm, linuxsampler, ... maybe
 - maybe introduce a mapping layer between different midi controllers and vcvrack (via ididings maybe?) to abstract them
 

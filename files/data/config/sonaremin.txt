@@ -13,6 +13,18 @@ AUDIO_TUNE=on
 QJACKCTL_START=yes
 #QJACKCTL_START=no
 
+# start jackd in network mode
+#JACKD_NET=yes
+JACKD_NET=no
+
+# start rtpmidi server for midi over network
+#RTPMIDI=yes
+RTPMIDI=no
+
+# start samba server to access /data via network
+#SAMBA_SERVER=yes
+SAMBA_SERVER=no
+
 # start vcvrack automatically
 VCVRACK_START=yes
 #VCVRACK_START=no
@@ -24,3 +36,9 @@ VCVRACK_VERSION=v0
 # limit the cpu clock to avoid overheating - used for the tinkerboard
 MAX_CPU_CLOCK=1200000
 # possible useful values for the tinkerboard: 1008000 1200000 1416000 1512000 1608000
+
+# overwrite the REALTIME_PRIORITY values in the config/systems defintions
+# start vcvrack v0 with realtime scheduling priority - might result in system hangs
+#REALTIME_PRIORITY_V0=true
+# start vcvrack v1 with realtime scheduling priority - might result in system hangs
+#REALTIME_PRIORITY_V1=true

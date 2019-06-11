@@ -3,7 +3,7 @@ if [ "$?" = "0" ]; then
   # allwinner h3 tv box
   ln -s /opt/mali-sunxi /opt/libgl
   cp /data/config/x11/xorg.conf-sunxi /etc/X11/xorg.conf.d/xorg.conf
-  cp /data/qjackctl/QjackCtl.conf-h3 /data/qjackctl/QjackCtl.conf
+  cp /data/config/qjackctl/QjackCtl.conf-h3 /data/config/qjackctl/QjackCtl.conf
   ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "H3 Audio Codec" | awk '{print $2}' | sed 's,:,,g'`; amixer -c ${AUDIO_DEVICE} set 'Line Out' 31 ; amixer -c ${AUDIO_DEVICE} set DAC 63 ) &
   echo "SYSTEM_MODEL=h3" > /data/config/info.txt
   echo "SYSTEM_MODEL_DETAILED=allwinner_h3_tv_box" >> /data/config/info.txt

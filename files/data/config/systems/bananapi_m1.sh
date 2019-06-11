@@ -3,7 +3,7 @@ if [ "$?" = "0" ]; then
   # bananapi m1
   ln -s /opt/mali-sunxi /opt/libgl
   cp /data/config/x11/xorg.conf-sunxi /etc/X11/xorg.conf.d/xorg.conf
-  cp /data/qjackctl/QjackCtl.conf-pcm2704 /data/qjackctl/QjackCtl.conf
+  cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
   ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; amixer -c ${AUDIO_DEVICE} set PCM 64 ) &
   echo "SYSTEM_MODEL=bananapi_m1" > /data/config/info.txt
   echo "SYSTEM_MODEL_DETAILED=bananapi_m1" >> /data/config/info.txt

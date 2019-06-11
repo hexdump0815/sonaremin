@@ -2,7 +2,7 @@
 
 apt-get update
 apt-get -y upgrade
-apt-get -y install vim openssh-server qjackctl fluxbox xpra xvfb libgl1 rtirq-init sudo net-tools ifupdown net-tools isc-dhcp-client lxterminal kmod less overlayroot u-boot-tools xinit xserver-xorg-input-libinput mingetty locales irqbalance usbutils mousepad alsa-utils matchbox-keyboard dosfstools libllvm6.0 a2jmidid
+apt-get -y install vim openssh-server qjackctl fluxbox xpra xvfb libgl1 rtirq-init sudo net-tools ifupdown net-tools isc-dhcp-client lxterminal kmod less overlayroot u-boot-tools xinit xserver-xorg-input-libinput mingetty locales irqbalance usbutils mousepad alsa-utils matchbox-keyboard dosfstools libllvm6.0 a2jmidid samba avahi-daemon
 
 mkdir /data
 # this has been created already during debootstrap
@@ -11,6 +11,8 @@ systemctl enable ssh
 systemctl disable xpra
 systemctl disable irqbalance
 systemctl disable ondemand
+systemctl disable smbd
+systemctl disable nmbd
 systemctl mask alsa-restore.service
 systemctl mask alsa-state.service
 systemctl mask alsa-utils
