@@ -1,0 +1,117 @@
+<!DOCTYPE padthv1>
+<preset name="HolidaySeason01" version="0.8.4.17git.5c1099">
+ <samples>
+  <sample index="1" nh="10">
+   <items>
+    <item index="0">0.978261</item>
+    <item index="1">0.0217391</item>
+    <item index="2">0.576087</item>
+    <item index="3">0</item>
+    <item index="4">0.315217</item>
+    <item index="5">0</item>
+    <item index="6">0.238143</item>
+    <item index="7">0</item>
+    <item index="8">0.141304</item>
+    <item index="9">0</item>
+   </items>
+  </sample>
+  <sample index="0" nh="6">
+   <items>
+    <item index="0">1</item>
+    <item index="1">0.554348</item>
+    <item index="2">0.26087</item>
+    <item index="3">0.130435</item>
+    <item index="4">0.0543478</item>
+    <item index="5">0</item>
+   </items>
+  </sample>
+ </samples>
+ <params>
+  <param name="GEN1_SAMPLE1" index="0">60</param>
+  <param name="GEN1_WIDTH1" index="1">38</param>
+  <param name="GEN1_SCALE1" index="2">1</param>
+  <param name="GEN1_NH1" index="3">6</param>
+  <param name="GEN1_APOD1" index="4">0</param>
+  <param name="GEN1_DETUNE1" index="5">0</param>
+  <param name="GEN1_GLIDE1" index="6">0</param>
+  <param name="GEN1_SAMPLE2" index="7">60.484</param>
+  <param name="GEN1_WIDTH2" index="8">42</param>
+  <param name="GEN1_SCALE2" index="9">0</param>
+  <param name="GEN1_NH2" index="10">10</param>
+  <param name="GEN1_APOD2" index="11">0</param>
+  <param name="GEN1_DETUNE2" index="12">0.06</param>
+  <param name="GEN1_GLIDE2" index="13">0</param>
+  <param name="GEN1_BALANCE" index="14">-1</param>
+  <param name="GEN1_PHASE" index="15">0.49</param>
+  <param name="GEN1_RINGMOD" index="16">0</param>
+  <param name="GEN1_OCTAVE" index="17">0</param>
+  <param name="GEN1_TUNING" index="18">0</param>
+  <param name="GEN1_ENVTIME" index="19">0.38</param>
+  <param name="DCF1_CUTOFF" index="20">0.06</param>
+  <param name="DCF1_RESO" index="21">0.13</param>
+  <param name="DCF1_TYPE" index="22">2</param>
+  <param name="DCF1_SLOPE" index="23">1</param>
+  <param name="DCF1_ENVELOPE" index="24">0.62</param>
+  <param name="DCF1_ATTACK" index="25">0.06</param>
+  <param name="DCF1_DECAY" index="26">0.29</param>
+  <param name="DCF1_SUSTAIN" index="27">0.53</param>
+  <param name="DCF1_RELEASE" index="28">0.92</param>
+  <param name="LFO1_SHAPE" index="29">2</param>
+  <param name="LFO1_WIDTH" index="30">1</param>
+  <param name="LFO1_BPM" index="31">72</param>
+  <param name="LFO1_RATE" index="32">0.58</param>
+  <param name="LFO1_SYNC" index="33">0</param>
+  <param name="LFO1_SWEEP" index="34">0</param>
+  <param name="LFO1_PITCH" index="35">0</param>
+  <param name="LFO1_BALANCE" index="36">0</param>
+  <param name="LFO1_RINGMOD" index="37">0</param>
+  <param name="LFO1_CUTOFF" index="38">0.14</param>
+  <param name="LFO1_RESO" index="39">0.79</param>
+  <param name="LFO1_PANNING" index="40">1</param>
+  <param name="LFO1_VOLUME" index="41">0</param>
+  <param name="LFO1_ATTACK" index="42">0</param>
+  <param name="LFO1_DECAY" index="43">0.59</param>
+  <param name="LFO1_SUSTAIN" index="44">0.94</param>
+  <param name="LFO1_RELEASE" index="45">0</param>
+  <param name="DCA1_VOLUME" index="46">0.63</param>
+  <param name="DCA1_ATTACK" index="47">0.01</param>
+  <param name="DCA1_DECAY" index="48">0.57</param>
+  <param name="DCA1_SUSTAIN" index="49">0</param>
+  <param name="DCA1_RELEASE" index="50">0.56</param>
+  <param name="OUT1_WIDTH" index="51">0</param>
+  <param name="OUT1_PANNING" index="52">0</param>
+  <param name="OUT1_FXSEND" index="53">0.8</param>
+  <param name="OUT1_VOLUME" index="54">0.34</param>
+  <param name="DEF1_PITCHBEND" index="55">0.18</param>
+  <param name="DEF1_MODWHEEL" index="56">0.78</param>
+  <param name="DEF1_PRESSURE" index="57">0.6</param>
+  <param name="DEF1_VELOCITY" index="58">0.9</param>
+  <param name="DEF1_CHANNEL" index="59">0</param>
+  <param name="DEF1_MONO" index="60">0</param>
+  <param name="CHO1_WET" index="61">0.19</param>
+  <param name="CHO1_DELAY" index="62">0.5</param>
+  <param name="CHO1_FEEDB" index="63">0.5</param>
+  <param name="CHO1_RATE" index="64">0.55</param>
+  <param name="CHO1_MOD" index="65">0.22</param>
+  <param name="FLA1_WET" index="66">0</param>
+  <param name="FLA1_DELAY" index="67">0.5</param>
+  <param name="FLA1_FEEDB" index="68">0.5</param>
+  <param name="FLA1_DAFT" index="69">0</param>
+  <param name="PHA1_WET" index="70">0</param>
+  <param name="PHA1_RATE" index="71">0.5</param>
+  <param name="PHA1_FEEDB" index="72">0.5</param>
+  <param name="PHA1_DEPTH" index="73">0.5</param>
+  <param name="PHA1_DAFT" index="74">0</param>
+  <param name="DEL1_WET" index="75">0.47</param>
+  <param name="DEL1_DELAY" index="76">0.5</param>
+  <param name="DEL1_FEEDB" index="77">0.5</param>
+  <param name="DEL1_BPM" index="78">67</param>
+  <param name="REV1_WET" index="79">0</param>
+  <param name="REV1_ROOM" index="80">0.5</param>
+  <param name="REV1_DAMP" index="81">0.5</param>
+  <param name="REV1_FEEDB" index="82">0.5</param>
+  <param name="REV1_WIDTH" index="83">0</param>
+  <param name="DYN1_COMPRESS" index="84">1</param>
+  <param name="DYN1_LIMITER" index="85">1</param>
+ </params>
+</preset>

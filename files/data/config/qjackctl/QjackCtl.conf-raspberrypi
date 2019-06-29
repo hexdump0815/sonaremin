@@ -17,6 +17,7 @@ qjackctlSessionForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x2\0\0\0\0\0\0\0\0\0\0
 qjackctlSessionForm\visible=false
 
 [History]
+ActivePatchbayPathComboBox\Item1=/data/config/qjackctl/qjackctl-patchbay.xml
 MessagesLogPathComboBox\Item1=qjackctl.log
 ServerConfigNameComboBox\Item1=.jackdrc
 ServerNameComboBox\Item1=(default)

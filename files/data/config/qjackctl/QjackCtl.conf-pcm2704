@@ -128,7 +128,7 @@ WordLength=16
 
 [Splitter]
 AlsaConnectView\sizes=222, 37, 222
-AudioConnectView\sizes=206, 69, 206
+AudioConnectView\sizes=269, 90, 269
 InfraClientSplitter\sizes=13, 13
-MidiConnectView\sizes=222, 37, 222
+MidiConnectView\sizes=38, 20, 38
 PatchbayView\sizes=218, 37, 218

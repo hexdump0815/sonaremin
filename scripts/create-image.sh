@@ -5,17 +5,17 @@ if [ "$#" != "2" ]; then
   echo "usage: $0 system armversion"
   echo ""
   echo "possible system options:"
-  echo "- raspberrypi (armhf & arm64)"
-  echo "- tinkerboard (armhf)"
-  echo "- odroid_c2 (arm64)"
-  echo "- amlogic_s905_w_x_tv_box (arm64)"
-  echo "- amlogic_s905_tv_box (arm64)"
-  echo "- allwinner_h3_tv_box (armhf)"
-  echo "- bananapi_m1 (armhf)"
+  echo "- raspberrypi (armv7l & aarch64)"
+  echo "- tinkerboard (armv7l)"
+  echo "- odroid_c2 (aarch64)"
+  echo "- amlogic_s905_w_x_tv_box (aarch64)"
+  echo "- amlogic_s905_tv_box (aarch64)"
+  echo "- allwinner_h3_tv_box (armv7l)"
+  echo "- bananapi_m1 (armv7l)"
   echo ""
   echo "possible armversion options:"
-  echo "- armhf (32bit)"
-  echo "- arm64 (64bit)"
+  echo "- armv7l (32bit)"
+  echo "- aarch64 (64bit)"
   echo ""
   exit 1
 fi
@@ -29,7 +29,7 @@ export WORKDIR=`pwd`
 
 mkdir -p ${IMAGE_DIR}
 
-dd if=/dev/zero of=${IMAGE_DIR}/sonaremin.img bs=1024k count=1 seek=6419 status=progress
+dd if=/dev/zero of=${IMAGE_DIR}/sonaremin.img bs=1024k count=1 seek=7167 status=progress
 
 losetup --partscan /dev/loop0 ${IMAGE_DIR}/sonaremin.img
 

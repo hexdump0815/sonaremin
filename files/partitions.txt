@@ -1,10 +1,10 @@
 label: dos
-label-id: 0x0072d5b9
-device: testimage
+label-id: 0xc09b7e01
+device: /dev/loop0
 unit: sectors
 
-loop0p1 : start=       32768, size=      524288, type=c, bootable
-loop0p2 : start=      557056, size=     2097152, type=c
-loop0p3 : start=     2654208, size=     2097152, type=82
-loop0p4 : start=     4751360, size=     8560640, type=5
-loop0p5 : start=     4753408, size=     8388608, type=83
+/dev/loop0p1 : start=       32768, size=      524288, type=c, bootable
+/dev/loop0p2 : start=      557056, size=     1048576, type=c
+/dev/loop0p3 : start=     1605632, size=     1048576, type=82
+/dev/loop0p4 : start=     2654208, size=    12025856, type=5
+/dev/loop0p5 : start=     2656256, size=    12023808, type=83

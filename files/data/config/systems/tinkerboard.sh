@@ -4,7 +4,7 @@ if [ "$?" = "0" ]; then
   ln -s /opt/mali-rk3288 /opt/libgl
   cp /data/config/x11/xorg.conf-rk3288 /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
-  ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; amixer -c ${AUDIO_DEVICE} set PCM 64 ) &
+  ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set PCM 64 ; fi ) &
   MAX_CPU_CLOCK=1200000
   if [ -f /data/config/sonaremin.txt ]; then
     . /data/config/sonaremin.txt

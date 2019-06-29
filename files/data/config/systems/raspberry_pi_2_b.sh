@@ -7,8 +7,8 @@ if [ "$?" = "0" ]; then
     ln -s /opt/mesa-rpi3/lib/arm-linux-gnueabihf /opt/libgl
   fi
   cp /data/config/x11/xorg.conf-raspberrypi /etc/X11/xorg.conf.d/xorg.conf
-  cp /data/config/qjackctl/QjackCtl.conf-raspberrypi-22 /data/config/qjackctl/QjackCtl.conf
-  ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "bcm2835 ALSA \[bcm2835 ALSA\]" | awk '{print $2}' | sed 's,:,,g'`; amixer -c ${AUDIO_DEVICE} set PCM 0 ) &
+  cp /data/config/qjackctl/QjackCtl.conf-raspberrypi /data/config/qjackctl/QjackCtl.conf
+  ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "bcm2835 ALSA \[bcm2835 ALSA\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set PCM 0 ; fi ) &
   echo "SYSTEM_MODEL=raspberrypi" > /data/config/info.txt
   echo "SYSTEM_MODEL_DETAILED=raspberrypi_2_b" >> /data/config/info.txt
   # start vcvrack v0 with realtime scheduling priority - might result in system hangs

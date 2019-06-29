@@ -25,13 +25,13 @@ RTPMIDI=no
 #SAMBA_SERVER=yes
 SAMBA_SERVER=no
 
-# start vcvrack automatically
+# start vcvrack automatically - you should either select this or the *thv1 below
 VCVRACK_START=yes
 #VCVRACK_START=no
 
 # which vcvrack version to start automativally
-VCVRACK_VERSION=v0
-#VCVRACK_VERSION=v1dev
+#VCVRACK_VERSION=v0
+VCVRACK_VERSION=v1
 
 # limit the cpu clock to avoid overheating - used for the tinkerboard
 MAX_CPU_CLOCK=1200000
@@ -42,3 +42,11 @@ MAX_CPU_CLOCK=1200000
 #REALTIME_PRIORITY_V0=true
 # start vcvrack v1 with realtime scheduling priority - might result in system hangs
 #REALTIME_PRIORITY_V1=true
+
+# start padthv1 automatically - you should either select this or vcvrack above
+#PADTHV1_START=yes
+PADTHV1_START=no
+
+# start synthv1 automatically - you should either select this or vcvrack above
+#SYNTHV1_START=yes
+SYNTHV1_START=no

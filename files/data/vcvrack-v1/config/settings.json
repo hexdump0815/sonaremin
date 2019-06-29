@@ -1,0 +1,32 @@
+{
+  "token": "",
+  "windowSize": [
+    0.0,
+    0.0
+  ],
+  "windowPos": [
+    0.0,
+    0.0
+  ],
+  "zoom": 2.09547579e-8,
+  "invertZoom": false,
+  "cableOpacity": 0.5,
+  "cableTension": 0.5,
+  "allowCursorLock": true,
+  "realTime": false,
+  "sampleRate": 32000.0,
+  "threadCount": 2,
+  "paramTooltip": false,
+  "cpuMeter": false,
+  "lockModules": false,
+  "frameRateLimit": 5.0,
+  "frameRateSync": false,
+  "autosavePeriod": 60.0,
+  "patchPath": "/data/vcvrack-v1/generative.vcv",
+  "cableColors": [
+    "#c9b70e",
+    "#0c8e15",
+    "#c91847",
+    "#0986ad"
+  ]
+}
