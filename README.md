@@ -8,6 +8,8 @@ for creating sounds it uses the wonderful vcvrack modular synthesizer by running
 
 besides that it might also be used as a good prototyping platform for audio experiments running on linux and small arm based computers. it runs on multiple devices, is based on a recent mainline linux kernel (4.19 and 5.0 right now), a long term supported standard ubuntu distribution (18.04 lts), it has some audio optimizations applied and has gpu accelerated opengl support (as good as possible for the different devices).
 
+IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please create an issue in this git repo and not in the vcvrack repo, as the problems might be related to the sonaremin and not to vcvrack in general
+
 # changelog
 
 version 1.1.0 (planned, not yet released)
