@@ -17,7 +17,8 @@ version 1.1.0 (planned, not yet released)
 - more included modules
 - maybe more sample patches
 - most probably i'll no longer provide banana pi m1, raspberry pi 32bit and allwinner h3 tv box versions (only on demand) as they are too slow to be generally useable
-- add some more comments to the scripts as some tricks are not really obvious :)
+- add some more comments to the scripts as some tricks used are not really obvious :)
+- prepare for realtime mode of vcvrack v1 audio threads
 
 version 1.0.0
 - support for vcvrack v1.0.0 (v0.6.2c is still part of the sonaremin, but in the exact same version as in sonaremin 0.5.0)
