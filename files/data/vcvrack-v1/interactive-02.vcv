@@ -345,6 +345,7 @@
           "value": 0.0
         }
       ],
+      "leftModuleId": 83,
       "rightModuleId": 4,
       "data": {
         "frozen": false,
@@ -768,7 +769,7 @@
         }
       ],
       "leftModuleId": 18,
-      "rightModuleId": 21,
+      "rightModuleId": 84,
       "pos": [
         64,
         1
@@ -801,55 +802,6 @@
       "rightModuleId": 16,
       "pos": [
         41,
-        1
-      ]
-    },
-    {
-      "id": 21,
-      "plugin": "Fundamental",
-      "version": "1.0.1",
-      "model": "Scope",
-      "params": [
-        {
-          "id": 0,
-          "value": 0.0
-        },
-        {
-          "id": 1,
-          "value": 0.0
-        },
-        {
-          "id": 2,
-          "value": 0.0
-        },
-        {
-          "id": 3,
-          "value": 0.0
-        },
-        {
-          "id": 4,
-          "value": -14.0
-        },
-        {
-          "id": 5,
-          "value": 0.0
-        },
-        {
-          "id": 6,
-          "value": 0.0
-        },
-        {
-          "id": 7,
-          "value": 0.0
-        }
-      ],
-      "leftModuleId": 19,
-      "data": {
-        "lissajous": 0,
-        "external": 0
-      },
-      "pos": [
-        72,
         1
       ]
     },
@@ -901,9 +853,59 @@
         }
       ],
       "leftModuleId": 8,
+      "rightModuleId": 3,
       "pos": [
         45,
         0
+      ]
+    },
+    {
+      "id": 84,
+      "plugin": "Fundamental",
+      "version": "1.0.1",
+      "model": "Scope",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.0
+        },
+        {
+          "id": 1,
+          "value": 0.0
+        },
+        {
+          "id": 2,
+          "value": 0.0
+        },
+        {
+          "id": 3,
+          "value": 0.0
+        },
+        {
+          "id": 4,
+          "value": 14.0
+        },
+        {
+          "id": 5,
+          "value": 0.0
+        },
+        {
+          "id": 6,
+          "value": 0.0
+        },
+        {
+          "id": 7,
+          "value": 0.0
+        }
+      ],
+      "leftModuleId": 19,
+      "data": {
+        "lissajous": 0,
+        "external": 0
+      },
+      "pos": [
+        72,
+        1
       ]
     }
   ],
@@ -1221,14 +1223,6 @@
       "color": "#c9b70e"
     },
     {
-      "id": 205,
-      "outputModuleId": 8,
-      "outputId": 0,
-      "inputModuleId": 21,
-      "inputId": 0,
-      "color": "#c91847"
-    },
-    {
       "id": 206,
       "outputModuleId": 8,
       "outputId": 0,
@@ -1257,6 +1251,22 @@
       "outputModuleId": 83,
       "outputId": 2,
       "inputModuleId": 3,
+      "inputId": 1,
+      "color": "#0c8e15"
+    },
+    {
+      "id": 319,
+      "outputModuleId": 4,
+      "outputId": 0,
+      "inputModuleId": 84,
+      "inputId": 0,
+      "color": "#c9b70e"
+    },
+    {
+      "id": 320,
+      "outputModuleId": 4,
+      "outputId": 1,
+      "inputModuleId": 84,
       "inputId": 1,
       "color": "#0c8e15"
     }
