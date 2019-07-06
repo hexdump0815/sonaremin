@@ -1,0 +1,1284 @@
+{
+  "version": "1.1.0",
+  "modules": [
+    {
+      "id": 18,
+      "plugin": "Core",
+      "version": "1.0.0",
+      "model": "AudioInterface",
+      "params": [],
+      "leftModuleId": 25,
+      "data": {
+        "audio": {
+          "driver": 4,
+          "deviceName": "system",
+          "offset": 0,
+          "maxChannels": 8,
+          "sampleRate": 44100,
+          "blockSize": 256
+        }
+      },
+      "pos": [
+        75,
+        1
+      ]
+    },
+    {
+      "id": 21,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgeWTOSC",
+      "params": [
+        {
+          "id": 0,
+          "value": 1.0
+        },
+        {
+          "id": 1,
+          "value": 60.0
+        },
+        {
+          "id": 2,
+          "value": 0.0
+        },
+        {
+          "id": 3,
+          "value": 0.0795000046
+        },
+        {
+          "id": 4,
+          "value": 0.668000102
+        },
+        {
+          "id": 5,
+          "value": 0.246000007
+        },
+        {
+          "id": 6,
+          "value": 0.0930000022
+        },
+        {
+          "id": 7,
+          "value": 0.641000032
+        },
+        {
+          "id": 8,
+          "value": 0.0259999838
+        },
+        {
+          "id": 9,
+          "value": 0.186500013
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.333333343
+        },
+        {
+          "id": 12,
+          "value": 10.0
+        },
+        {
+          "id": 13,
+          "value": 0.0
+        }
+      ],
+      "rightModuleId": 23,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 10:00:40",
+        "wtCategoryName": "basic",
+        "wtItemName": "sine to sawtooth"
+      },
+      "pos": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 23,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgeChorus",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.754000068
+        },
+        {
+          "id": 1,
+          "value": 0.506499946
+        },
+        {
+          "id": 2,
+          "value": 0.676500022
+        },
+        {
+          "id": 3,
+          "value": 0.779499948
+        },
+        {
+          "id": 4,
+          "value": 0.195000008
+        },
+        {
+          "id": 5,
+          "value": 0.588461637
+        },
+        {
+          "id": 6,
+          "value": 1.0
+        },
+        {
+          "id": 7,
+          "value": 0.673999965
+        },
+        {
+          "id": 8,
+          "value": 0.0
+        },
+        {
+          "id": 9,
+          "value": 0.0
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.0
+        },
+        {
+          "id": 12,
+          "value": 1.0
+        },
+        {
+          "id": 13,
+          "value": 1.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        },
+        {
+          "id": 20,
+          "value": 0.0
+        },
+        {
+          "id": 21,
+          "value": 0.0
+        },
+        {
+          "id": 22,
+          "value": 0.0
+        },
+        {
+          "id": 23,
+          "value": 0.0
+        },
+        {
+          "id": 24,
+          "value": 0.0
+        },
+        {
+          "id": 25,
+          "value": 0.0
+        },
+        {
+          "id": 26,
+          "value": 1.0
+        }
+      ],
+      "leftModuleId": 21,
+      "rightModuleId": 24,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 09:56:48"
+      },
+      "pos": [
+        18,
+        0
+      ]
+    },
+    {
+      "id": 24,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgeConditioner",
+      "params": [
+        {
+          "id": 0,
+          "value": 1.0
+        },
+        {
+          "id": 1,
+          "value": 0.5
+        },
+        {
+          "id": 2,
+          "value": 0.5
+        },
+        {
+          "id": 3,
+          "value": 0.718999982
+        },
+        {
+          "id": 4,
+          "value": 1.0
+        },
+        {
+          "id": 5,
+          "value": 0.5
+        },
+        {
+          "id": 6,
+          "value": 0.5
+        },
+        {
+          "id": 7,
+          "value": 1.0
+        },
+        {
+          "id": 8,
+          "value": 0.20099999
+        },
+        {
+          "id": 9,
+          "value": 0.0
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.0
+        },
+        {
+          "id": 12,
+          "value": 1.0
+        },
+        {
+          "id": 13,
+          "value": 1.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        },
+        {
+          "id": 20,
+          "value": 0.0
+        },
+        {
+          "id": 21,
+          "value": 0.0
+        },
+        {
+          "id": 22,
+          "value": 0.0
+        },
+        {
+          "id": 23,
+          "value": 0.0
+        },
+        {
+          "id": 24,
+          "value": 0.0
+        },
+        {
+          "id": 25,
+          "value": 0.0
+        },
+        {
+          "id": 26,
+          "value": 1.0
+        }
+      ],
+      "leftModuleId": 23,
+      "rightModuleId": 33,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 09:56:48"
+      },
+      "pos": [
+        31,
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "plugin": "Valley",
+      "version": "1.0.1",
+      "model": "Plateau",
+      "params": [
+        {
+          "id": 0,
+          "value": 1.0
+        },
+        {
+          "id": 1,
+          "value": 0.5
+        },
+        {
+          "id": 2,
+          "value": 0.0
+        },
+        {
+          "id": 3,
+          "value": 10.0
+        },
+        {
+          "id": 4,
+          "value": 10.0
+        },
+        {
+          "id": 5,
+          "value": 0.5
+        },
+        {
+          "id": 6,
+          "value": 10.0
+        },
+        {
+          "id": 7,
+          "value": 0.549950004
+        },
+        {
+          "id": 8,
+          "value": 10.0
+        },
+        {
+          "id": 9,
+          "value": 10.0
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.5
+        },
+        {
+          "id": 12,
+          "value": 0.5
+        },
+        {
+          "id": 13,
+          "value": 0.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        },
+        {
+          "id": 20,
+          "value": 0.0
+        },
+        {
+          "id": 21,
+          "value": 0.0
+        },
+        {
+          "id": 22,
+          "value": 0.0
+        },
+        {
+          "id": 23,
+          "value": 0.0
+        },
+        {
+          "id": 24,
+          "value": 0.0
+        },
+        {
+          "id": 25,
+          "value": 0.0
+        },
+        {
+          "id": 26,
+          "value": 0.0
+        },
+        {
+          "id": 27,
+          "value": 0.0
+        },
+        {
+          "id": 28,
+          "value": 0.0
+        },
+        {
+          "id": 29,
+          "value": 0.0
+        },
+        {
+          "id": 30,
+          "value": 1.0
+        }
+      ],
+      "leftModuleId": 32,
+      "rightModuleId": 18,
+      "data": {
+        "frozen": false,
+        "freezeToggle": false,
+        "panelStyle": 0,
+        "tuned": 0,
+        "diffuseInput": 1,
+        "preDelayCVSens": 0,
+        "inputSensitivity": 0,
+        "outputSaturation": 0
+      },
+      "pos": [
+        63,
+        1
+      ]
+    },
+    {
+      "id": 26,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgeLFO",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.200000003
+        },
+        {
+          "id": 1,
+          "value": 0.0
+        },
+        {
+          "id": 2,
+          "value": 0.0
+        },
+        {
+          "id": 3,
+          "value": 1.0
+        },
+        {
+          "id": 4,
+          "value": 0.5
+        },
+        {
+          "id": 5,
+          "value": 0.0
+        },
+        {
+          "id": 6,
+          "value": 0.0
+        },
+        {
+          "id": 7,
+          "value": 0.0
+        },
+        {
+          "id": 8,
+          "value": 0.100000001
+        },
+        {
+          "id": 9,
+          "value": 0.200000003
+        },
+        {
+          "id": 10,
+          "value": 0.200000003
+        },
+        {
+          "id": 11,
+          "value": 0.699999988
+        },
+        {
+          "id": 12,
+          "value": 0.300000012
+        },
+        {
+          "id": 13,
+          "value": 0.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        }
+      ],
+      "rightModuleId": 27,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 09:56:48"
+      },
+      "pos": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": 27,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgeFreqShift",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.0
+        },
+        {
+          "id": 1,
+          "value": 1.0
+        },
+        {
+          "id": 2,
+          "value": 0.131999999
+        },
+        {
+          "id": 3,
+          "value": 0.168000013
+        },
+        {
+          "id": 4,
+          "value": 1.0
+        },
+        {
+          "id": 5,
+          "value": 0.0
+        },
+        {
+          "id": 6,
+          "value": 0.0
+        },
+        {
+          "id": 7,
+          "value": 0.0
+        },
+        {
+          "id": 8,
+          "value": 0.0
+        },
+        {
+          "id": 9,
+          "value": 0.0
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.0
+        },
+        {
+          "id": 12,
+          "value": 1.0
+        },
+        {
+          "id": 13,
+          "value": 1.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        },
+        {
+          "id": 20,
+          "value": 0.0
+        },
+        {
+          "id": 21,
+          "value": 0.0
+        },
+        {
+          "id": 22,
+          "value": 0.0
+        },
+        {
+          "id": 23,
+          "value": 0.0
+        },
+        {
+          "id": 24,
+          "value": 0.0
+        },
+        {
+          "id": 25,
+          "value": 0.0
+        },
+        {
+          "id": 26,
+          "value": 1.0
+        }
+      ],
+      "leftModuleId": 26,
+      "rightModuleId": 28,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 09:56:48"
+      },
+      "pos": [
+        18,
+        1
+      ]
+    },
+    {
+      "id": 28,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgePhaser",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.560000062
+        },
+        {
+          "id": 1,
+          "value": 0.669500053
+        },
+        {
+          "id": 2,
+          "value": 0.756500006
+        },
+        {
+          "id": 3,
+          "value": 0.4375
+        },
+        {
+          "id": 4,
+          "value": 0.0
+        },
+        {
+          "id": 5,
+          "value": 0.0
+        },
+        {
+          "id": 6,
+          "value": 0.0
+        },
+        {
+          "id": 7,
+          "value": 0.0
+        },
+        {
+          "id": 8,
+          "value": 0.0
+        },
+        {
+          "id": 9,
+          "value": 0.0
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.0
+        },
+        {
+          "id": 12,
+          "value": 1.0
+        },
+        {
+          "id": 13,
+          "value": 1.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        },
+        {
+          "id": 20,
+          "value": 0.0
+        },
+        {
+          "id": 21,
+          "value": 0.0
+        },
+        {
+          "id": 22,
+          "value": 0.0
+        },
+        {
+          "id": 23,
+          "value": 0.0
+        },
+        {
+          "id": 24,
+          "value": 0.0
+        },
+        {
+          "id": 25,
+          "value": 0.0
+        },
+        {
+          "id": 26,
+          "value": 1.0
+        }
+      ],
+      "leftModuleId": 27,
+      "rightModuleId": 32,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 09:56:48"
+      },
+      "pos": [
+        26,
+        1
+      ]
+    },
+    {
+      "id": 32,
+      "plugin": "SurgeRack",
+      "version": "1.beta1.0",
+      "model": "SurgePatchPlayer",
+      "params": [
+        {
+          "id": 0,
+          "value": 1.0
+        },
+        {
+          "id": 1,
+          "value": 1.0
+        },
+        {
+          "id": 2,
+          "value": 0.84375
+        },
+        {
+          "id": 3,
+          "value": 0.0
+        },
+        {
+          "id": 4,
+          "value": 10.0
+        }
+      ],
+      "leftModuleId": 28,
+      "rightModuleId": 25,
+      "data": {
+        "comment": "No Comment",
+        "buildInfo": "os:linux pluggit:c42126b surgegit:546f9ea buildtime=Jul  5 2019 09:57:44",
+        "patchCategoryName": "Noisegeek",
+        "patchItemName": "Back to Tyrell"
+      },
+      "pos": [
+        45,
+        1
+      ]
+    },
+    {
+      "id": 33,
+      "plugin": "squinkylabs-plug1",
+      "version": "1.0.0",
+      "model": "squinkylabs-mix8",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.800000012
+        },
+        {
+          "id": 1,
+          "value": 0.0
+        },
+        {
+          "id": 2,
+          "value": 0.200000003
+        },
+        {
+          "id": 3,
+          "value": 0.200000003
+        },
+        {
+          "id": 4,
+          "value": 0.800000012
+        },
+        {
+          "id": 5,
+          "value": 0.800000012
+        },
+        {
+          "id": 6,
+          "value": 0.800000012
+        },
+        {
+          "id": 7,
+          "value": 1.0
+        },
+        {
+          "id": 8,
+          "value": 0.800000012
+        },
+        {
+          "id": 9,
+          "value": 0.800000012
+        },
+        {
+          "id": 10,
+          "value": -1.0
+        },
+        {
+          "id": 11,
+          "value": 1.0
+        },
+        {
+          "id": 12,
+          "value": -1.0
+        },
+        {
+          "id": 13,
+          "value": 1.0
+        },
+        {
+          "id": 14,
+          "value": 0.0
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 0.0
+        },
+        {
+          "id": 17,
+          "value": 0.0
+        },
+        {
+          "id": 18,
+          "value": 0.0
+        },
+        {
+          "id": 19,
+          "value": 0.0
+        },
+        {
+          "id": 20,
+          "value": 0.0
+        },
+        {
+          "id": 21,
+          "value": 0.0
+        },
+        {
+          "id": 22,
+          "value": 0.0
+        },
+        {
+          "id": 23,
+          "value": 0.0
+        },
+        {
+          "id": 24,
+          "value": 0.0
+        },
+        {
+          "id": 25,
+          "value": 0.0
+        },
+        {
+          "id": 26,
+          "value": 0.0
+        },
+        {
+          "id": 27,
+          "value": 0.0
+        },
+        {
+          "id": 28,
+          "value": 0.0
+        },
+        {
+          "id": 29,
+          "value": 0.0
+        },
+        {
+          "id": 30,
+          "value": 0.0
+        },
+        {
+          "id": 31,
+          "value": 0.0
+        },
+        {
+          "id": 32,
+          "value": 0.0
+        },
+        {
+          "id": 33,
+          "value": 0.0
+        },
+        {
+          "id": 34,
+          "value": 0.0
+        },
+        {
+          "id": 35,
+          "value": 0.0
+        },
+        {
+          "id": 36,
+          "value": 0.0
+        },
+        {
+          "id": 37,
+          "value": 0.0
+        },
+        {
+          "id": 38,
+          "value": 0.0
+        },
+        {
+          "id": 39,
+          "value": 0.0
+        },
+        {
+          "id": 40,
+          "value": 0.0
+        },
+        {
+          "id": 41,
+          "value": 0.0
+        },
+        {
+          "id": 42,
+          "value": 0.0
+        }
+      ],
+      "leftModuleId": 24,
+      "rightModuleId": 34,
+      "pos": [
+        50,
+        0
+      ]
+    },
+    {
+      "id": 34,
+      "plugin": "Core",
+      "version": "1.0.0",
+      "model": "MIDIToCVInterface",
+      "params": [],
+      "leftModuleId": 33,
+      "rightModuleId": 37,
+      "data": {
+        "channels": 10,
+        "polyMode": 0,
+        "clockDivision": 24,
+        "lastPitch": 8192,
+        "lastMod": 0,
+        "midi": {
+          "driver": 2,
+          "deviceName": "Midi Through:Midi Through Port-0 14:0",
+          "channel": -1
+        }
+      },
+      "pos": [
+        76,
+        0
+      ]
+    },
+    {
+      "id": 37,
+      "plugin": "AS",
+      "version": "1.0.1",
+      "model": "StereoVUmeter",
+      "params": [],
+      "leftModuleId": 34,
+      "pos": [
+        84,
+        0
+      ]
+    }
+  ],
+  "cables": [
+    {
+      "id": 0,
+      "outputModuleId": 21,
+      "outputId": 0,
+      "inputModuleId": 23,
+      "inputId": 0,
+      "color": "#0986ad"
+    },
+    {
+      "id": 1,
+      "outputModuleId": 21,
+      "outputId": 1,
+      "inputModuleId": 23,
+      "inputId": 1,
+      "color": "#c91847"
+    },
+    {
+      "id": 2,
+      "outputModuleId": 23,
+      "outputId": 0,
+      "inputModuleId": 24,
+      "inputId": 0,
+      "color": "#c91847"
+    },
+    {
+      "id": 4,
+      "outputModuleId": 27,
+      "outputId": 0,
+      "inputModuleId": 21,
+      "inputId": 0,
+      "color": "#c91847"
+    },
+    {
+      "id": 5,
+      "outputModuleId": 26,
+      "outputId": 0,
+      "inputModuleId": 27,
+      "inputId": 0,
+      "color": "#0986ad"
+    },
+    {
+      "id": 6,
+      "outputModuleId": 26,
+      "outputId": 0,
+      "inputModuleId": 27,
+      "inputId": 2,
+      "color": "#c9b70e"
+    },
+    {
+      "id": 7,
+      "outputModuleId": 23,
+      "outputId": 1,
+      "inputModuleId": 28,
+      "inputId": 1,
+      "color": "#0c8e15"
+    },
+    {
+      "id": 8,
+      "outputModuleId": 28,
+      "outputId": 1,
+      "inputModuleId": 24,
+      "inputId": 1,
+      "color": "#0c8e15"
+    },
+    {
+      "id": 9,
+      "outputModuleId": 24,
+      "outputId": 0,
+      "inputModuleId": 33,
+      "inputId": 0,
+      "color": "#0986ad"
+    },
+    {
+      "id": 10,
+      "outputModuleId": 24,
+      "outputId": 1,
+      "inputModuleId": 33,
+      "inputId": 1,
+      "color": "#0986ad"
+    },
+    {
+      "id": 11,
+      "outputModuleId": 33,
+      "outputId": 1,
+      "inputModuleId": 25,
+      "inputId": 1,
+      "color": "#c9b70e"
+    },
+    {
+      "id": 12,
+      "outputModuleId": 33,
+      "outputId": 0,
+      "inputModuleId": 25,
+      "inputId": 0,
+      "color": "#0986ad"
+    },
+    {
+      "id": 13,
+      "outputModuleId": 34,
+      "outputId": 2,
+      "inputModuleId": 32,
+      "inputId": 3,
+      "color": "#0986ad"
+    },
+    {
+      "id": 18,
+      "outputModuleId": 34,
+      "outputId": 0,
+      "inputModuleId": 32,
+      "inputId": 2,
+      "color": "#0c8e15"
+    },
+    {
+      "id": 19,
+      "outputModuleId": 34,
+      "outputId": 1,
+      "inputModuleId": 32,
+      "inputId": 4,
+      "color": "#c91847"
+    },
+    {
+      "id": 20,
+      "outputModuleId": 32,
+      "outputId": 0,
+      "inputModuleId": 33,
+      "inputId": 2,
+      "color": "#0c8e15"
+    },
+    {
+      "id": 21,
+      "outputModuleId": 32,
+      "outputId": 1,
+      "inputModuleId": 33,
+      "inputId": 3,
+      "color": "#c91847"
+    },
+    {
+      "id": 14,
+      "outputModuleId": 25,
+      "outputId": 0,
+      "inputModuleId": 37,
+      "inputId": 0,
+      "color": "#c9b70e"
+    },
+    {
+      "id": 3,
+      "outputModuleId": 25,
+      "outputId": 1,
+      "inputModuleId": 37,
+      "inputId": 1,
+      "color": "#0c8e15"
+    },
+    {
+      "id": 24,
+      "outputModuleId": 37,
+      "outputId": 0,
+      "inputModuleId": 18,
+      "inputId": 0,
+      "color": "#c9b70e"
+    },
+    {
+      "id": 25,
+      "outputModuleId": 37,
+      "outputId": 1,
+      "inputModuleId": 18,
+      "inputId": 1,
+      "color": "#0c8e15"
+    }
+  ]
+}
