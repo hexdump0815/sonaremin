@@ -6,8 +6,8 @@
 wget https://github.com/hexdump0815/vcvrack-dockerbuild-v0/releases/download/v0.6.2c-0.2/vcvrack.armv7l.tar.gz -O vcvrack-v0-armv7l.tar.gz
 wget https://github.com/hexdump0815/vcvrack-dockerbuild-v0/releases/download/v0.6.2c-0.2/vcvrack.aarch64.tar.gz -O vcvrack-v0-aarch64.tar.gz
 
-wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/v1.0.0/vcvrack-v1-armv7l.tar.gz
-wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/v1.0.0/vcvrack-v1-aarch64.tar.gz
+wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/v1.1.0.1/vcvrack-v1-armv7l.tar.gz
+wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/v1.1.0.1/vcvrack-v1-aarch64.tar.gz
 
 wget https://github.com/hexdump0815/sonaremin-rncbc-dockerbuild/releases/download/v1.0.0/padthv1-synthv1-armv7l.tar.gz
 wget https://github.com/hexdump0815/sonaremin-rncbc-dockerbuild/releases/download/v1.0.0/padthv1-synthv1-aarch64.tar.gz
