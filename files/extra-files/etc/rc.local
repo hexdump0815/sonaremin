@@ -87,6 +87,18 @@ if [ "$SAMBA_SERVER" = "yes" ]; then
   ( sleep 15 ; systemctl start smbd ) &
 fi
 
+# set realtime capabilities for rack v1
+# HAS_OVERLAYROOT is 0 if overlayroot is in place
+df | grep -q overlayroot
+HAS_OVERLAYROOT=$?
+if [ -f /home/sonaremin/vcvrack-v1/Rack ]; then
+  if [ "$HAS_OVERLAYROOT" = "0" ]; then
+    overlayroot-chroot setcap cap_sys_nice+ep /home/sonaremin/vcvrack-v1/Rack
+  else
+    setcap cap_sys_nice+ep /home/sonaremin/vcvrack-v1/Rack
+  fi
+fi
+
 if [ "$DISPLAY_MODE" = "display" ]; then
   systemctl start x11.service
 else
