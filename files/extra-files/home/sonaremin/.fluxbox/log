@@ -1,0 +1,34 @@
+------------------------------------------
+Log File: /home/sonaremin/.fluxbox/log
+Fluxbox version: 1.3.5
+GIT Revision: this_is_tar_ball_build
+Compiled: Apr  3 2018 12:23:12
+Compiler: GCC
+Compiler version: 7.3.0
+
+Defaults: 
+    menu: /etc/X11/fluxbox/fluxbox.menu-user
+   style: /usr/share/fluxbox/styles//ubuntu-light
+    keys: /etc/X11/fluxbox/keys
+    init: /etc/X11/fluxbox/init
+     nls: /usr/share/fluxbox/nls
+
+Compiled options (- => disabled): 
+BIDI
+-DEBUG
+EWMH
+IMLIB2
+NLS
+REMEMBER
+RENDER
+SHAPE
+SLIT
+SYSTEMTRAY
+TOOLBAR
+RANDR1.2
+XFT
+XINERAMA
+XMB
+XPM
+
+------------------------------------------

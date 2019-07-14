@@ -1,0 +1,20 @@
+[begin] (fluxbox)
+[exec] (terminal) { x-terminal-emulator -T "Bash" -e /bin/bash --login } <>
+[exec] (editor) { mousepad } <>
+[exec] (qjackctl) { /home/sonaremin/bin/start-qjackctl.sh menu } <>
+[exec] (vcvrack) { /home/sonaremin/bin/start-vcvrack.sh menu } <>
+[exec] (padthv1) { /home/sonaremin/bin/start-padthv1.sh menu } <>
+[exec] (synthv1) { /home/sonaremin/bin/start-synthv1.sh menu } <>
+[submenu] (keyboard) { layout }
+[exec] (onscreen) { matchbox-keyboard } <>
+[exec] (english) { setxkbmap us } <>
+[exec] (french) { setxkbmap fr } <>
+[exec] (german) { setxkbmap de } <>
+[exec] (italian) { setxkbmap it } <>
+[exec] (portuguese) { setxkbmap pt } <>
+[exec] (russian) { setxkbmap ru } <>
+[exec] (spanish) { setxkbmap es } <>
+[end]
+[exec] (reboot) { sudo shutdown -r now } <>
+[exec] (shutdown) { sudo shutdown -h now } <>
+[end]

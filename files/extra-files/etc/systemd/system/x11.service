@@ -1,0 +1,8 @@
+[Unit]
+After=systemd-user-sessions.service
+
+[Service]
+ExecStart=/sbin/mingetty --autologin sonaremin --noclear tty8 38400
+
+[Install]
+WantedBy=multi-user.target

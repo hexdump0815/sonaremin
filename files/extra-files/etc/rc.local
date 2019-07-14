@@ -1,0 +1,97 @@
+#!/bin/sh
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# read the sonaremin config file if it exists, otherwise set default values
+if [ -f /data/config/sonaremin.txt ]; then
+  . /data/config/sonaremin.txt
+else
+  # start with a hdmi monitor connected (display) or headless
+  DISPLAY_MODE=display
+  #DISPLAY_MODE=headless
+  # enable tuning for audio usage
+  AUDIO_TUNE=on
+  #AUDIO_TUNE=off
+  # start rtpmidi server for midi over network
+  #RTPMIDI=yes
+  RTPMIDI=no
+  # start samba server to access /data via network
+  SAMBA_SERVER=yes
+  #SAMBA_SERVER=no
+fi
+
+# flash based storage does not need scheduling
+if [ -d /sys/block/mmcblk0 ] || [ -d /sys/block/mmcblk1 ] || [ -d /sys/block/mmcblk2 ]; then
+  for i in /sys/block/mmcblk?/queue/scheduler; do
+    echo none > $i
+  done
+fi
+if [ -d /sys/block/sda ] || [ -d /sys/block/sdb ] || [ -d /sys/block/sdc ]; then
+  for i in /sys/block/sd?/queue/scheduler; do
+    echo none > $i
+  done
+fi
+
+# make sure the mali module gets loaded if there is one
+depmod -a
+if [ -f /lib/modules/`uname -r`/extra/mali.ko ]; then
+  modprobe mali
+elif [ -f /lib/modules/`uname -r`/extra/mali_kbase.ko ]; then
+  modprobe mali_kbase
+fi
+
+rm -rf /opt/libgl
+rm -f /etc/X11/xorg.conf.d/xorg.conf
+
+for i in /data/config/systems/*.sh; do
+  . $i
+done
+
+if [ -x /etc/rc.audio ] && [ "$AUDIO_TUNE" = "on" ]; then
+  /etc/rc.audio > /tmp/rc.audio.log 2>&1
+else
+  systemctl start ondemand
+fi
+
+echo "start of rc.boot-local"
+if [ -f /data/config/startup/rc.boot-local ]; then
+  . /data/config/startup/rc.boot-local
+fi
+echo "end of rc.boot-local"
+
+rm -rf /data/FSCK*.REC
+
+export MY_HOSTNAME=`hostname`
+export MY_VIRMIDI=`amidi -l | grep "Virtual Raw MIDI" | grep ",0" | sed 's,IO  hw:,,g;s,\,0.*,,g'`
+sed "s,Virtual Raw MIDI .-0,Virtual Raw MIDI $MY_VIRMIDI-0,g;s,VirMIDI .-0,VirMIDI $MY_VIRMIDI-0,g" -i /data/config/qjackctl/qjackctl-patchbay.xml
+
+# start raveloxmidi rtpmidi server
+if [ "$RTPMIDI" = "yes" ]; then
+  sed "s,__HOSTNAME__,$MY_HOSTNAME,g" /data/config/rtpmidi/raveloxmidi.conf > /opt/rtpmidi/raveloxmidi.conf
+  sed "s/= hw:.,/= hw:$MY_VIRMIDI,/g" -i /opt/rtpmidi/raveloxmidi.conf
+  ( systemctl start avahi-daemon ; sleep 15 ; systemctl start raveloxmidi ) &
+fi
+
+# start samba server
+if [ "$SAMBA_SERVER" = "yes" ]; then
+  sed "s,__HOSTNAME__,$MY_HOSTNAME,g" /data/config/samba/smb.conf > /etc/samba/smb.conf
+  ( sleep 15 ; systemctl start smbd ) &
+fi
+
+if [ "$DISPLAY_MODE" = "display" ]; then
+  systemctl start x11.service
+else
+  rm -f /etc/X11/xorg.conf.d/xorg.conf
+  if [ -x /home/sonaremin/bin/start-xpra.sh ]; then
+    su -c /home/sonaremin/bin/start-xpra.sh sonaremin
+  fi
+fi

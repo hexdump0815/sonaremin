@@ -1,0 +1,12 @@
+[Unit]
+After=local-fs.target network.target
+Description=raveloxmidi RTP-MIDI network server
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/opt/rtpmidi/raveloxmidi -dN -c /opt/rtpmidi/raveloxmidi.conf
+
+Type=simple
+Restart=always

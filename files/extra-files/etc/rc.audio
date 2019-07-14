@@ -1,0 +1,45 @@
+#!/bin/sh
+
+if [ -f /sys/kernel/mm/transparent_hugepage/enabled ]; then
+  echo never > /sys/kernel/mm/transparent_hugepage/enabled
+fi
+
+if [ -f /proc/sys/fs/inotify/max_user_watches ]; then
+  echo 524288 > /proc/sys/fs/inotify/max_user_watches
+fi
+
+if [ -f /sys/module/processor/parameters/ignore_ppc ]; then
+  echo 1 > /sys/module/processor/parameters/ignore_ppc
+fi
+
+if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ]; then
+  for i in /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor ; do
+    echo performance > $i
+  done
+fi
+
+grep -q threadirqs /proc/cmdline
+if [ "$?" = "0" ]; then
+  systemctl stop irqbalance
+else
+  systemctl start irqbalance
+fi
+
+if [ -f /dev/rtc0 ]; then
+  chmod a+r /dev/rtc0
+fi
+if [ -f /dev/hpet ]; then
+  chmod a+r /dev/hpet
+fi
+
+# make jackd happy with realtime prio
+sysctl -w kernel.sched_rt_runtime_us=-1
+
+# less swapping
+echo 35 > /proc/sys/vm/swappiness
+
+# enable the sequencer device
+modprobe snd-seq-midi
+
+# enable virtual midid devices for raveloxmidi
+modprobe snd-virmidi

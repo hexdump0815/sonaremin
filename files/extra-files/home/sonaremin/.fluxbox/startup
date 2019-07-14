@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "/home/sonaremin/.Xmodmap"
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+# unclutter -idle 2 &
+# wmnd &
+# wmsmixer -w &
+# idesk &
+#
+# Debian-local change:
+#   - fbautostart has been added with a quick hack to check to see if it
+#     exists. If it does, we'll start it up by default.
+which fbautostart > /dev/null
+if [ $? -eq 0 ]; then
+    fbautostart
+fi
+
+/home/sonaremin/bin/start-qjackctl.sh &
+/home/sonaremin/bin/start-vcvrack.sh &
+/home/sonaremin/bin/start-padthv1.sh &
+/home/sonaremin/bin/start-synthv1.sh &
+/home/sonaremin/bin/start-local.sh &
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+#exec fluxbox
+# or if you want to keep a log:
+exec fluxbox -log "/home/sonaremin/.fluxbox/log"

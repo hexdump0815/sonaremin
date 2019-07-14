@@ -60,7 +60,7 @@ mkdir -p myfiles/vcvrack-v0 myfiles/vcvrack-v1 myfiles/padthv1 myfiles/synthv1
 
 cd ${BUILD_ROOT}
 rm -f create-chroot.sh
-tar --numeric-owner -xzf ${WORKDIR}/files/extra-files.tar.gz
+( cd ${WORKDIR}/files/extra-files ; tar cf - . ) | tar xf -
 if [ "${1}" = "odroid_c2" ] || [ "${1}" = "amlogic_s905_tv_box" ]; then
   cp etc/fstab.mmc1 etc/fstab
 else
