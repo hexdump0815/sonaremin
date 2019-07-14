@@ -1,109 +1,123 @@
 <!DOCTYPE patchbay>
-<patchbay name="qjackctl-patchbay" version="0.4.5">
+<patchbay version="0.4.5" name="qjackctl-patchbay">
  <output-sockets>
-  <socket name="Free Rack 1" client="Free Rack" type="jack-audio" exclusive="off">
-   <plug>outport 0</plug>
-   <plug>outport 1</plug>
-  </socket>
-  <socket name="system 1" client="system" type="jack-midi" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-midi" name="system 1">
    <plug>midi_capture_1</plug>
   </socket>
-  <socket name="padthv1-s 1" client="padthv1-s01" type="jack-audio" exclusive="off">
-   <plug>out_1</plug>
-   <plug>out_2</plug>
-  </socket>
-  <socket name="padthv1-s 2" client="padthv1-s02" type="jack-audio" exclusive="off">
-   <plug>out_1</plug>
-   <plug>out_2</plug>
-  </socket>
-  <socket name="synthv1-s 1" client="synthv1-s01" type="jack-audio" exclusive="off">
-   <plug>out_1</plug>
-   <plug>out_2</plug>
-  </socket>
-  <socket name="synthv1-s 2" client="synthv1-s02" type="jack-audio" exclusive="off">
-   <plug>out_1</plug>
-   <plug>out_2</plug>
-  </socket>
-  <socket name="Midi Through 1" client="Midi Through" type="alsa-midi" exclusive="off">
-   <plug>Midi Through Port-0</plug>
-  </socket>
-  <socket name="a2j 1" client="a2j" type="jack-midi" exclusive="off">
-   <plug>Midi Through \[14\] \(capture\): Midi Through Port-0</plug>
-  </socket>
-  <socket name="VCV Rack 1" client="VCV Rack" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack 1">
    <plug>outport 0</plug>
    <plug>outport 1</plug>
   </socket>
-  <socket name="Virtual Raw MIDI 2-0 1" client="Virtual Raw MIDI 2-0" type="alsa-midi" exclusive="off">
+  <socket exclusive="off" client="Free Rack" type="jack-audio" name="Free Rack 1">
+   <plug>outport 0</plug>
+   <plug>outport 1</plug>
+  </socket>
+  <socket exclusive="off" client="padthv1-s01" type="jack-audio" name="padthv1-s 1">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="padthv1-s02" type="jack-audio" name="padthv1-s 2">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="synthv1-s01" type="jack-audio" name="synthv1-s 1">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="synthv1-s02" type="jack-audio" name="synthv1-s 2">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="a2j" type="jack-midi" name="a2j 1">
+   <plug>Midi Through \[14\] \(capture\): Midi Through Port-0</plug>
+  </socket>
+  <socket exclusive="off" client="Midi Through" type="alsa-midi" name="Midi Through 1">
+   <plug>Midi Through Port-0</plug>
+  </socket>
+  <socket exclusive="off" client="Virtual Raw MIDI 2-0" type="alsa-midi" name="Virtual Raw MIDI 2-0 1">
    <plug>VirMIDI 2-0</plug>
   </socket>
-  <socket name="APC Key 1" client="APC Key 25" type="alsa-midi" exclusive="off">
+  <socket exclusive="off" client="APC Key 25" type="alsa-midi" name="APC Key 1">
    <plug>APC Key 25 MIDI 1</plug>
   </socket>
-  <socket name="WORLDE MINI 1" client="WORLDE MINI" type="alsa-midi" exclusive="off">
+  <socket exclusive="off" client="WORLDE MINI" type="alsa-midi" name="WORLDE MINI 1">
    <plug>WORLDE MINI MIDI 1</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket name="a2j 1" client="a2j" type="jack-midi" exclusive="off">
+  <socket exclusive="off" client="a2j" type="jack-midi" name="a2j 1">
    <plug>Midi Through \[14\] \(playback\): Midi Through Port-0</plug>
   </socket>
-  <socket name="system 1" client="system" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-audio" name="system net 1 and local">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
   </socket>
-  <socket name="system 2" client="system" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-audio" name="system net 2">
    <plug>playback_3</plug>
    <plug>playback_4</plug>
   </socket>
-  <socket name="system 3" client="system" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-audio" name="system net 3">
    <plug>playback_5</plug>
    <plug>playback_6</plug>
   </socket>
-  <socket name="system 4" client="system" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-audio" name="system net 4">
    <plug>playback_7</plug>
    <plug>playback_8</plug>
   </socket>
-  <socket name="system 5" client="system" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-audio" name="system net 5">
    <plug>playback_9</plug>
    <plug>playback_10</plug>
   </socket>
-  <socket name="padthv1-s 1" client="padthv1-s01" type="jack-midi" exclusive="off">
+  <socket exclusive="off" client="system" type="jack-audio" name="system net 6">
+   <plug>playback_12</plug>
+   <plug>playback_11</plug>
+  </socket>
+  <socket exclusive="off" client="padthv1-s01" type="jack-midi" name="padthv1-s 1">
    <plug>in</plug>
   </socket>
-  <socket name="padthv1-s 2" client="padthv1-s02" type="jack-midi" exclusive="off">
+  <socket exclusive="off" client="padthv1-s02" type="jack-midi" name="padthv1-s 2">
    <plug>in</plug>
   </socket>
-  <socket name="synthv1-s 1" client="synthv1-s01" type="jack-midi" exclusive="off">
+  <socket exclusive="off" client="synthv1-s01" type="jack-midi" name="synthv1-s 1">
    <plug>in</plug>
   </socket>
-  <socket name="synthv1-s 2" client="synthv1-s02" type="jack-midi" exclusive="off">
+  <socket exclusive="off" client="synthv1-s02" type="jack-midi" name="synthv1-s 2">
    <plug>in</plug>
   </socket>
-  <socket name="Free Rack 1" client="Free Rack" type="alsa-midi" exclusive="off">
+  <socket exclusive="off" client="VCV Rack" type="alsa-midi" name="VCV Rack 1">
+   <plug>VCV Rack input</plug>
+  </socket>
+  <socket exclusive="off" client="Free Rack" type="alsa-midi" name="Free Rack 1">
    <plug>Free Rack input</plug>
   </socket>
-  <socket name="Midi Through 1" client="Midi Through" type="alsa-midi" exclusive="off">
+  <socket exclusive="off" client="Midi Through" type="alsa-midi" name="Midi Through 1">
    <plug>Midi Through Port-0</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable input="system 1" output="Free Rack 1" type="jack-audio"/>
-  <cable input="a2j 1" output="system 1" type="jack-midi"/>
-  <cable input="system 2" output="padthv1-s 1" type="jack-audio"/>
-  <cable input="system 3" output="padthv1-s 2" type="jack-audio"/>
-  <cable input="system 4" output="synthv1-s 1" type="jack-audio"/>
-  <cable input="system 5" output="synthv1-s 2" type="jack-audio"/>
-  <cable input="Free Rack 1" output="Midi Through 1" type="alsa-midi"/>
-  <cable input="padthv1-s 1" output="a2j 1" type="jack-midi"/>
-  <cable input="padthv1-s 2" output="a2j 1" type="jack-midi"/>
-  <cable input="synthv1-s 1" output="a2j 1" type="jack-midi"/>
-  <cable input="synthv1-s 2" output="a2j 1" type="jack-midi"/>
-  <cable input="system 1" output="VCV Rack 1" type="jack-audio"/>
-  <cable input="Midi Through 1" output="Virtual Raw MIDI 2-0 1" type="alsa-midi"/>
-  <cable input="Midi Through 1" output="APC Key 1" type="alsa-midi"/>
-  <cable input="Midi Through 1" output="WORLDE MINI 1" type="alsa-midi"/>
+  <cable type="jack-midi" input="a2j 1" output="system 1"/>
+  <cable type="jack-audio" input="system net 1 and local" output="VCV Rack 1"/>
+  <cable type="jack-audio" input="system net 2" output="VCV Rack 1"/>
+  <cable type="jack-audio" input="system net 1 and local" output="Free Rack 1"/>
+  <cable type="jack-audio" input="system net 2" output="Free Rack 1"/>
+  <cable type="jack-audio" input="system net 3" output="padthv1-s 1"/>
+  <cable type="jack-audio" input="system net 1 and local" output="padthv1-s 1"/>
+  <cable type="jack-audio" input="system net 4" output="padthv1-s 2"/>
+  <cable type="jack-audio" input="system net 1 and local" output="padthv1-s 2"/>
+  <cable type="jack-audio" input="system net 5" output="synthv1-s 1"/>
+  <cable type="jack-audio" input="system net 1 and local" output="synthv1-s 1"/>
+  <cable type="jack-audio" input="system net 6" output="synthv1-s 2"/>
+  <cable type="jack-audio" input="system net 1 and local" output="synthv1-s 2"/>
+  <cable type="jack-midi" input="padthv1-s 1" output="a2j 1"/>
+  <cable type="jack-midi" input="padthv1-s 2" output="a2j 1"/>
+  <cable type="jack-midi" input="synthv1-s 1" output="a2j 1"/>
+  <cable type="jack-midi" input="synthv1-s 2" output="a2j 1"/>
+  <cable type="alsa-midi" input="Free Rack 1" output="Midi Through 1"/>
+  <cable type="alsa-midi" input="VCV Rack 1" output="Midi Through 1"/>
+  <cable type="alsa-midi" input="Midi Through 1" output="Virtual Raw MIDI 2-0 1"/>
+  <cable type="alsa-midi" input="Midi Through 1" output="APC Key 1"/>
+  <cable type="alsa-midi" input="Midi Through 1" output="WORLDE MINI 1"/>
  </cables>
 </patchbay>
 
