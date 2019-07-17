@@ -20,6 +20,7 @@ version 1.1.1
 - support for realtime mode of vcvrack v1 audio threads
 - padtv1 and synthv1 get their own routing if jack is used (besides a routing with vcvrack together)
 - extra-files is no tar file anymore - unpacked now as it is much easier to handle this way and gives a better git history
+- lots of minor fixes
 
 version 1.0.0
 - support for vcvrack v1.0.0 (v0.6.2c is still part of the sonaremin, but in the exact same version as in sonaremin 0.5.0)

@@ -54,9 +54,11 @@ cd ${BUILD_ROOT}/data
 cp -r ${WORKDIR}/files/data/* .
 cp -f vcvrack-v0/sonaremin.vcv vcvrack-v0/config/autosave.vcv
 cp -f vcvrack-v1/sonaremin.vcv vcvrack-v1/config/autosave.vcv
-cp -f synthv1/sonaremin-* synthv1/backup
+mkdir -p padthv1/backup synthv1/backup config/qjackctl/backup
 cp -f padthv1/sonaremin-* padthv1/backup
+cp -f synthv1/sonaremin-* synthv1/backup
 mkdir -p myfiles/vcvrack-v0 myfiles/vcvrack-v1 myfiles/padthv1 myfiles/synthv1
+cp config/qjackctl/qjackctl-patchbay.xml config/qjackctl/backup
 
 cd ${BUILD_ROOT}
 rm -f create-chroot.sh
@@ -83,8 +85,6 @@ cp -f ${BUILD_ROOT}/data/vcvrack-v1/config/autosave.vcv vcvrack-v1/autosave.vcv
 cp ${WORKDIR}/files/empty-template.vcv vcvrack-v1/template.vcv
 cd ../..
 chown -R 1000:1000 home/sonaremin/
-
-cp ${BUILD_ROOT}/data/config/qjackctl/qjackctl-patchbay.xml ${BUILD_ROOT}/data/config/qjackctl/backup
 
 export KERNEL_VERSION=`ls ${BUILD_ROOT}/boot/*Image-* | sed 's,.*Image-,,g' | sort -u`
 
