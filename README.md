@@ -12,13 +12,12 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
-version 1.1.0 (planned, not yet released)
-- upgrade vcvrack to version v1.1.0
-- more included modules
-- maybe more sample patches
-- most probably i'll no longer provide banana pi m1, raspberry pi 32bit and allwinner h3 tv box versions (only on demand) as they are too slow to be generally useable
-- add some more comments to the scripts as some tricks used are not really obvious :)
-- prepare for realtime mode of vcvrack v1 audio threads
+version 1.1.1
+- upgrade vcvrack to version v1.1.1
+- more included modules (65 modules = 772 vcvrack plugins)
+- more sample patches
+- builds provided for 64bit raspberry pi, s905w/x tv boxes and the tinkerboard only (more on request)
+- support for realtime mode of vcvrack v1 audio threads
 
 version 1.0.0
 - support for vcvrack v1.0.0 (v0.6.2c is still part of the sonaremin, but in the exact same version as in sonaremin 0.5.0)
