@@ -16,11 +16,12 @@ version 1.1.1
 - upgrade vcvrack to version v1.1.1
 - more included modules (65 modules = 772 vcvrack plugins)
 - more sample patches
-- builds provided for 64bit raspberry pi, s905w/x tv boxes and the tinkerboard only (more on request)
+- prebuilt images for 64bit raspberry pi, s905w/x tv boxes and the tinkerboard only (more on request - just test an older existing image on your hardware - if it works then just ask me to build a current one as well for it)
 - support for realtime mode of vcvrack v1 audio threads
 - padtv1 and synthv1 get their own routing if jack is used (besides a routing with vcvrack together)
 - extra-files is no tar file anymore - unpacked now as it is much easier to handle this way and gives a better git history
 - lots of minor fixes
+- i am no longer testing the vcvrack v0.6.2c installation on the sonaremin - it is still there but untested
 
 version 1.0.0
 - support for vcvrack v1.0.0 (v0.6.2c is still part of the sonaremin, but in the exact same version as in sonaremin 0.5.0)
