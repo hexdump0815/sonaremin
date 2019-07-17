@@ -75,7 +75,7 @@ mv vcvrack.${2} vcvrack-v0
 rm -f vcvrack-v0/settings.json vcvrack-v0/autosave.vcv
 ln -s /data/vcvrack-v0/config/settings.json vcvrack-v0/settings.json
 ln -s /data/vcvrack-v0/config/autosave.vcv vcvrack-v0/autosave.vcv
-tar --numeric-owner -xzf ${WORKDIR}/files/vcvrack-v1-${2}.tar.gz
+tar --numeric-owner -xzf ${WORKDIR}/files/vcvrack.${2}-v1.tar.gz
 mv vcvrack.${2}-v1 vcvrack-v1
 rm -f vcvrack-v1/settings.json vcvrack-v1/autosave.vcv vcvrack-v1/template.vcv
 ln -s /data/vcvrack-v1/config/settings.json vcvrack-v1/settings.json
