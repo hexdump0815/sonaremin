@@ -17,7 +17,7 @@ version 1.1.1
 - more included modules (65 modules = 772 vcvrack plugins)
 - more sample patches
 - prebuilt images for 64bit raspberry pi, s905w/x tv boxes and the tinkerboard only (more on request - just test an older existing image on your hardware - if it works then just ask me to build a current one as well for it)
-- support for realtime mode of vcvrack v1 audio threads
+- support for realtime mode of vcvrack v1 audio threads (be careful with this on the raspberry pi as it seem to hang the system sometimes)
 - padtv1 and synthv1 get their own routing if jack is used (besides a routing with vcvrack together)
 - extra-files is no tar file anymore - unpacked now as it is much easier to handle this way and gives a better git history
 - lots of minor fixes
