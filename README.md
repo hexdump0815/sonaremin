@@ -129,6 +129,7 @@ if permanent changes should be done to the system (for instance installation of 
 
 in general the sonaremin already works quite well - this is a list of things i have noticed and which should be kept in mind and maybe should be fixed one day:
 
+- on the raspberry pi there might be display problems (missing rails etc.) if the vcvrack window is large (for istance full hd size) and there might be sometimes hangs of the system (most probably related to enabling realtime priority)
 - on bootup there is an error visible about an fsck problem - this is most probably due to the update-initramfs task in the image creation for some reason does not put the proper fsck binaries into the initramfs - it seems to be no big deal for now though - fixed in 1.0.0
 - the tinkerboard does only a shutdown when a reboot is requested - most probably some kernel patch is still missing - i do not see this as a big problem for now - seems to be resolved in 1.0.0
 - the allwinner s905 tv boxes might not work with all sd cards - maybe try another one in case you get mmc errors on boot, also some of the usb ports might not work
