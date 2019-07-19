@@ -63,6 +63,7 @@ cp config/qjackctl/qjackctl-patchbay.xml config/qjackctl/backup
 cd ${BUILD_ROOT}
 rm -f create-chroot.sh
 ( cd ${WORKDIR}/files/extra-files ; tar cf - . ) | tar xf -
+mkdir -p etc/X11/xorg.conf.d
 if [ "${1}" = "odroid_c2" ] || [ "${1}" = "amlogic_s905_tv_box" ]; then
   cp etc/fstab.mmc1 etc/fstab
 else
