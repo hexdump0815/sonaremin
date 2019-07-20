@@ -17,7 +17,7 @@ version 1.1.1
 - more included modules (65 modules = 772 vcvrack plugins)
 - more sample patches
 - prebuilt images for 64bit raspberry pi, s905w/x tv boxes and the tinkerboard only (more on request - just test an older existing image on your hardware - if it works then just ask me to build a current one as well for it)
-- support for realtime mode of vcvrack v1 audio threads (be careful with this on the raspberry pi as it seem to hang the system sometimes)
+- support for realtime mode of vcvrack v1 audio threads (be careful with this together with the overlay mode, it seem to hang the system sometimes)
 - padtv1 and synthv1 get their own routing if jack is used (besides a routing with vcvrack together)
 - extra-files is no tar file anymore - unpacked now as it is much easier to handle this way and gives a better git history
 - lots of minor fixes
@@ -129,7 +129,8 @@ if permanent changes should be done to the system (for instance installation of 
 
 in general the sonaremin already works quite well - this is a list of things i have noticed and which should be kept in mind and maybe should be fixed one day:
 
-- on the raspberry pi there might be display problems (missing rails etc.) if the vcvrack window is large (for istance full hd size) and there might be sometimes hangs of the system (most probably related to enabling realtime priority)
+- on the raspberry pi there might be display problems (missing rails etc.) if the vcvrack window is large (for istance full hd size)
+- there might be sometimes hangs of the system (most probably related to enabling realtime priority in overlay mode)
 - on bootup there is an error visible about an fsck problem - this is most probably due to the update-initramfs task in the image creation for some reason does not put the proper fsck binaries into the initramfs - it seems to be no big deal for now though - fixed in 1.0.0
 - the tinkerboard does only a shutdown when a reboot is requested - most probably some kernel patch is still missing - i do not see this as a big problem for now - seems to be resolved in 1.0.0
 - the allwinner s905 tv boxes might not work with all sd cards - maybe try another one in case you get mmc errors on boot, also some of the usb ports might not work
