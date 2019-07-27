@@ -26,7 +26,7 @@ if { [ "$QJACKCTL_START" = "yes" ] && [ "$QJACKCTL_PID" = "" ]; } \
     export LD_LIBRARY_PATH=/opt/libgl
   fi
   if [ "$JACKD_NET" = "yes" ]; then
-    jackd -d net -i 1 -o 1 & 
+    jackd -d net -i 4 -o 4 & 
     /home/sonaremin/bin/start-a2jmidid.sh &
     exec qjackctl
   else
