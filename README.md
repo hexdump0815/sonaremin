@@ -12,9 +12,14 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
+version 1.1.3 (planned only - not yet released)
+- upgrade vcvrack to version v1.1.3
+- more included modules (69 plugins = 870 vcvrack modules)
+- as vcvrack v1.1.3 has jack-midi enabled again, provide 4 jack midi connections instead of only one for more flexibility
+
 version 1.1.1
 - upgrade vcvrack to version v1.1.1
-- more included modules (65 modules = 772 vcvrack plugins)
+- more included modules (65 plugins = 772 vcvrack modules)
 - more sample patches
 - prebuilt images for 64bit raspberry pi, s905w/x tv boxes and the tinkerboard only (more on request - just test an older existing image on your hardware - if it works then just ask me to build a current one as well for it)
 - support for realtime mode of vcvrack v1 audio threads (be careful with this together with the overlay mode, it seem to hang the system sometimes)
