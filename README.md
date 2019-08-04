@@ -85,6 +85,7 @@ the basic functionally is the same for all devices, but their cpu performance an
 - raspberry pi 3b in 32bit mode: 105-120% (the slowdown compared to the 64bit version comes alone from not using the 64bit armv8 cpu instructions)
 - h3 tv box: 140-155%
 - t9 tv box (rockchip rk3328 @1296mhz - surprisingly slower than an amlogic s905w @1200mz): 80-90% (just some basic test - not yet supported)
+- eachlink h6 mini tv box (allwinner h6 @1800mhz) - 58-60% (just some basic test - not yet supported)
 - rock pi 4b (rockchip rk3399 2x a72 cores @1800mhz via taskset): 42% (just some basic test - not yet supported)
 - intel atom baytrail z3740d system: 95-105% (just some basic test - not supported, just for comparison)
 
