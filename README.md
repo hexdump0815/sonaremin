@@ -12,7 +12,11 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
-version 1.1.3 (planned only - not yet released)
+version 1.1.6 (planned only - not yet released)
+- upgrade vcvrack to version v1.1.6
+- more included modules (113 plugins = 1300+ vcvrack modules)
+
+version 1.1.3 (planned only - not released, skipped)
 - upgrade vcvrack to version v1.1.3
 - more included modules (69 plugins = 870 vcvrack modules)
 - as vcvrack v1.1.3 has jack-midi enabled again, provide 4 jack midi connections instead of only one for more flexibility
@@ -130,6 +134,38 @@ please be aware, that vcvrack will always start in iconified mode in the sonarem
 by default the sonaremin is running in overlayroot mode, i.e. the rootfilesystem is mounted read-only and and top of that a memory filesystem is mounted read-write. this means, that all changes to the systems are lost when the device is powered off and this allows to simply power off the device without a proper shutdown in headless mode. the DATA and BOOT partitions are mounted regularly in read-write mode, so that configuration changes done in files located on them and patches saved onto the DATA partition are not lost after a reboot. this is also the reason while various configuration files of qjackctl, vcvrack etc. are symbolically linked from the system partition to the DATA partition.
 
 if permanent changes should be done to the system (for instance installation of software or more fundamental configuration changes) it can be switched between overlayroot and non overlayroot mode in the menu/extlinux.conf file and by rebooting the sonaremin afterwards. do not forget to switch it back to overloayroot mode afterwards. temporary access to the root filesystem in read-write mode is possible with the "overlayroot-chroot" command. to get root simply use "sudo -i".
+
+# upgrading the installed vcvrack version
+
+it is possible to upgrade the vcvrack version used in the sonaremin in case there is a newer build of vcvrack for available at https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases ... the following is a short summay to do the upgrade (requires some command line experience and assumes a machine with an ssh and scp client installed to connect to the sonaremin)
+  ```
+  # first switch the sonaremin into no_overlayroot mode by following the comment on top of the
+  # menu/extlinux.conf file on the BOOT partition (should be accessible from any linux, macos
+  # or windows machine as its a normal dos filesystem) 
+  # second disable qjackctl and vcvrack autostart by changing the setting for QJACKCTL_START
+  # and VCVRACK_START from "yes" to "no" in config/sonaremin.txt on the DATA partition (should
+  # be accessible from any linux, macos or windows machine as its a normal dos filesystem)
+  # third start the sonaremin with ethernet connected
+  # then download the latest release from the above link - assuming it to be vcvrack.aarch64-v1.tar.gz here now
+  # the copy it to the sonaremin
+  scp vcvrack.aarch64-v1.tar.gz sonaremin@sonaremin:.
+  # then login to the sonaremin - see above for the password
+  ssh sonaremin@sonaremin
+  # on the sonaremin, unpack the new version
+  tar xzf vcvrack.aarch64-v1.tar.gz
+  # move aside the old vcvrack version
+  mv vcvrack-v1 vcvrack-v1.old
+  # move the unpacked new version to its place
+  mv vcvrack.*-v1 vcvrack-v1
+  # go to the old versions directory and copy some config files over to the new version
+  cd vcvrack-v1.old
+  cp template.vcv autosave.vcv settings.json ../vcvrack-v1
+  # shutdown the sonaremin
+  sudo -i
+  shutdown -h now
+  # undo the changes in menu/extlinux.conf and config/sonaremin.txt above and on the next start
+  # the sonaremin should use the new vcvrack version
+  ```
 
 # known problems and things to keep in mind
 
