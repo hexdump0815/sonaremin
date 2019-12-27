@@ -146,17 +146,18 @@ it is possible to upgrade the vcvrack version used in the sonaremin in case ther
   # and VCVRACK_START from "yes" to "no" in config/sonaremin.txt on the DATA partition (should
   # be accessible from any linux, macos or windows machine as its a normal dos filesystem)
   # third start the sonaremin with ethernet connected
-  # then download the latest release from the above link - assuming it to be vcvrack.aarch64-v1.tar.gz here now
-  # the copy it to the sonaremin
+  # then download the latest release from the above link - assuming it to be named
+  # vcvrack.aarch64-v1.tar.gz in this example now
+  # then copy it to the sonaremin
   scp vcvrack.aarch64-v1.tar.gz sonaremin@sonaremin:.
   # then login to the sonaremin - see above for the password
   ssh sonaremin@sonaremin
-  # on the sonaremin, unpack the new version
+  # on the sonaremin, unpack the new version - it will take a while
   tar xzf vcvrack.aarch64-v1.tar.gz
   # move aside the old vcvrack version
   mv vcvrack-v1 vcvrack-v1.old
   # move the unpacked new version to its place
-  mv vcvrack.*-v1 vcvrack-v1
+  mv vcvrack.aarch64-v1 vcvrack-v1
   # go to the old versions directory and copy some config files over to the new version
   cd vcvrack-v1.old
   cp template.vcv autosave.vcv settings.json ../vcvrack-v1
