@@ -88,22 +88,22 @@ if [ -d ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2}-ubuntu ]; then
   ( cd ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2}-ubuntu ; tar cf - . ) | tar xf -
 fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-${1}-${2}.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-${1}-${2}.tar.gz
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-${1}-${2}.tar.gz
 fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-fbdev-${1}-${2}.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-fbdev-${1}-${2}.tar.gz
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-fbdev-${1}-${2}.tar.gz
 fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-wayland-${1}-${2}.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-wayland-${1}-${2}.tar.gz
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-wayland-${1}-${2}.tar.gz
 fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-rpi-${2}-ubuntu.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-rpi-${2}-ubuntu.tar.gz
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-rpi-${2}-ubuntu.tar.gz
 fi
 if [ -f ${IMAGEBUILDER}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz
 fi
 if [ -f ${IMAGEBUILDER}/downloads/gl4es-${2}-ubuntu.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/gl4es-${2}-ubuntu.tar.gz
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/gl4es-${2}-ubuntu.tar.gz
 fi
 
 # not sure if this is all needed for the sonaremin
