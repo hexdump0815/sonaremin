@@ -7,15 +7,15 @@ fi
 if [ -f /data/config/sonaremin.txt ]; then
   . /data/config/sonaremin.txt
 else
-  # start with a hdmi monitor connected (display) or headless
+  # start with a hdmi monitor connected (display) or virtual
   DISPLAY_MODE=display
-  #DISPLAY_MODE=headless
+  #DISPLAY_MODE=virtual
   # which vcvrack version to start automativally
   #VCVRACK_VERSION=v0
   VCVRACK_VERSION=v1
 fi
 
-if [ "$DISPLAY_MODE" = "headless" ]; then
+if [ "$DISPLAY_MODE" = "virtual" ]; then
   if [ "$VCVRACK_VERSION" = "v0" ]; then
     mv -f /data/vcvrack-${VCVRACK_VERSION}/config/autosave.vcv /data/vcvrack-${VCVRACK_VERSION}/config/autosave.vcv.display
   else

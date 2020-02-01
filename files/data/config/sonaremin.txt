@@ -1,9 +1,9 @@
 # a line beginning with a # is treated as comment und thus not used
 # comment out the settings you want and uncomment the ones not wanted
 
-# start with a hdmi monitor connected (display) or headless
+# start with a hdmi monitor connected (display) or virtual
 DISPLAY_MODE=display
-#DISPLAY_MODE=headless
+#DISPLAY_MODE=virtual
 
 # enable tuning for audio usage
 AUDIO_TUNE=on
