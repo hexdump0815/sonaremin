@@ -55,5 +55,9 @@ fi
 if [ "$VCVRACK_VERSION" = "v0" ]; then
   exec $RT_PRIO_V0 ./Rack -d $STARTUP_FILE
 else
+  # disable real time prio for vcvrack as it sometimes hangs the system on startup
+  # it is reenabled later via the set-prio.sh script running periodically in the
+  # background
+  sed -i.bak 's/"realTime":\ true,/"realTime": false,/g' settings.json
   exec $RT_PRIO_V1 ./Rack -d $STARTUP_FILE
 fi

@@ -55,3 +55,7 @@ modprobe snd-seq-midi
 
 # enable virtual midid devices for raveloxmidi
 modprobe snd-virmidi
+
+# start background script which checks and maybe enables
+# real time scheduling for the vcvrack audio threads
+/home/sonaremin/bin/set-prio.sh &
