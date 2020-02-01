@@ -100,7 +100,8 @@ if [ -f /home/sonaremin/vcvrack-v1/Rack ]; then
 fi
 
 if [ "$DISPLAY_MODE" = "display" ]; then
-  echo /opt/libgl >  /etc/ld.so.conf.d/aaa-libgl.conf
+  echo /opt/gl4es >  /etc/ld.so.conf.d/aaa-libgl.conf
+  echo /opt/libgl >>  /etc/ld.so.conf.d/aaa-libgl.conf
   ldconfig
   systemctl start x11.service
 else
