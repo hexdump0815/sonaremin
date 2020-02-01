@@ -1,7 +1,7 @@
 grep -q 'Libre Computer Board ALL-H3-CC H3$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # allwinner h3 tv box
-  ln -s /opt/mali-sunxi /opt/libgl
+  ln -s /opt/mali-sunxi-armv7l /opt/libgl
   cp /data/config/x11/xorg.conf-sunxi /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-h3 /data/config/qjackctl/QjackCtl.conf
   ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "H3 Audio Codec" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set 'Line Out' 31 ; amixer -c ${AUDIO_DEVICE} set DAC 63 ; fi ) &
@@ -13,4 +13,6 @@ if [ "$?" = "0" ]; then
   echo "REALTIME_PRIORITY_V1=false" >> /data/config/info.txt
   # change to vt8 before starting the x server
   echo CHVT="true" >> /data/config/info.txt
+  # extra addition in front of the LD_LIBRARY_PATH when starting vcvrack
+  echo LDLP_PRE_EXTRA="/opt/gl4es" >> /data/config/info.txt
 fi

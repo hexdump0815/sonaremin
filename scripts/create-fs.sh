@@ -68,6 +68,9 @@ if [ -f ${WORKDIR}/downloads/kernel-mali-${1}-${2}.tar.gz ]; then
   tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/kernel-mali-${1}-${2}.tar.gz
 fi
 cp -r ${IMAGEBUILDER}/boot/boot-${1}-${2}/* boot
+# the sonaremin uses syslinux with /boot/menu as dir - so remove /boot/extlinux and add /boot/menu per system
+rm -rf boot/extlinux
+cp -r ${WORKDIR}/boot/boot-${1}-${2}/* boot
 
 rm -f create-chroot.sh
 ( cd ${IMAGEBUILDER}/files/extra-files ; tar cf - . ) | tar xf -

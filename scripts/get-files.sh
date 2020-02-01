@@ -28,13 +28,13 @@ vcvrack_v1_release_version="v1.1.6"
 padthv1_synthv1_release_version="v1.0.0"
 
 if [ "$1" = "all" ] || [ "$1" = "armv7l" ]; then
-  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v0/releases/download/${vcvrack_v0_release_version}/vcvrack.armv7l.tar.gz -O vcvrack-v0-armv7l.tar.gz
-  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.armv7l-v1.tar.gz
-  wget https://github.com/hexdump0815/sonaremin-rncbc-dockerbuild/releases/download/${padthv1_synthv1_release_version}/padthv1-synthv1-armv7l.tar.gz
+  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v0/releases/download/${vcvrack_v0_release_version}/vcvrack.armv7l.tar.gz -O downloads/vcvrack-v0-armv7l.tar.gz
+  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.armv7l-v1.tar.gz -O downloads/vcvrack.armv7l-v1.tar.gz
+  wget https://github.com/hexdump0815/sonaremin-rncbc-dockerbuild/releases/download/${padthv1_synthv1_release_version}/padthv1-synthv1-armv7l.tar.gz -O downloads/padthv1-synthv1-armv7l.tar.gz
 fi
 
 if [ "$1" = "all" ] || [ "$1" = "aarch64" ]; then
-  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v0/releases/download/${vcvrack_v0_release_version}/vcvrack.aarch64.tar.gz -O vcvrack-v0-aarch64.tar.gz
-  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.aarch64-v1.tar.gz
-  wget https://github.com/hexdump0815/sonaremin-rncbc-dockerbuild/releases/download/${padthv1_synthv1_release_version}/padthv1-synthv1-aarch64.tar.gz
+  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v0/releases/download/${vcvrack_v0_release_version}/vcvrack.aarch64.tar.gz -O downloads/vcvrack-v0-aarch64.tar.gz
+  wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.aarch64-v1.tar.gz -O downloads/vcvrack.aarch64-v1.tar.gz
+  wget https://github.com/hexdump0815/sonaremin-rncbc-dockerbuild/releases/download/${padthv1_synthv1_release_version}/padthv1-synthv1-aarch64.tar.gz -O downloads/padthv1-synthv1-aarch64.tar.gz
 fi
