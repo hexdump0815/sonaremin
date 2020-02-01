@@ -77,14 +77,14 @@ rm -f create-chroot.sh
 if [ -d ${IMAGEBUILDER}/files/extra-files-${2} ]; then
   ( cd ${IMAGEBUILDER}/files/extra-files-${2} ; tar cf - . ) | tar xf -
 fi
-if [ -d ${IMAGEBUILDER}/files/extra-files-${3} ]; then
-  ( cd ${IMAGEBUILDER}/files/extra-files-${3} ; tar cf - . ) | tar xf -
+if [ -d ${IMAGEBUILDER}/files/extra-files-ubuntu ]; then
+  ( cd ${IMAGEBUILDER}/files/extra-files-ubuntu ; tar cf - . ) | tar xf -
 fi
 if [ -d ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2} ]; then
   ( cd ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2} ; tar cf - . ) | tar xf -
 fi
-if [ -d ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2}-${3} ]; then
-  ( cd ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2}-${3} ; tar cf - . ) | tar xf -
+if [ -d ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2}-ubuntu ]; then
+  ( cd ${IMAGEBUILDER}/files/systems/${1}/extra-files-${1}-${2}-ubuntu ; tar cf - . ) | tar xf -
 fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-${1}-${2}.tar.gz ]; then
   tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-${1}-${2}.tar.gz
@@ -95,22 +95,22 @@ fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-wayland-${1}-${2}.tar.gz ]; then
   tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-wayland-${1}-${2}.tar.gz
 fi
-if [ -f ${IMAGEBUILDER}/downloads/opengl-rpi-${2}-${3}.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-rpi-${2}-${3}.tar.gz
+if [ -f ${IMAGEBUILDER}/downloads/opengl-rpi-${2}-ubuntu.tar.gz ]; then
+  tar --numeric-owner -xzf ${WORKDIR}/downloads/opengl-rpi-${2}-ubuntu.tar.gz
 fi
-if [ -f ${IMAGEBUILDER}/downloads/xorg-armsoc-${2}-${3}.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/xorg-armsoc-${2}-${3}.tar.gz
+if [ -f ${IMAGEBUILDER}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz ]; then
+  tar --numeric-owner -xzf ${WORKDIR}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz
 fi
-if [ -f ${IMAGEBUILDER}/downloads/gl4es-${2}-${3}.tar.gz ]; then
-  tar --numeric-owner -xzf ${WORKDIR}/downloads/gl4es-${2}-${3}.tar.gz
+if [ -f ${IMAGEBUILDER}/downloads/gl4es-${2}-ubuntu.tar.gz ]; then
+  tar --numeric-owner -xzf ${WORKDIR}/downloads/gl4es-${2}-ubuntu.tar.gz
 fi
 
 # not sure if this is all needed for the sonaremin
-#if [ -f ${IMAGEBUILDER}/files/systems/${1}/rc-local-additions-${1}-${2}-${3}.txt ]; then
+#if [ -f ${IMAGEBUILDER}/files/systems/${1}/rc-local-additions-${1}-${2}-ubuntu.txt ]; then
 #  echo "" >> etc/rc.local
-#  echo "# additions for ${1}-${2}-${3}" >> etc/rc.local
+#  echo "# additions for ${1}-${2}-ubuntu" >> etc/rc.local
 #  echo "" >> etc/rc.local
-#  cat ${IMAGEBUILDER}/files/systems/${1}/rc-local-additions-${1}-${2}-${3}.txt >> etc/rc.local
+#  cat ${IMAGEBUILDER}/files/systems/${1}/rc-local-additions-${1}-${2}-ubuntu.txt >> etc/rc.local
 #fi
 #echo "" >> etc/rc.local
 #echo "exit 0" >> etc/rc.local
