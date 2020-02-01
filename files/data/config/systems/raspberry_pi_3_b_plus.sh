@@ -1,10 +1,10 @@
 grep -q 'Raspberry Pi 3 Model B+$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # raspberry pi 3b plus
-  if [ -d /opt/mesa-rpi/lib/aarch64-linux-gnu ]; then
-    ln -s /opt/mesa-rpi/lib/aarch64-linux-gnu /opt/libgl
+  if [ -d /opt/mesa-rpi-aarch64/lib/aarch64-linux-gnu ]; then
+    ln -s /opt/mesa-rpi-aarch64/lib/aarch64-linux-gnu /opt/libgl
   else
-    ln -s /opt/mesa-rpi/lib/arm-linux-gnueabihf /opt/libgl
+    ln -s /opt/mesa-rpi-armv7l/lib/arm-linux-gnueabihf /opt/libgl
   fi
   cp /data/config/x11/xorg.conf-raspberrypi /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-raspberrypi /data/config/qjackctl/QjackCtl.conf
