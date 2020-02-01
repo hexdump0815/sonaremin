@@ -15,4 +15,6 @@ if [ "$?" = "0" ]; then
   echo CHVT="false" >> /data/config/info.txt
   # extra addition in front of the LD_LIBRARY_PATH when starting vcvrack
   echo LDLP_PRE_EXTRA="/opt/gl4es" >> /data/config/info.txt
+  # gl4es mode - this allows mali gpu accel even with xpra in virtual mode
+  echo LIBGL_FB=3 >> /data/config/info.txt
 fi

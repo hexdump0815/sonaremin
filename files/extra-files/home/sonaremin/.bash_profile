@@ -18,5 +18,8 @@ if [[ ! ${DISPLAY} && ${XDG_VTNR} == 8 ]]; then
   if [ "$LDLP" != "" ]; then
     export LD_LIBRARY_PATH=$LDLP
   fi
+  if [ "$LIBGL_FB" != "" ]; then
+    export LIBGL_FB
+  fi
   exec startx
 fi
