@@ -24,6 +24,9 @@ if [ -d ${BUILD_ROOT} ]; then
   exit 1
 fi
 
+cd `dirname $0`/..
+export WORKDIR=`pwd`
+
 if [ -d `dirname $0`/../../imagebuilder ]; then
   # path to the cloned imagebuilder framework
   cd `dirname $0`/../../imagebuilder
@@ -37,9 +40,6 @@ else
   exit 1
 fi
 
-cd `dirname $0`/..
-export WORKDIR=`pwd`
-
 mkdir -p ${BUILD_ROOT}
 cd ${BUILD_ROOT}
 
@@ -50,7 +50,7 @@ elif [ "$2" = "aarch64" ]; then
 fi
 LANG=C debootstrap --variant=minbase --arch=${BOOTSTRAP_ARCH} bionic ${BUILD_ROOT} http://ports.ubuntu.com/
 
-cp ${IMAGEBUILDER}/files/ubuntu-sources.list ${BUILD_ROOT}/etc/apt
+cp ${IMAGEBUILDER}/files/ubuntu-sources.list ${BUILD_ROOT}/etc/apt/sources.list
 cp ${WORKDIR}/scripts/create-chroot.sh ${BUILD_ROOT}
 
 mount -o bind /dev ${BUILD_ROOT}/dev
@@ -150,7 +150,7 @@ mv vcvrack.${2} vcvrack-v0
 rm -f vcvrack-v0/settings.json vcvrack-v0/autosave.vcv
 ln -s /data/vcvrack-v0/config/settings.json vcvrack-v0/settings.json
 ln -s /data/vcvrack-v0/config/autosave.vcv vcvrack-v0/autosave.vcv
-tar --numeric-owner -xzf ${WORKDIR}/files/vcvrack.${2}-v1.tar.gz
+tar --numeric-owner -xzf ${WORKDIR}/downloads/vcvrack.${2}-v1.tar.gz
 mv vcvrack.${2}-v1 vcvrack-v1
 rm -f vcvrack-v1/settings.json vcvrack-v1/autosave.vcv vcvrack-v1/template.vcv
 ln -s /data/vcvrack-v1/config/settings.json vcvrack-v1/settings.json

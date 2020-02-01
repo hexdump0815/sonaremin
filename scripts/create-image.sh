@@ -26,6 +26,9 @@ if [ ! -d ${BUILD_ROOT}/boot ]; then
   exit 1
 fi
 
+cd `dirname $0`/..
+export WORKDIR=`pwd`
+
 if [ -d `dirname $0`/../../imagebuilder ]; then
   # path to the cloned imagebuilder framework
   cd `dirname $0`/../../imagebuilder
@@ -38,9 +41,6 @@ else
   echo ""
   exit 1
 fi
-
-cd `dirname $0`/..
-export WORKDIR=`pwd`
 
 mkdir -p ${IMAGE_DIR}
 mkdir -p ${MOUNT_POINT}
@@ -64,7 +64,7 @@ if [ -f ${IMAGEBUILDER}/boot/boot-${1}-${2}.dd ]; then
 fi
 
 # inspired by https://github.com/jeromebrunet/libretech-image-builder/blob/libretech-cc-xenial-4.13/linux-image.sh
-fdisk /dev/loop0 < files/mbr-partitions.txt
+fdisk /dev/loop0 < ${WORKDIR}/files/mbr-partitions.txt
 
 # this is to make sure we really use the new partition table and have all partitions around
 partprobe /dev/loop0
@@ -72,7 +72,7 @@ losetup -d /dev/loop0
 losetup --partscan /dev/loop0 ${IMAGE_DIR}/sonaremin-${1}-${2}.img
 
 # get partition mapping info
-. files/partition-mapping.txt
+. ${WORKDIR}/files/partition-mapping.txt
 mkfs.vfat -F32 -n BOOTPART /dev/loop0p$BOOTPART
 mkfs.vfat -F32 -n DATAPART /dev/loop0p$DATAPART
 mkswap -L swappart /dev/loop0p$SWAPPART

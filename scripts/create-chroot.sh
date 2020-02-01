@@ -1,8 +1,13 @@
 #!/bin/bash -x
 
+# do not ask anything
+export DEBIAN_FRONTEND=noninteractive
+
+export LANG=C
+
 apt-get update
-apt-get -y upgrade
-apt-get -y install vim openssh-server qjackctl fluxbox xpra xvfb libgl1 rtirq-init sudo net-tools ifupdown net-tools isc-dhcp-client lxterminal kmod less overlayroot u-boot-tools xinit xserver-xorg-input-libinput mingetty locales irqbalance usbutils mousepad alsa-utils matchbox-keyboard dosfstools libllvm6.0 a2jmidid samba avahi-daemon liblo7 libfftw3-3 unzip libcap2-bin
+apt-get -yq upgrade
+apt-get -yq install vim openssh-server qjackctl fluxbox xpra xvfb libgl1 rtirq-init sudo net-tools ifupdown net-tools isc-dhcp-client lxterminal kmod less overlayroot u-boot-tools xinit xserver-xorg-input-libinput mingetty locales irqbalance usbutils mousepad alsa-utils matchbox-keyboard dosfstools libllvm6.0 a2jmidid samba avahi-daemon liblo7 libfftw3-3 unzip libcap2-bin
 
 systemctl enable ssh
 systemctl disable xpra
@@ -23,5 +28,12 @@ usermod -a -G sudo sonaremin
 usermod -a -G audio sonaremin
 usermod -a -G video sonaremin
 
-apt-get -y auto-remove
+# setup locale info for en-us
+sed -i 's,# en_US ISO-8859-1,en_US ISO-8859-1,g;s,# en_US.UTF-8 UTF-8,en_US.UTF-8 UTF-8,g' /etc/locale.gen
+locale-gen
+
+# remove dmidecode (only on ubuntu) as it crashes on some arm devices on boot
+apt-get -yq remove dmidecode
+
+apt-get -yq auto-remove
 apt-get clean
