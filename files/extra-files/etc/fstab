@@ -1,0 +1,4 @@
+LABEL=BOOTPART /boot vfat defaults,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush 0 2
+LABEL=DATAPART /data vfat defaults,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush 0 2
+LABEL=rootpart / ext4 defaults,noatime,nodiratime,errors=remount-ro 0 1
+LABEL=swappart none swap sw 0 0

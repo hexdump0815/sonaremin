@@ -1,4 +1,0 @@
-/dev/mmcblk1p1 /boot vfat defaults,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush 0 2
-/dev/mmcblk1p2 /data vfat defaults,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush 0 2
-/dev/mmcblk1p5 / ext4 defaults,noatime,nodiratime,errors=remount-ro 0 1
-/dev/mmcblk1p3 none swap sw 0 0
