@@ -5,16 +5,17 @@ if [ "$?" = "0" ]; then
   cp /data/config/x11/xorg.conf-rk3288 /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
   ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set PCM 64 ; fi ) &
-  MAX_CPU_CLOCK=1200000
   if [ -f /data/config/sonaremin.txt ]; then
     . /data/config/sonaremin.txt
   fi
-  if [ "$MAX_CPU_CLOCK" != "" ]; then
-    if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq ]; then
-      for i in /sys/devices/system/cpu/cpu?/cpufreq/scaling_max_freq ; do
-        echo $MAX_CPU_CLOCK > $i
-      done
-    fi
+  # if no cpu clock limitation is defined, then set it for thermal safety
+  if [ "$MAX_CPU_CLOCK" = "" ]; then
+    MAX_CPU_CLOCK=1200000
+  fi
+  if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq ]; then
+    for i in /sys/devices/system/cpu/cpu?/cpufreq/scaling_max_freq ; do
+      echo $MAX_CPU_CLOCK > $i
+    done
   fi
   echo "SYSTEM_MODEL=rk3288" > /data/config/info.txt
   echo "SYSTEM_MODEL_DETAILED=tinkerboard" >> /data/config/info.txt

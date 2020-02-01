@@ -18,6 +18,18 @@ if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ]; then
   done
 fi
 
+# if a cpu clock limitation is defined, then set it here
+if [ -f /data/config/sonaremin.txt ]; then
+  . /data/config/sonaremin.txt
+fi
+if [ "$MAX_CPU_CLOCK" != "" ]; then
+  if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq ]; then
+    for i in /sys/devices/system/cpu/cpu?/cpufreq/scaling_max_freq ; do
+      echo $MAX_CPU_CLOCK > $i
+    done
+  fi
+fi
+
 grep -q threadirqs /proc/cmdline
 if [ "$?" = "0" ]; then
   systemctl stop irqbalance
