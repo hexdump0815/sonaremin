@@ -65,7 +65,7 @@ chroot ${BUILD_ROOT} /create-chroot.sh
 
 cd ${BUILD_ROOT}/
 tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/kernel-${1}-${2}.tar.gz
-if [ -f ${WORKDIR}/downloads/kernel-mali-${1}-${2}.tar.gz ]; then
+if [ -f ${IMAGEBUILDER}/downloads/kernel-mali-${1}-${2}.tar.gz ]; then
   tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/kernel-mali-${1}-${2}.tar.gz
 fi
 cp -r ${IMAGEBUILDER}/boot/boot-${1}-${2}/* boot
