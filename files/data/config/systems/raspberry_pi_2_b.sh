@@ -15,8 +15,6 @@ if [ "$?" = "0" ]; then
   echo "SYSTEM_MODEL_DETAILED=raspberrypi_2_b" >> /data/config/info.txt
   # start vcvrack v0 with realtime scheduling priority - might result in system hangs
   echo "REALTIME_PRIORITY_V0=false" >> /data/config/info.txt
-  # start vcvrack v1 with realtime scheduling priority - might result in system hangs
-  echo "REALTIME_PRIORITY_V1=false" >> /data/config/info.txt
   # change to vt8 before starting the x server
   echo CHVT="true" >> /data/config/info.txt
   # set an extra LD_LIBRARY_PATH when starting the xserver and qjackctl

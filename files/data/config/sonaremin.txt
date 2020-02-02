@@ -39,9 +39,8 @@ VCVRACK_VERSION=v1
 
 # overwrite the REALTIME_PRIORITY values in the config/systems definitions
 # start vcvrack v0 with realtime scheduling priority - might result in system hangs
+# for v1 this is handled automatically via a background job (set-prio.sh)
 #REALTIME_PRIORITY_V0=true
-# start vcvrack v1 with realtime scheduling priority - might result in system hangs
-#REALTIME_PRIORITY_V1=true
 
 # start padthv1 automatically - you should either select this or vcvrack above
 #PADTHV1_START=yes

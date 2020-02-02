@@ -46,12 +46,6 @@ else
   RT_PRIO_V0=""
 fi
 
-if [ "$REALTIME_PRIORITY_V1" = "true" ]; then
-  RT_PRIO_V1="chrt 20"
-else
-  RT_PRIO_V1=""
-fi
-
 if [ "$VCVRACK_VERSION" = "v0" ]; then
   exec $RT_PRIO_V0 ./Rack -d $STARTUP_FILE
 else
@@ -59,5 +53,5 @@ else
   # it is reenabled later via the set-prio.sh script running periodically in the
   # background
   sed -i.bak 's/"realTime":\ true,/"realTime": false,/g' settings.json
-  exec $RT_PRIO_V1 ./Rack -d $STARTUP_FILE
+  exec ./Rack -d $STARTUP_FILE
 fi
