@@ -22,7 +22,7 @@ if { [ "$QJACKCTL_START" = "yes" ] && [ "$QJACKCTL_PID" = "" ]; } \
   export JACK_NO_AUDIO_RESERVATION=1
   MYARCH=`uname -m`
   # qjackctl needs to use mesa, otherwise it will segfault on the 32bit rpi
-  if [ "$SYSTEM_MODEL" = "raspberrypi" ] && [ "$MYARCH" = "armv7l" ]; then
+  if [ "$SYSTEM_MODEL" = "raspberrypi" ]; then
     export LD_LIBRARY_PATH=/opt/libgl
   # otherwise bypass the accelerated opengl here as it is safer this way
   else
