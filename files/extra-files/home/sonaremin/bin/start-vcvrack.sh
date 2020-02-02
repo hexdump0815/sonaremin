@@ -2,6 +2,9 @@
 
 if [ -f /data/config/info.txt ]; then
   . /data/config/info.txt
+  if [ "$LIBGL_FB" != "" ]; then
+    export LIBGL_FB
+  fi
 else
   # extra addition in front of the LD_LIBRARY_PATH when starting vcvrack
   LDLP_PRE_EXTRA=""
@@ -36,7 +39,7 @@ if { [ "$QJACKCTL_START" = "yes" ] && [ "$VCVRACK_START" = "yes" ] && [ "$VCVRAC
       export LD_LIBRARY_PATH=${LDLP_PRE_EXTRA}:/opt/libgl
     fi
   else
-    export LD_LIBRARY_PATH=""
+    export LD_LIBRARY_PATH="/opt/gl4es:/opt/libgl"
   fi
   cd /home/sonaremin/vcvrack-${VCVRACK_VERSION}
   sync

@@ -99,15 +99,28 @@ if [ -f /home/sonaremin/vcvrack-v1/Rack ]; then
   fi
 fi
 
+# the way we use the mali gpu driver it can be used always
+# i.e. for display and virtual mode
+echo /opt/gl4es >  /etc/ld.so.conf.d/aaa-libgl.conf
+echo /opt/libgl >>  /etc/ld.so.conf.d/aaa-libgl.conf
+ldconfig
+
 if [ "$DISPLAY_MODE" = "display" ]; then
-  echo /opt/gl4es >  /etc/ld.so.conf.d/aaa-libgl.conf
-  echo /opt/libgl >>  /etc/ld.so.conf.d/aaa-libgl.conf
-  ldconfig
   systemctl start x11.service
 else
-  rm -f /etc/X11/xorg.conf.d/xorg.conf
-  rm -f /etc/ld.so.conf.d/aaa-libgl.conf
-  ldconfig
+  # get the SYSTEM_MODEL setting
+  if [ -f /data/config/info.txt ]; then
+  . /data/config/info.txt
+  fi
+  if [ "$SYSTEM_MODEL" = "raspberrypi" ]; then
+    # for the raspberry pi with its mesa driver we have to use software
+    # rendering in virtual mode but we limit the number of rendering
+    # threads to only one to keep most of the cpu for audio
+    rm -f /etc/X11/xorg.conf.d/xorg.conf
+    rm -f /etc/ld.so.conf.d/aaa-libgl.conf
+    ldconfig
+    export LP_NUM_THREADS=1
+  fi
   if [ -x /home/sonaremin/bin/start-xpra.sh ]; then
     su -c /home/sonaremin/bin/start-xpra.sh sonaremin
   fi
