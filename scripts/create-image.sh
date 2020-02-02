@@ -103,6 +103,8 @@ umount ${MOUNT_POINT}
 
 losetup -d /dev/loop0
 
+rmdir ${MOUNT_POINT}
+
 echo ""
 echo "the image is now ready at ${IMAGE_DIR}/sonaremin-${1}-${2}.img"
 echo ""
