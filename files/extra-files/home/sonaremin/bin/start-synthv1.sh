@@ -19,6 +19,13 @@ MYARCH=`uname -m`
 # synthv1 needs to use mesa, otherwise it will segfault on the 32bit rpi
 if [ "$SYSTEM_MODEL" = "raspberrypi" ] && [ "$MYARCH" = "armv7l" ]; then
   export LD_LIBRARY_PATH=/opt/libgl
+# otherwise bypass the accelerated opengl here as it is safer this way
+else
+  if [ -d /usr/lib/arm-linux-gnueabihf ]; then
+    export LD_LIBRARY_PATH=/usr/lib/arm-linux-gnueabihf
+  elif [ -d /usr/lib/aarch64-linux-gnu ]; then
+    export LD_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
+  fi
 fi
 
 SYNTHV1_01_PID=`pidof /opt/synthv1-s01/bin/synthv1_jack`
