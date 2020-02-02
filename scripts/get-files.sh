@@ -24,7 +24,7 @@ mkdir downloads
 set -e
 
 vcvrack_v0_release_version="v0.6.2c-0.2"
-vcvrack_v1_release_version="v1.1.6"
+vcvrack_v1_release_version="v1.1.6.1"
 padthv1_synthv1_release_version="v1.0.0"
 
 if [ "$1" = "all" ] || [ "$1" = "armv7l" ]; then
