@@ -35,5 +35,8 @@ locale-gen
 # remove dmidecode (only on ubuntu) as it crashes on some arm devices on boot
 apt-get -yq remove dmidecode
 
+# this is needed to make out special xorg setup work with the modesetting driver
+chmod u+s /usr/lib/xorg/Xorg
+
 apt-get -yq auto-remove
 apt-get clean
