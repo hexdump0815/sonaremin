@@ -19,7 +19,6 @@ systemctl disable avahi-daemon
 systemctl disable fstrim.timer
 systemctl disable apt-daily
 systemctl disable apt-daily-upgrade
-systemctl disable bluetooth.target
 systemctl mask alsa-restore.service
 systemctl mask alsa-state.service
 systemctl mask alsa-utils
@@ -32,6 +31,9 @@ usermod -a -G video sonaremin
 # setup locale info for en-us
 sed -i 's,# en_US ISO-8859-1,en_US ISO-8859-1,g;s,# en_US.UTF-8 UTF-8,en_US.UTF-8 UTF-8,g' /etc/locale.gen
 locale-gen
+
+# enable jack realtime settings
+mv -f /etc/security/limits.d/audio.conf.disabled /etc/security/limits.d/audio.conf
 
 # remove dmidecode (only on ubuntu) as it crashes on some arm devices on boot
 apt-get -yq remove dmidecode
