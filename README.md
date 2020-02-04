@@ -12,9 +12,17 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
-version 1.1.6 (planned only - not yet released)
+version 1.1.6
 - upgrade vcvrack to version v1.1.6
-- more included modules (113 plugins = 1300+ vcvrack modules)
+- more included modules (119 plugins = 1350+ vcvrack modules, status 01.02.2020)
+- better handling of realtime scheduling priority and cpu affinity - this helps quite a bit on the raspberry pi
+- there is now an optimize option in the desktop menu to rerun the realtime scheduling priority and cpu affinity setup whenever needed
+- rename headless mode to virtual mode to make room for the upcoming proper headless mode in vcvrack v2
+- switch mali gpu based systems to modesetting xorg server plus LIBGL_FB=3 mode of gl4es - this lets the gpu even render the ui if we are in virtual mode via xpra (does not work on the raspberry pi as it is mesa based)
+- image building process completely changed - it is way more clean and flexible now
+- supported systems: raspberry pi 3b and 3b plus (working much better now), amlogic s905w, s905x and s905 based android tv boxes, odroid c2 (yet untested) - more to come
+- work on raspberry pi 4 support has started but is not working yet - meanwhile you can use my raspbian build of vcvrack on raspbian (not as fast as running it in 64bit on the sonaremin, but better than nothing until that is ready)
+- upgraded software everwhere: linux kernel is on v5.4 lts now, mesa for the raspberry pi is at v20rc1, gl4es is fresh and the underlying ubuntu is still 18.04 updated to current state
 
 version 1.1.3 (planned only - not released, skipped)
 - upgrade vcvrack to version v1.1.3
