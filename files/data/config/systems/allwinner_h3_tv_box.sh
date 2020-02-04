@@ -1,8 +1,8 @@
 grep -q 'Libre Computer Board ALL-H3-CC H3$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # allwinner h3 tv box
-  ln -s /opt/mali-sunxi-fbdev-armv7l /opt/libgl
-  ln -s /opt/gl4es-armv7l /opt/gl4es
+  ln -sf /opt/mali-sunxi-fbdev-armv7l /opt/libgl
+  ln -sf /opt/gl4es-armv7l /opt/gl4es
   cp /data/config/x11/xorg.conf-sunxi /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-h3 /data/config/qjackctl/QjackCtl.conf
   ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "H3 Audio Codec" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set 'Line Out' 31 ; amixer -c ${AUDIO_DEVICE} set DAC 63 ; fi ) &

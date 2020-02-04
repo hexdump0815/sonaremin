@@ -2,11 +2,11 @@ grep -q 'Amlogic Meson GXL (S905W) P281 Development Board$' /proc/device-tree/mo
 if [ "$?" = "0" ]; then
   # amlogic s905w/x tv box
   if [ -d /opt/mali-s905-fbdev-aarch64 ]; then
-    ln -s /opt/mali-s905-fbdev-aarch64 /opt/libgl
-    ln -s /opt/gl4es-aarch64 /opt/gl4es
+    ln -sf /opt/mali-s905-fbdev-aarch64 /opt/libgl
+    ln -sf /opt/gl4es-aarch64 /opt/gl4es
   else
-    ln -s /opt/mali-s905-fbdev-armv7l /opt/libgl
-    ln -s /opt/gl4es-armv7l /opt/gl4es
+    ln -sf /opt/mali-s905-fbdev-armv7l /opt/libgl
+    ln -sf /opt/gl4es-armv7l /opt/gl4es
   fi
   cp /data/config/x11/xorg.conf-s905 /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf

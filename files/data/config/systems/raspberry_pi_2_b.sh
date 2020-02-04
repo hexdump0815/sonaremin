@@ -2,11 +2,11 @@ grep -q 'Raspberry Pi 2 Model B$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # raspberry pi 2b
   if [ -d /opt/mesa-rpi-aarch64/lib/aarch64-linux-gnu ]; then
-    ln -s /opt/mesa-rpi-aarch64/lib/aarch64-linux-gnu /opt/libgl
-    ln -s /opt/gl4es-aarch64 /opt/gl4es
+    ln -sf /opt/mesa-rpi-aarch64/lib/aarch64-linux-gnu /opt/libgl
+    ln -sf /opt/gl4es-aarch64 /opt/gl4es
   else
-    ln -s /opt/mesa-rpi-armv7l/lib/arm-linux-gnueabihf /opt/libgl
-    ln -s /opt/gl4es-armv7l /opt/gl4es
+    ln -sf /opt/mesa-rpi-armv7l/lib/arm-linux-gnueabihf /opt/libgl
+    ln -sf /opt/gl4es-armv7l /opt/gl4es
   fi
   cp /data/config/x11/xorg.conf-raspberrypi /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-raspberrypi /data/config/qjackctl/QjackCtl.conf
