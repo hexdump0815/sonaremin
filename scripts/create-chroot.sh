@@ -19,6 +19,7 @@ systemctl disable avahi-daemon
 systemctl disable fstrim.timer
 systemctl disable apt-daily
 systemctl disable apt-daily-upgrade
+systemctl disable bluetooth.target
 systemctl mask alsa-restore.service
 systemctl mask alsa-state.service
 systemctl mask alsa-utils
