@@ -62,8 +62,8 @@ dd if=/dev/zero of=${IMAGE_DIR}/sonaremin-${1}-${2}.img bs=1024k count=1 seek=$(
 
 losetup /dev/loop0 ${IMAGE_DIR}/sonaremin-${1}-${2}.img
 
-if [ -f ${IMAGEBUILDER}/boot/boot-${1}-${2}.dd ]; then
-  dd if=${IMAGEBUILDER}/boot/boot-${1}-${2}.dd of=/dev/loop0
+if [ -f ${IMAGEBUILDER}/downloads/boot-${1}-${2}.dd ]; then
+  dd if=${IMAGEBUILDER}/downloads/boot-${1}-${2}.dd of=/dev/loop0
 fi
 
 # inspired by https://github.com/jeromebrunet/libretech-image-builder/blob/libretech-cc-xenial-4.13/linux-image.sh
