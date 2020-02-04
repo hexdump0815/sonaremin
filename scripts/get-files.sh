@@ -5,6 +5,7 @@
 if [ "$#" != "1" ]; then
   echo ""
   echo "usage: $0 arch"
+  echo ""
   echo "arch can be: armv7l"
   echo "             aarch64"
   echo "             all"
