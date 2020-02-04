@@ -46,12 +46,18 @@ else
   RT_PRIO_V0=""
 fi
 
+if [ "$REALTIME_PRIORITY_V1" = "true" ]; then
+  # wait a moment until vcvrack has started up completely
+  ( sleep 30 ; sudo /home/sonaremin/bin/set-rtprio-and-cpu-affinity.sh ) &
+fi
+
 if [ "$VCVRACK_VERSION" = "v0" ]; then
   exec $RT_PRIO_V0 ./Rack -d $STARTUP_FILE
 else
-  # disable real time prio for vcvrack as it sometimes hangs the system on startup
-  # it is reenabled later via the set-prio.sh script running periodically in the
-  # background
-  sed -i.bak 's/"realTime":\ true,/"realTime": false,/g' settings.json
+  if [ "$RESET_REALTIME" = "true" ]; then
+    # disable real time prio for vcvrack as it sometimes hangs the system on startup
+    # it is reenabled later via the set-rtprio-and-cpu-affinity.sh script
+    sed -i.bak 's/"realTime":\ true,/"realTime": false,/g' settings.json
+  fi
   exec ./Rack -d $STARTUP_FILE
 fi
