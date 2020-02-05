@@ -5,6 +5,7 @@ if [ "$#" != "2" ]; then
   echo "usage: $0 system armversion"
   echo ""
   echo "possible system options:"
+  echo "- tinkerboard (armv7l)"
   echo "- raspberry_pi (armv7l)"
   echo "- raspberry_pi (aarch64)"
   echo "- amlogic_gx (aarch64)"
