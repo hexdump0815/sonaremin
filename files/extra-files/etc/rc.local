@@ -112,7 +112,7 @@ else
   if [ -f /data/config/info.txt ]; then
   . /data/config/info.txt
   fi
-  if [ "$SYSTEM_MODEL" = "raspberrypi" ]; then
+  if [ "$SYSTEM_MODEL" = "raspberrypi" ] || [ "$SYSTEM_MODEL" = "rk3288" ]; then
     # for the raspberry pi with its mesa driver we have to use software
     # rendering in virtual mode but we limit the number of rendering
     # threads to only one to keep most of the cpu for audio

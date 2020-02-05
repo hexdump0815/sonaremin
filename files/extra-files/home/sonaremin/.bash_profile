@@ -20,6 +20,14 @@ if [[ ! ${DISPLAY} && ${XDG_VTNR} == 8 ]]; then
   fi
   if [ "$LIBGL_FB" != "" ]; then
     export LIBGL_FB
+  else
+    # if LIBGL_FB is not set we want to start xorg (armsoc in this case)
+    # without gl4es and mali in LD_LIBRARY_PATH for sure
+    if [ -d /usr/lib/arm-linux-gnueabihf ]; then
+      export LD_LIBRARY_PATH=/usr/lib/arm-linux-gnueabihf
+    elif [ -d /usr/lib/aarch64-linux-gnu ]; then
+      export LD_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
+    fi
   fi
   exec startx
 fi
