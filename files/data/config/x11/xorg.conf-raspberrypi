@@ -15,6 +15,7 @@ Section "Screen"
 	Identifier 	"screen"
 	Device     	"device"
 	Monitor		"monitor"
+	DefaultDepth	24
 EndSection
 
 Section "ServerLayout"

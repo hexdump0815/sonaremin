@@ -10,7 +10,7 @@ Section "Monitor"
 #	Option		"PreferredMode" "1024x768"
 #	Option		"PreferredMode" "1280x1024"
 #	Option		"PreferredMode" "1920x1080"
-        Option          "DPMS" "false"
+	Option          "DPMS" "false"
 EndSection
 
 Section "Screen"

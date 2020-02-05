@@ -116,6 +116,9 @@ if [ -f ${IMAGEBUILDER}/downloads/gl4es-${2}-ubuntu.tar.gz ]; then
   tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/gl4es-${2}-ubuntu.tar.gz
 fi
 
+# the sonaremin brings its own xorg config, so delete the one coming from the imagebuilder
+rm -f etc/X11/xorg.conf.d/01-*
+
 # not sure if this is all needed for the sonaremin
 #if [ -f ${IMAGEBUILDER}/files/systems/${1}/rc-local-additions-${1}-${2}-ubuntu.txt ]; then
 #  echo "" >> etc/rc.local
