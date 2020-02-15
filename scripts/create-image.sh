@@ -80,7 +80,7 @@ losetup --partscan /dev/loop0 ${IMAGE_DIR}/sonaremin-${1}-${2}.img
 mkfs.vfat -F32 -n BOOTPART /dev/loop0p$BOOTPART
 mkfs.vfat -F32 -n DATAPART /dev/loop0p$DATAPART
 mkswap -L swappart /dev/loop0p$SWAPPART
-mkfs -t ext4 -O ^has_journal -L rootpart /dev/loop0p$ROOTPART
+mkfs -t ext4 -O ^has_journal -m 2 -L rootpart /dev/loop0p$ROOTPART
 
 mount /dev/loop0p$ROOTPART ${MOUNT_POINT}
 mkdir ${MOUNT_POINT}/boot
