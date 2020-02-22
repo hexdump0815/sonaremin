@@ -49,6 +49,11 @@ REALTIME_PRIORITY_V1=true
 RESET_REALTIME=true
 #RESET_REALTIME=false
 
+# set the cpu cores vcvrack and jack should run on - we avoid cpu0 as it has to deal
+# more with irq handling etc. - used in set-rtprio-and-cpu-affinity.sh
+DESIRED_CPU_AFFINITY=2,3
+DESIRED_CPU_AFFINITY_JACK=1
+
 # start padthv1 automatically - you should either select this or vcvrack above
 #PADTHV1_START=yes
 PADTHV1_START=no
