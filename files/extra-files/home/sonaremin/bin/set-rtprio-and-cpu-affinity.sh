@@ -52,7 +52,10 @@ if [ "${VCVRACK_PID}" != "" ]; then
 fi
 
 # jack
-JACK_PID=`pidof jackdbus`
+JACK_PID=`pidof jackd`
+if [ "${JACK_PID}" = "" ]; then
+  JACK_PID=`pidof jackdbus`
+fi
 if [ "${JACK_PID}" != "" ]; then
   for i in `top -p ${JACK_PID} -b -n 1 -H | sed 1,7d | grep '\-11' | awk '{print $1}'`; do
     CURRENT_PRIORITY=`chrt -p $i | grep priority | sed 's,.*scheduling priority: ,,g'`
