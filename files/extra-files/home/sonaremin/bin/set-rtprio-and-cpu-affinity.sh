@@ -19,12 +19,12 @@ if [ -f /data/config/sonaremin.txt ]; then
 fi
 
 if [ "${DESIRED_CPU_AFFINITY}" = "" ]; then
-  # on which cpu cores should vcvrack run - default: 3+4 (0 = cpu1 etc.)
+  # on which cpu cores should vcvrack run - default: 2,3 (0 = cpu1 etc. - i.e. 3+4)
   DESIRED_CPU_AFFINITY="2,3"
 fi
 
 if [ "${DESIRED_CPU_AFFINITY_JACK}" = "" ]; then
-  # on which cpu cores should jack run - default: 1 (0 = cpu1 etc.)
+  # on which cpu cores should jack run - default: 1 (0 = cpu1 etc. - i.e. 2)
   DESIRED_CPU_AFFINITY_JACK="1"
 fi
 
