@@ -27,6 +27,7 @@ useradd -c sonaremin -d /home/sonaremin -m -p '$6$ogEKlCQK$t8xIWJOE2eQgw4gcReHlC
 usermod -a -G sudo sonaremin
 usermod -a -G audio sonaremin
 usermod -a -G video sonaremin
+usermod -a -G xpra sonaremin
 
 # setup locale info for en-us
 sed -i 's,# en_US ISO-8859-1,en_US ISO-8859-1,g;s,# en_US.UTF-8 UTF-8,en_US.UTF-8 UTF-8,g' /etc/locale.gen
