@@ -57,7 +57,7 @@ else
   if [ "$RESET_REALTIME" = "true" ]; then
     # disable real time prio for vcvrack as it sometimes hangs the system on startup
     # it is reenabled later via the set-rtprio-and-cpu-affinity.sh script
-    sed -i.bak 's/"realTime":\ true,/"realTime": false,/g' settings.json
+    sed -i.backup 's/"realTime":\ true,/"realTime": false,/g' settings.json
   fi
   exec ./Rack -d $STARTUP_FILE
 fi
