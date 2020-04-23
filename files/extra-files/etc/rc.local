@@ -114,14 +114,19 @@ else
   if [ -f /data/config/info.txt ]; then
   . /data/config/info.txt
   fi
-  if [ "$SYSTEM_MODEL" = "raspberrypi" ] || [ "$SYSTEM_MODEL" = "rk3288" ]; then
-    # for the raspberry pi with its mesa driver we have to use software
-    # rendering in virtual mode but we limit the number of rendering
-    # threads to only one to keep most of the cpu for audio
-    rm -f /etc/X11/xorg.conf.d/xorg.conf
-    rm -f /etc/ld.so.conf.d/aaa-libgl.conf
-    ldconfig
-    export LP_NUM_THREADS=1
+  if [ "$SYSTEM_MODEL" = "raspberrypi" ]; then
+# old way of doing things - we can do better now by using xorgxrdp instead
+# of xvfb allowing us to run xpra with gpu acceleration also for mesa ...
+#    # for the raspberry pi with its mesa driver we have to use software
+#    # rendering in virtual mode but we limit the number of rendering
+#    # threads to only one to keep most of the cpu for audio
+#    rm -f /etc/X11/xorg.conf.d/xorg.conf
+#    rm -f /etc/ld.so.conf.d/aaa-libgl.conf
+#    ldconfig
+#    export LP_NUM_THREADS=1
+    # put the proper hdmi port into the xorgxrdp config
+    MY_HDMI=`ls /sys/class/drm | grep HDMI | head -n 1 | sed 's,.*HDMI,HDMI,g;s,-.-,-,g'`
+    sed -i "s,Option \"monitor-HDMI.*,Option \"monitor-${MY_HDMI}\" \"${MY_HDMI}\",g;s,Identifier \"HDMI.*,Identifier \"${MY_HDMI}\",g" /etc/X11/xrdp/xorg.conf
   fi
   if [ -x /home/sonaremin/bin/start-xpra.sh ]; then
     # disable cursor lock mode to make virtual mode less sluggish

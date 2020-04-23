@@ -23,6 +23,23 @@ if [ $? -eq 0 ]; then
     fbautostart
 fi
 
+# the following is only required if we run via xpra
+if [ "$(ps auxwww | grep /usr/bin/xpra | grep -v grep)" != "" ]; then
+
+  # read the actual config info file if it exists
+  if [ -f /data/config/info.txt ]; then
+    . /data/config/info.txt
+  fi
+
+  # the xorgxrdp approach for mesa requires to set a proper resolution here now
+  if [ "$SYSTEM_MODEL" = "raspberrypi" ]; then
+    MY_HDMI=`ls /sys/class/drm | grep HDMI | head -n 1 | sed 's,.*HDMI,HDMI,g;s,-.-,-,g'`
+    xrandr --output $MY_HDMI --mode 1024x768
+    sleep 3
+  fi
+
+fi
+
 /home/sonaremin/bin/start-qjackctl.sh &
 /home/sonaremin/bin/start-vcvrack.sh &
 /home/sonaremin/bin/start-padthv1.sh &
