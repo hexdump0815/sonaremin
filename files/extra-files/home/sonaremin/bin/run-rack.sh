@@ -10,12 +10,13 @@ else
   # start with a hdmi monitor connected (display) or virtual
   DISPLAY_MODE=display
   #DISPLAY_MODE=virtual
+  #DISPLAY_MODE=headless
   # which vcvrack version to start automativally
   #VCVRACK_VERSION=v0
   VCVRACK_VERSION=v1
 fi
 
-if [ "$DISPLAY_MODE" = "virtual" ]; then
+if [ "$DISPLAY_MODE" = "headless" ]; then
   if [ "$VCVRACK_VERSION" = "v0" ]; then
     mv -f /data/vcvrack-${VCVRACK_VERSION}/config/autosave.vcv /data/vcvrack-${VCVRACK_VERSION}/config/autosave.vcv.display
   else

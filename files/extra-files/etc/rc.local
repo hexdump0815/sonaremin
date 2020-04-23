@@ -18,6 +18,7 @@ else
   # start with a hdmi monitor connected (display) or virtual
   DISPLAY_MODE=display
   #DISPLAY_MODE=virtual
+  #DISPLAY_MODE=headless
   # enable tuning for audio usage
   AUDIO_TUNE=on
   #AUDIO_TUNE=off

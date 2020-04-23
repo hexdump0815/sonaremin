@@ -17,6 +17,7 @@ else
   # start with a hdmi monitor connected (display) or virtual
   DISPLAY_MODE=display
   #DISPLAY_MODE=virtual
+  #DISPLAY_MODE=headless
   # start qjackctl automatically
   QJACKCTL_START=yes
   #QJACKCTL_START=no
@@ -32,7 +33,7 @@ VCVRACK_PID=`pidof Rack`
 if { [ "$QJACKCTL_START" = "yes" ] && [ "$VCVRACK_START" = "yes" ] && [ "$VCVRACK_PID" = "" ]; } \
     || { [ "$1" = "menu" ] && [ "$VCVRACK_PID" = "" ]; }; then
   export VCVRACK_VERSION
-  if [ "$DISPLAY_MODE" != "virtual" ]; then
+  if [ "$DISPLAY_MODE" != "virtual" ] || [ "$DISPLAY_MODE" != "headless" ]; then
     if [ "$LDLP_PRE_EXTRA" = "" ]; then
       export LD_LIBRARY_PATH=/opt/libgl
     elif [ "$VCVRACK_VERSION" = "v0" ]; then
