@@ -91,7 +91,7 @@ DefPreset=(default)
 Version=0.4.5
 
 [Settings]
-Audio=2
+Audio=0
 Chan=0
 Dither=0
 Driver=alsa
@@ -103,7 +103,7 @@ InChannels=0
 InDevice=
 InLatency=0
 Interface=hw:Codec
-MidiDriver=none
+MidiDriver=seq
 Monitor=false
 NoMemLock=false
 OutChannels=0
