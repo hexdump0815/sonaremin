@@ -1,7 +1,13 @@
 grep -q 'Rockchip RK3288 Asus Tinker Board S$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # tinkerboard s
-  ln -sf /opt/mali-rk3288-armv7l /opt/libgl
+  if [ "$DISPLAY_MODE" = "display" ]; then
+    ln -sf /opt/mali-rk3288-armv7l /opt/libgl
+  else
+    # the LIBGL_FB=3 mode with fbdev mali only works as long as
+    # /dev/fb0 is not in use, so thus only in non display mode
+    ln -sf /opt/mali-rk3288-fbdev-armv7l /opt/libgl
+  fi
   ln -sf /opt/gl4es-armv7l /opt/gl4es
   cp /data/config/x11/xorg.conf-rk3288 /etc/X11/xorg.conf.d/xorg.conf
   cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
@@ -26,6 +32,8 @@ if [ "$?" = "0" ]; then
   echo CHVT="true" >> /data/config/info.txt
   # extra addition in front of the LD_LIBRARY_PATH when starting vcvrack
   echo LDLP_PRE_EXTRA="/opt/gl4es" >> /data/config/info.txt
-  ## gl4es mode - this allows mali gpu accel even with xpra in virtual mode
-  #echo LIBGL_FB=3 >> /data/config/info.txt
+  if [ "$DISPLAY_MODE" != "display" ]; then
+    # gl4es mode - this allows mali gpu accel even with xpra in virtual mode
+    echo LIBGL_FB=3 >> /data/config/info.txt
+  fi
 fi
