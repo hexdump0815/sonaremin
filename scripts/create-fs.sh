@@ -155,6 +155,8 @@ mkdir -p myfiles/vcvrack-v0 myfiles/vcvrack-v1 myfiles/padthv1 myfiles/synthv1
 cp config/qjackctl/qjackctl-patchbay.xml config/qjackctl/backup
 
 cd ${BUILD_ROOT}
+# unpack this before the extra-files as they bring an adapted config
+tar --numeric-owner -xzf ${WORKDIR}/files/xorgxrdp--${2}.tar.gz
 ( cd ${WORKDIR}/files/extra-files ; tar cf - . ) | tar xf -
 tar --numeric-owner -xzf ${WORKDIR}/files/raveloxmidi-${2}.tar.gz
 tar --numeric-owner -xzf ${WORKDIR}/downloads/padthv1-synthv1-${2}.tar.gz
