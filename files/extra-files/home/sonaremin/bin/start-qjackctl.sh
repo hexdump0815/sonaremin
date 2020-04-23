@@ -33,7 +33,7 @@ if { [ "$QJACKCTL_START" = "yes" ] && [ "$QJACKCTL_PID" = "" ]; } \
     fi
   fi
   if [ "$JACKD_NET" = "yes" ]; then
-    jackd -d net -i 4 -o 4 & 
+    jackd -d net -i 4 -o 4 -C 2 -P 2 & 
     /home/sonaremin/bin/start-a2jmidid.sh &
     exec qjackctl
   else
