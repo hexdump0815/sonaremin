@@ -1,0 +1,8 @@
+#
+# custom audio setup for a different usb audio adapter
+#
+# - use "aplay -l" to get the device name to grep for
+# - use "amixer -c n" with n being the card number of it to find the name and value of the channel to set
+
+cp /data/config/custom/QjackCtl.conf-usbaudio /data/config/qjackctl/QjackCtl.conf
+( sleep 15; AUDIO_DEVICE=`aplay -l | grep "Device \[USB PnP Sound Device\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set Speaker 151; fi ) &

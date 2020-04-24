@@ -10,8 +10,13 @@ if [ "$?" = "0" ]; then
   fi
   ln -sf /opt/gl4es-armv7l /opt/gl4es
   cp /data/config/x11/xorg.conf-rk3288 /etc/X11/xorg.conf.d/xorg.conf
-  cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
-  ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set PCM 64 ; fi ) &
+  # check if a custom audio setup exists and use it in that case
+  if [ -f /data/config/custom/audio-setup.sh ]; then
+    . /data/config/custom/audio-setup.sh
+  else
+    cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
+    ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set PCM 64 ; fi ) &
+  fi
   if [ -f /data/config/sonaremin.txt ]; then
     . /data/config/sonaremin.txt
   fi
