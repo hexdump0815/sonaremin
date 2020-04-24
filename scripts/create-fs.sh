@@ -68,12 +68,6 @@ chroot ${BUILD_ROOT} /create-chroot.sh
 
 cd ${BUILD_ROOT}/
 
-# this is needed to make our special xorg setup work with the modesetting driver
-# but it should not be used in the case of the raspberry pi ...
-if [ "$1" != "raspberry_pi" ] && [ "$1" != "raspberry_pi_4" ] && [ "$1" != "tinkerboard" ]; then 
-  chmod u+s usr/lib/xorg/Xorg
-fi
-
 tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/kernel-${1}-${2}.tar.gz
 if [ -f ${IMAGEBUILDER}/downloads/kernel-mali-${1}-${2}.tar.gz ]; then
   tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/kernel-mali-${1}-${2}.tar.gz
