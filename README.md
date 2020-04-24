@@ -12,6 +12,18 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
+version 1.1.6_2
+- more included modules (132 plugins = 1450+ vcvrack modules, status 08.04.2020)
+- rethought the operational modes
+  - display:  with monitor, mouse and keyboard connected
+  - virtual:  via xpra and remembering the last file
+  - headless: like virtual but always starting with sonaremin.vcv
+- the virtual mode now uses the gpu for rendering in all provided images
+- better virtual mode due to proper allowCursorLock setting
+- easier custom audio device setup for other usb audio interfaces
+- extra audio channels for jack in network mode
+- add some adapted tinyvcvpatches as sample files (thanks to their creator)
+
 version 1.1.6
 - upgrade vcvrack to version v1.1.6
 - more included modules (119 plugins = 1350+ vcvrack modules, status 01.02.2020)
