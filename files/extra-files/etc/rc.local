@@ -108,7 +108,7 @@ ldconfig
 
 if [ "$DISPLAY_MODE" = "display" ]; then
   # set back cursor lock mode
-  sed -i.backup 's/"allowCursorLock": false,/"allowCursorLock": true,/g' /data/vcvrack-v1/config/settings.json
+  sed -i.backup-rc-local 's/"allowCursorLock": false,/"allowCursorLock": true,/g' /data/vcvrack-v1/config/settings.json
   systemctl start x11.service
 else
   # get the SYSTEM_MODEL setting
@@ -132,7 +132,7 @@ else
   if [ -x /home/sonaremin/bin/start-xpra.sh ]; then
     # disable cursor lock mode to make virtual mode less sluggish
     # especially the scroll bars are very hard to use otherwise
-    sed -i.backup 's/"allowCursorLock": true,/"allowCursorLock": false,/g' /data/vcvrack-v1/config/settings.json
+    sed -i.backup-rc-local 's/"allowCursorLock": true,/"allowCursorLock": false,/g' /data/vcvrack-v1/config/settings.json
     su -c /home/sonaremin/bin/start-xpra.sh sonaremin
   fi
 fi
