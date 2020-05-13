@@ -8,6 +8,7 @@ if [ "$#" != "2" ]; then
   echo "- tinkerboard (armv7l)"
   echo "- raspberry_pi (armv7l)"
   echo "- raspberry_pi (aarch64)"
+  echo "- raspberry_pi_4 (aarch64)"
   echo "- amlogic_gx (aarch64)"
   echo ""
   echo "possible arch options:"

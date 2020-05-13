@@ -8,6 +8,7 @@ if [ "$#" != "2" ]; then
   echo "- tinkerboard (armv7l)"
   echo "- raspberry_pi (armv7l)"
   echo "- raspberry_pi (aarch64)"
+  echo "- raspberry_pi_4 (aarch64)"
   echo "- amlogic_gx (aarch64)"
   echo ""
   echo "possible arch options:"
@@ -176,6 +177,13 @@ cp -f ${BUILD_ROOT}/usr/share/initramfs-tools/hooks/fsck ${BUILD_ROOT}/tmp/fsck.
 sed -i 's,fsck_types=.*,fsck_types="vfat ext4",g' ${BUILD_ROOT}/usr/share/initramfs-tools/hooks/fsck
 chroot ${BUILD_ROOT} update-initramfs -c -k ${KERNEL_VERSION}
 mv -f ${BUILD_ROOT}/tmp/fsck.org ${BUILD_ROOT}/usr/share/initramfs-tools/hooks/fsck
+
+cd ${BUILD_ROOT}
+
+# post install script per system
+if [ -x ${IMAGEBUILDER}/files/systems/${1}/postinstall-${1}-${2}-ubuntu.sh ]; then
+  ${IMAGEBUILDER}/files/systems/${1}/postinstall-${1}-${2}-ubuntu.sh
+fi
 
 cd ${WORKDIR}
 
