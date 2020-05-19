@@ -101,8 +101,8 @@ fi
 if [ -f ${IMAGEBUILDER}/downloads/opengl-wayland-${1}-${2}.tar.gz ]; then
   tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-wayland-${1}-${2}.tar.gz
 fi
-if [ -f ${IMAGEBUILDER}/downloads/opengl-rpi-${2}-ubuntu.tar.gz ]; then
-  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-rpi-${2}-ubuntu.tar.gz
+if [ -f ${IMAGEBUILDER}/downloads/opengl-mesa-${2}-ubuntu.tar.gz ]; then
+  tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/opengl-mesa-${2}-ubuntu.tar.gz
 fi
 if [ -f ${IMAGEBUILDER}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz ]; then
   tar --numeric-owner -xzf ${IMAGEBUILDER}/downloads/xorg-armsoc-${2}-ubuntu.tar.gz
