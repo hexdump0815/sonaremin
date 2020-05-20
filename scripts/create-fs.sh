@@ -185,6 +185,8 @@ if [ -x ${IMAGEBUILDER}/files/systems/${1}/postinstall-${1}-${2}-ubuntu.sh ]; th
   ${IMAGEBUILDER}/files/systems/${1}/postinstall-${1}-${2}-ubuntu.sh
 fi
 
+chroot ${BUILD_ROOT} ldconfig
+
 cd ${WORKDIR}
 
 umount ${BUILD_ROOT}/proc ${BUILD_ROOT}/sys ${BUILD_ROOT}/dev/pts ${BUILD_ROOT}/dev
