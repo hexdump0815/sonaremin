@@ -96,18 +96,7 @@ the comments in the brackets mean:
 - cooling: a fan or really big heat sink is required to cool the device, otherwise it will reduce its cpu performance automatically due to the created heat resulting in degraded audio performance (the tinkerboard will by default be run at a reduced clock speed to avoid the need of a fan, but with a fan it can be run at full speed with more cpu power)
 - untested: i have no access to such a device, so i could not test them, but in theory they should work
 
-the basic functionally is the same for all devices, but their cpu performance and thus possible maximum size of the possible patches differs a bit - here is an overview of the cpu usage of the different devices with the generative-01.vcv sample patch and vcvrack v0 (vcvrack is configured for two audio threads, so it can at maximum utilize about 200% cpu for audio - more threads do not make sense, as vcvrack does not scale well with more threads - cpu usage should be measured in iconified mode, as this way the ui does not eat any extra cpu):
-
-- odroid c2: 60-62%
-- amlogic s905w/s905x tv box: 80% (s905w) / 70% (s905x)
-- amlogic s905 tv box: 62-65%
-- tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
-- raspberry pi 3b in 64bit mode: 80%
-- raspberry pi 3b in 32bit mode: 105-120% (the slowdown compared to the 64bit version comes alone from not using the 64bit armv8 cpu instructions)
-- t9 tv box (rockchip rk3328 @1296mhz - surprisingly slower than an amlogic s905w @1200mz): 80-90% (just some basic test - not yet supported)
-- eachlink h6 mini tv box (allwinner h6 @1800mhz): 58-60% (just some basic test - not yet supported)
-- rock pi 4b (rockchip rk3399 2x a72 cores @1800mhz via taskset): 42% (just some basic test - not yet supported)
-- intel atom baytrail z3740d system: 95-105% (just some basic test - not supported, just for comparison)
+the basic functionally is the same for all devices, but their cpu performance and thus possible maximum size of the possible patches differs a bit.
 
 as a result recommended is the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram which is even better, but 1gb works well too) and come with a case and power supply already. the raspberry pi's are good as well, but need very good cooling.
 
@@ -129,15 +118,13 @@ in the case of the amlogic s905w/s905x/s905 tv boxes there is an extra step requ
 
 for some devices an adjustment for the dtb file is required - see the comments in the file menu/extlinux.conf (if there are any comments) in the BOOT partition of the written sd card.
 
-if you want to use a raspberry pi in vcvrack v0 mode an adjustment for the cma parameter in the kernel command line is required - see the comments in the file menu/extlinux.conf in the BOOT partition of the written sd card.
-
 # configuration
 
-the basic configuration of the sonaremin device is done in the menu/extlinux.conf file on the BOOT partition of the written sd card (see above as well) for setting the overlayroot mode or not and the file config/sonaremin.txt in the DATA partition of the written sd card: here the display mode (display or virtual) is the most important. besides that it is possible to turn off the audio tuning on boot, turn off the automatic start of qjackctl and vcvrack and change the maximum cpu clock in the case of a tinkerboard to avoid it overheating. it is also possible to switch back to the old v0 version of vcvrack. it is possible to enable the rncbc.org padthv1 and synthv1 synths instead of vcvrack as sound creaation tool and to enable samba to be able to access to the BOOT and DATA partitions over the net as smb shares to change the configuration or to up- or download patches to the sonaremin.
+the basic configuration of the sonaremin device is done in the menu/extlinux.conf file on the BOOT partition of the written sd card (see above as well) for setting the overlayroot mode or not and the file config/sonaremin.txt in the DATA partition of the written sd card: here the display mode (display or virtual) is the most important. besides that it is possible to turn off the audio tuning on boot, turn off the automatic start of qjackctl and vcvrack and change the maximum cpu clock in the case of a tinkerboard to avoid it overheating. it is possible to enable the rncbc.org padthv1 and synthv1 synths instead of vcvrack as sound creaation tool and to enable samba to be able to access to the BOOT and DATA partitions over the net as smb shares to change the configuration or to up- or download patches to the sonaremin.
 
 there are more options to configure the sonaremin, which will be described at a later time here (rc.boot-local, rc.xsession-local, config/systems directory, qjackctl directory)
 
-the default patch used in virtual mode is always vcvrack-v1/sonaremin.vcv (vcvrack-v0/sonaremin.vcv for the old v0.6.2c version) on the DATA partition of the sd card, so the desired patch to be run in virtual mode should be copied there. by default the generative-01.vcv patch is copied there, so that the sonaremin should give some sound about a minute after it starts if everything is working well. in display mode vcvrack will use the patch last used in display mode - the initial default is the generative-01.vcv sample patch.
+the default patch used in virtual mode is always vcvrack-v1/sonaremin.vcv on the DATA partition of the sd card, so the desired patch to be run in virtual mode should be copied there. by default the generative-01.vcv patch is copied there, so that the sonaremin should give some sound about a minute after it starts if everything is working well. in display mode vcvrack will use the patch last used in display mode - the initial default is the generative-01.vcv sample patch.
 
 the username to use when logging in remotely via ethernet to the sonaremin is "sonaremin" and the password is "sonaremin" as well - please change the password with the "passwd" linux command for security reasons if you plan to connect the device more often to a network. the hostname you should able able to find the device at in the network is "sonaremin" as well and remote login is possible via ssh and in virtual mode an xpra desktop sharing connection is possible too.
 
@@ -194,7 +181,6 @@ in general the sonaremin already works quite well - this is a list of things i h
 - the tinkerboard does only a shutdown when a reboot is requested - most probably some kernel patch is still missing - i do not see this as a big problem for now - seems to be resolved in 1.0.0
 - the allwinner s905 tv boxes might not work with all sd cards - maybe try another one in case you get mmc errors on boot, also some of the usb ports might not work
 - tv boxes might also behave strange on shutdown or reboot (for instance do only one of the two, do them in reverse or simply hang in that case) - this is due to the widely variying hardware of those devices
-- only relevant for vcvrack v0: the raspberries are quite at the limit with their gpu driver and opengl implementation and vcvrack - this has two side effects: a lot of memory is required for the gpu (about half of the 1gb) resulting in the sonaremin sometimes hanging for up to a minute when it starts swapping as there is not enough memory left (so just be patient for a moment) - the other effect are rendering errors (for instance the rails are missing on the raspberry pi's) and one should be more careful with the graphics (for instance always first empty the vcvrack patch - top left button - before opening another one) - this seems to be fixed with 1.0.0, the raspberry pi seems to be fully useable now with vcvrack v1 at least, with v0 the described problems remain true
 - some devices definitely need a fan for cooling (see hardware section above) - simple passive cooling with a small heat sink is definitely not enough
 - on the bananpi m1 i'm getting strange audio dropouts every 10 seconds if no hdmi cable is connected even in virtual mode, as soon as i connect something to the hdmi port, audio is fine
 - as all this is running on the arm architecture only non commercial plugins, which are available in source form (so that they can be compiled and included into the sonaremin) can be used, so no bought plugins can be used and some popular other ones cannot be used neither as there is no source code available for them (vult, nysthi, turing machine, ...) - this is less of a problem than it sounds as for many of them there are open sourced alternatives available (for instance the random sampler from audible instruments can take over some tasks of the turing machine)
@@ -207,7 +193,7 @@ in general the sonaremin already works quite well - this is a list of things i h
 
 a lot more info will come here over time - just some basic points already:
 - the linux system of the sonaremin is a regular ubuntu 18.04 lts
-- the vcvrack is a regular vcvrack (the normal one in case of v1 and the rcomian fork in the case of the v0.6.2c one - i'm using my arm builds of it as a base - see: https://github.com/hexdump0815/vcvrack-dockerbuild-v1 and https://github.com/hexdump0815/vcvrack-dockerbuild-v0), so the patches should be fully compatible with a regular desktop vcvrack as long as all used plugins are available and the sonaremin has enough cpu power for a patch - as a result patches for the sonaremin can also be created on a pc or laptop
+- the vcvrack is a regular vcvrack, so the patches should be fully compatible with a regular desktop vcvrack as long as all used plugins are available and the sonaremin has enough cpu power for a patch - as a result patches for the sonaremin can also be created on a pc or laptop
 - configuration details: coming later
 - realtime priority mode: coming later
 - adding support for anothe device: coming later
