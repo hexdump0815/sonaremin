@@ -12,6 +12,11 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
+version 1.1.6_4 (wip)
+- remove support for systems which are simply too slow for the sonaremin in reality (h3 tv boxes, raspberry pi 2)
+- remove support for vcvrack v0 (0.6.2c)
+- remove support for padthv1 and synthv1
+
 version 1.1.6_3
 - same as last version, but with raspberry pi 4 support
 
