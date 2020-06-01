@@ -2,8 +2,6 @@
 [exec] (terminal) { x-terminal-emulator -T "Bash" -e /bin/bash --login } <>
 [exec] (editor) { mousepad } <>
 [exec] (qjackctl) { /home/sonaremin/bin/start-qjackctl.sh menu } <>
-[exec] (padthv1) { /home/sonaremin/bin/start-padthv1.sh menu } <>
-[exec] (synthv1) { /home/sonaremin/bin/start-synthv1.sh menu } <>
 [exec] (vcvrack) { /home/sonaremin/bin/start-vcvrack.sh menu } <>
 [exec] (optimize) { sudo /home/sonaremin/bin/set-rtprio-and-cpu-affinity.sh } <>
 [submenu] (keyboard) { layout }

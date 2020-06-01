@@ -2,7 +2,7 @@
 
 ![sonaremin image 01](https://github.com/hexdump0815/sonaremin/raw/master/images/sonaremin-01.jpg "sonaremin image 01")
 
-welcome to the wonderful world of the sonaremin. the name sonaremin is combined from the latin word for sound: sonare and the end of theremin, the name of an unconventional instrument for its time in the 1920s. what is the sonaremin? it is following the philosophy of modular synthesizers by plugging together several excellent open source software projects to create something new. those projects are: vcvrack, padthv1, synthv1, raveloxmidi, jack, xpra, overlayroot, fluxbox, linux, ubuntu and many more. the goal is to create a a very flexible and easy to use device which can be used to create electronic music without the need of a computer. as soon as it gets plugged into the power socket it will start and it will be ready in about a minute. one just needs to connect a midi controller to it for playing it and at the end it can simply be unplugged from power to turn it off.
+welcome to the wonderful world of the sonaremin. the name sonaremin is combined from the latin word for sound: sonare and the end of theremin, the name of an unconventional instrument for its time in the 1920s. what is the sonaremin? it is following the philosophy of modular synthesizers by plugging together several excellent open source software projects to create something new. those projects are: vcvrack, raveloxmidi, jack, xpra, overlayroot, fluxbox, linux, ubuntu and many more. the goal is to create a a very flexible and easy to use device which can be used to create electronic music without the need of a computer. as soon as it gets plugged into the power socket it will start and it will be ready in about a minute. one just needs to connect a midi controller to it for playing it and at the end it can simply be unplugged from power to turn it off.
 
 for creating sounds it uses the wonderful vcvrack modular synthesizer by running special sound-patches created for it, which can then be played and/or manipulated by a connected midi controller. the sonaremin has two modes of operation: display mode and virtual mode.
 
@@ -80,10 +80,6 @@ in virtual mode the sonaremin does not need a mouse, a keyboard and a monitor. i
 
 more info coming soon ...
 
-# padthv1 and synthv1 mode
-
-more info coming soon ...
-
 # supported hardware
 
 the sonaremin currently runs (more or less) on the following arm cpu based devices:
@@ -123,7 +119,7 @@ for some devices an adjustment for the dtb file is required - see the comments i
 
 # configuration
 
-the basic configuration of the sonaremin device is done in the menu/extlinux.conf file on the BOOT partition of the written sd card (see above as well) for setting the overlayroot mode or not and the file config/sonaremin.txt in the DATA partition of the written sd card: here the display mode (display or virtual) is the most important. besides that it is possible to turn off the audio tuning on boot, turn off the automatic start of qjackctl and vcvrack and change the maximum cpu clock in the case of a tinkerboard to avoid it overheating. it is possible to enable the rncbc.org padthv1 and synthv1 synths instead of vcvrack as sound creaation tool and to enable samba to be able to access to the BOOT and DATA partitions over the net as smb shares to change the configuration or to up- or download patches to the sonaremin.
+the basic configuration of the sonaremin device is done in the menu/extlinux.conf file on the BOOT partition of the written sd card (see above as well) for setting the overlayroot mode or not and the file config/sonaremin.txt in the DATA partition of the written sd card: here the display mode (display or virtual) is the most important. besides that it is possible to turn off the audio tuning on boot, turn off the automatic start of qjackctl and vcvrack and change the maximum cpu clock in the case of a tinkerboard to avoid it overheating. it is possible to enable samba to be able to access to the BOOT and DATA partitions over the net as smb shares to change the configuration or to up- or download patches to the sonaremin.
 
 there are more options to configure the sonaremin, which will be described at a later time here (rc.boot-local, rc.xsession-local, config/systems directory, qjackctl directory)
 
@@ -131,7 +127,7 @@ the default patch used in virtual mode is always vcvrack-v1/sonaremin.vcv on the
 
 the username to use when logging in remotely via ethernet to the sonaremin is "sonaremin" and the password is "sonaremin" as well - please change the password with the "passwd" linux command for security reasons if you plan to connect the device more often to a network. the hostname you should able able to find the device at in the network is "sonaremin" as well and remote login is possible via ssh and in virtual mode an xpra desktop sharing connection is possible too.
 
-in display mode the right mouse button opens a menu to open a terminal window, an editor, start qjackctl, vcvrack, padthv1 or synthv1 (if not already running), select some keyboard layouts, reboot or shutdown the sonaremin. in display mode it should always be shutdown properly via the shutdown or reboot commands. in virtual mode it can be simply powered off without any shutdown assuming it is configured to run in overlayroot mode.
+in display mode the right mouse button opens a menu to open a terminal window, an editor, start qjackctl, vcvrack (if not already running), select some keyboard layouts, reboot or shutdown the sonaremin. in display mode it should always be shutdown properly via the shutdown or reboot commands. in virtual mode it can be simply powered off without any shutdown assuming it is configured to run in overlayroot mode.
 
 please be aware, that vcvrack will always start in iconified mode in the sonaremin. this is because in in virtual mode otherwise the missing gpu acceleration would result in a lot of cpu being wasted to software-render the ui into nirwana - if started iconified no cpu cycles are used for rendering. in display mode vcvrack has to be deiconified from the applications tab at the bottom of the screen before using it.
 
@@ -208,7 +204,7 @@ a lot more info will come here over time - just some basic points already:
 - it is possible to run vcvrack in sonaremin at 32khz smapling rate and to run jackd on the sonaremin at 44.1khz - in this case resampling is done inside of vcvrack which will cost about 10% of extra cpu usage, but might get relevant when using the sonaremin with the jackd network functionality and other gear, which does not support 32khz - this mode is the default now in v1.0.0
 - how to use jackd network functionality to communicate with other devices over network: coming later
 - how to use multiple sonaremins in parallel: coming later
-- it should be possible to run the arm 32bit and 64bit versions of reaper on the sonaremin (with vcvrack, padthv1 and synthv1 startup disabled) to get a little daw :)
+- it should be possible to run the arm 32bit and 64bit versions of reaper on the sonaremin (with vcvrack startup disabled) to get a little daw :)
 
 # possible future plans and ideas
 
@@ -217,7 +213,7 @@ a lot more info will come here over time - just some basic points already:
 
 # thanks, issues, more documentation
 
-a lot of thanks go to all who made this possible, like the respective authors of the included or used open source projects like andrew belt for vcvrack, rui nuno capela (rncbc) for padthv1 and synthv1, idave kelly for raveloxmidi, armbian - especially the tv box related part maintained by oleg, the vc4 raspberry pi gpu driver by eric anholt, the linux-meson project for amlogic arm linux mainline support and many many more ...
+a lot of thanks go to all who made this possible, like the respective authors of the included or used open source projects like andrew belt for vcvrack, rui nuno capela (rncbc) for qjackctl, dave kelly for raveloxmidi, armbian - especially the tv box related part maintained by oleg, the vc4 raspberry pi gpu driver by eric anholt, the linux-meson project for amlogic arm linux mainline support and many many more ...
 
 the generative-01.vcv patch is based on this patch https://www.youtube.com/watch?v=WVeP1a04DOs from omri cohen, but modified to fit the sonaremin, the other patches are built by myself.
 

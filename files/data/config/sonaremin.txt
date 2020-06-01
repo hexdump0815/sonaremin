@@ -49,11 +49,3 @@ RESET_REALTIME=true
 # more with irq handling etc. - used in set-rtprio-and-cpu-affinity.sh
 DESIRED_CPU_AFFINITY=2,3
 DESIRED_CPU_AFFINITY_JACK=1
-
-# start padthv1 automatically - you should either select this or vcvrack above
-#PADTHV1_START=yes
-PADTHV1_START=no
-
-# start synthv1 automatically - you should either select this or vcvrack above
-#SYNTHV1_START=yes
-SYNTHV1_START=no

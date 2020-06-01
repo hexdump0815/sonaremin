@@ -142,10 +142,8 @@ mkdir -p ${BUILD_ROOT}/data
 cd ${BUILD_ROOT}/data
 cp -r ${WORKDIR}/files/data/* .
 cp -f vcvrack-v1/sonaremin.vcv vcvrack-v1/config/autosave.vcv
-mkdir -p padthv1/backup synthv1/backup config/qjackctl/backup
-cp -f padthv1/sonaremin-* padthv1/backup
-cp -f synthv1/sonaremin-* synthv1/backup
-mkdir -p myfiles/vcvrack-v1 myfiles/padthv1 myfiles/synthv1
+mkdir -p config/qjackctl/backup
+mkdir -p myfiles/vcvrack-v1
 cp config/qjackctl/qjackctl-patchbay.xml config/qjackctl/backup
 
 cd ${BUILD_ROOT}
@@ -153,7 +151,6 @@ cd ${BUILD_ROOT}
 tar --numeric-owner -xzf ${WORKDIR}/files/xorgxrdp-${2}.tar.gz
 ( cd ${WORKDIR}/files/extra-files ; tar cf - . ) | tar xf -
 tar --numeric-owner -xzf ${WORKDIR}/files/raveloxmidi-${2}.tar.gz
-tar --numeric-owner -xzf ${WORKDIR}/downloads/padthv1-synthv1-${2}.tar.gz
 cd home/sonaremin
 tar --numeric-owner -xzf ${WORKDIR}/downloads/vcvrack.${2}-v1.tar.gz
 mv vcvrack.${2}-v1 vcvrack-v1

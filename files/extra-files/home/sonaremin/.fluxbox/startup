@@ -42,8 +42,6 @@ fi
 
 /home/sonaremin/bin/start-qjackctl.sh &
 /home/sonaremin/bin/start-vcvrack.sh &
-/home/sonaremin/bin/start-padthv1.sh &
-/home/sonaremin/bin/start-synthv1.sh &
 /home/sonaremin/bin/start-local.sh &
 
 # And last but not least we start fluxbox.
