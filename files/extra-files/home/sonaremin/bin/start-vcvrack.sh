@@ -25,7 +25,6 @@ else
   VCVRACK_START=yes
   #VCVRACK_START=no
   # which vcvrack version to start automativally
-  #VCVRACK_VERSION=v0
   VCVRACK_VERSION=v1
 fi
 
@@ -36,8 +35,6 @@ if { [ "$QJACKCTL_START" = "yes" ] && [ "$VCVRACK_START" = "yes" ] && [ "$VCVRAC
   if [ "$DISPLAY_MODE" != "virtual" ] || [ "$DISPLAY_MODE" != "headless" ]; then
     if [ "$LDLP_PRE_EXTRA" = "" ]; then
       export LD_LIBRARY_PATH=/opt/libgl
-    elif [ "$VCVRACK_VERSION" = "v0" ]; then
-      export LD_LIBRARY_PATH=${LDLP_PRE_EXTRA}:/opt/libgl
     fi
   else
     export LD_LIBRARY_PATH="/opt/gl4es:/opt/libgl"

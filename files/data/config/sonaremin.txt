@@ -31,16 +31,11 @@ VCVRACK_START=yes
 #VCVRACK_START=no
 
 # which vcvrack version to start automativally
-#VCVRACK_VERSION=v0
 VCVRACK_VERSION=v1
 
 # limit the cpu clock to avoid overheating - set by default to 1200000 for the tinkerboard
 # possible values: cat /sys/devices/system/cpu/cpufreq/policy?/scaling_available_frequencies
 #MAX_CPU_CLOCK=1200000
-
-# overwrite the REALTIME_PRIORITY values in the config/systems definitions for v0
-# start vcvrack v0 with realtime scheduling priority - might result in system hangs
-#REALTIME_PRIORITY_V0=true
 
 # for v1 this is by default enabled and works in a much more sophisticated way
 REALTIME_PRIORITY_V1=true
