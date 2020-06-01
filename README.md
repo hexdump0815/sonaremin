@@ -12,6 +12,9 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
+version 1.1.6_3
+- same as last version, but with raspberry pi 4 support
+
 version 1.1.6_2
 - more included modules (132 plugins = 1450+ vcvrack modules, status 08.04.2020)
 - rethought the operational modes
