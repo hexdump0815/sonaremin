@@ -87,17 +87,14 @@ the sonaremin currently runs (more or less) on the following arm cpu based devic
 
 - odroid c2 (pcm2704)
 - asus tinkerboard (cooling, pcm2704) and tinkerboard s (untested, cooling, pcm2704)
-- raspberry pi in 32bit [2b (untested, limited), 3b & 3b+] (cooling) and 64bit mode [3b & 3b+] (cooling) - the new raspberry pi 4b is not yet supported, but support is planned soon
+- raspberry pi in 32bit [3b & 3b+ (untested)] (cooling) and 64bit mode [3b, 3b+ (untested) & 4b] (cooling)
 - amlogic s905w/s905x/s905 based android tv boxes (pcm2704) - tested on x96 mini (s905w), t95m (s905x), tx3 mini l (s905w) and mxq pro 4k (the s905 version - beware: there are other versions of this box with the same name with other cpus as well) - it should run on nearly any s905w, s905x, s905 based tv box i guess
-- allwinner h3 based android tv boxes (limited) - tested on tx1
-- bananapi m1 (limited, pcm2704)
 
 the comments in the brackets mean:
 
 - pcm2704: a pcm2704 usb audio adapter is required - you can find it easily for around 3 euro on ebay
-- cooling: a fan is required to cool the device, otherwise it will reduce its cpu performance automatically due to the created heat resulting in degraded audio performance (the tinkerboard will by default be run at a reduced clock speed to avoid the need of a fan, but with a fan it can be run at full speed with more cpu power)
+- cooling: a fan or really big heat sink is required to cool the device, otherwise it will reduce its cpu performance automatically due to the created heat resulting in degraded audio performance (the tinkerboard will by default be run at a reduced clock speed to avoid the need of a fan, but with a fan it can be run at full speed with more cpu power)
 - untested: i have no access to such a device, so i could not test them, but in theory they should work
-- limited: those devices have too little cpu power for even medium sized patches like the supplied example patches, but they might still be used for very small and simple patches and to get an idea how the sonaremin works - using them for a longer time will most probably not be a very pleasant experience
 
 the basic functionally is the same for all devices, but their cpu performance and thus possible maximum size of the possible patches differs a bit - here is an overview of the cpu usage of the different devices with the generative-01.vcv sample patch and vcvrack v0 (vcvrack is configured for two audio threads, so it can at maximum utilize about 200% cpu for audio - more threads do not make sense, as vcvrack does not scale well with more threads - cpu usage should be measured in iconified mode, as this way the ui does not eat any extra cpu):
 
@@ -107,15 +104,14 @@ the basic functionally is the same for all devices, but their cpu performance an
 - tinkerboard: 85-95% (limited to 1.2ghz - similar to odroid c2 with cooling and higher cpu clock)
 - raspberry pi 3b in 64bit mode: 80%
 - raspberry pi 3b in 32bit mode: 105-120% (the slowdown compared to the 64bit version comes alone from not using the 64bit armv8 cpu instructions)
-- h3 tv box: 140-155%
 - t9 tv box (rockchip rk3328 @1296mhz - surprisingly slower than an amlogic s905w @1200mz): 80-90% (just some basic test - not yet supported)
 - eachlink h6 mini tv box (allwinner h6 @1800mhz): 58-60% (just some basic test - not yet supported)
 - rock pi 4b (rockchip rk3399 2x a72 cores @1800mhz via taskset): 42% (just some basic test - not yet supported)
 - intel atom baytrail z3740d system: 95-105% (just some basic test - not supported, just for comparison)
 
-as a result recommended is the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram which is even better, but 1gb works well too) and come with a case and power supply already. the other devices are only recommended if they are around already: the tinkerboard is quite good, but expensive - the raspberry pi's are good in case you want to use it with vcvrack v1 - vcvrack v0 pushes its gpu and graphics system to its limits and it works not very well in display mode (see the comment in /boot/menu/extlinux.conf in case you want to use vcvrack v0 on a raspberry pi), in virtual mode they should work very good as well with v0 and v1 - the h3 tv box is at the low performance end and the raspberry pi 2b and the ananapi even below that :)
+as a result recommended is the odroid c2 as it has a good performance and does not need cooling. also recommended are amlogic s905w/s905x based tv boxes as they have a good performance, do not need cooling and are cheap (around 30 euro for a box with 1gb ram, a bit more for a box with 2gb ram which is even better, but 1gb works well too) and come with a case and power supply already. the raspberry pi's are good as well, but need very good cooling.
 
-please keep in mind, that with the exception of the raspberry pi's and the h3 tv box all other devices will need an extra pcm2704 usb audio adapter (just google for pcm2704, they cost around 3 euro on ebay, have low jitter and good latency - see the pictures in the images folder for which device to get exactly: https://github.com/hexdump0815/sonaremin/raw/master/images/pcm2704-01.jpg and https://github.com/hexdump0815/sonaremin/raw/master/images/pcm2704-02.jpg) as the internal audio is not working well enough for low latency audio or does not support a 32khz sampling frequency. the raspberry pi's work with the built in audio, but it has slightly worse latency and and quality compared to the pcm2704.
+please keep in mind, that with the exception of the raspberry pi's all other devices will need an extra pcm2704 usb audio adapter (just google for pcm2704, they cost around 3 euro on ebay, have low jitter and good latency - see the pictures in the images folder for which device to get exactly: https://github.com/hexdump0815/sonaremin/raw/master/images/pcm2704-01.jpg and https://github.com/hexdump0815/sonaremin/raw/master/images/pcm2704-02.jpg) as the internal audio is not working well enough for low latency audio or does not support a 32khz sampling frequency. the raspberry pi's work with the built in audio, but it has slightly worse latency and and quality compared to the pcm2704.
 
 the qjackctl in the sonaremin images includes prepatched connections for an akai apc key 25 and for an worlde mini midi controller and the vcvrack patches have their midi-cc connections learned for the akai apc key 25. if any other controller should be used it is required to adjust and save the qjackctl patch configuration and relearn the midi-cc connections in the sample patches to properly use them with other controllers.
 
