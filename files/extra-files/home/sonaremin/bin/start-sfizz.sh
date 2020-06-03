@@ -15,8 +15,10 @@ else
 fi
 
 # if we are called from the menu and there are any sfizz instances - stop them
-[ "$1" = "menu" ]; then
-  killall sfizz_jack
+if [ "$1" = "menu" ]; then
+  for i in `ps auxwww | grep sfizz_jack | grep -v grep | awk '{print $2}'`; do
+    kill ${i}
+  done
 fi
 # iterate over the 4 sfizz instances and start them if a sfz file is defined
 # sfizz samples are preloaded into the filesystem bufffer by reading them
@@ -25,39 +27,40 @@ if [ "${SFIZZ_01}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_01}" ]; then
     SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_01} | sed 's,\.sfz$,,g'`
     if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -exec cat {} > /dev/null \;
+      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_01}
+    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_01} &
   fi
 fi
 if [ "${SFIZZ_02}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_02}" ]; then
     SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_02} | sed 's,\.sfz$,,g'`
     if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -exec cat {} > /dev/null \;
+      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-02 /data/sfizz-samples/${SFIZZ_02}
+    /usr/local/bin/sfizz_jack --client_name sfizz-02 /data/sfizz-samples/${SFIZZ_02} &
   fi
 fi
 if [ "${SFIZZ_03}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_03}" ]; then
     SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_03} | sed 's,\.sfz$,,g'`
     if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -exec cat {} > /dev/null \;
+      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-03 /data/sfizz-samples/${SFIZZ_03}
+    /usr/local/bin/sfizz_jack --client_name sfizz-03 /data/sfizz-samples/${SFIZZ_03} &
   fi
 fi
 if [ "${SFIZZ_04}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_04}" ]; then
     SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_04} | sed 's,\.sfz$,,g'`
     if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -exec cat {} > /dev/null \;
+      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-04 /data/sfizz-samples/${SFIZZ_04}
+    /usr/local/bin/sfizz_jack --client_name sfizz-04 /data/sfizz-samples/${SFIZZ_04} &
   fi
 fi
-
+# wait a moment
+sleep 5
 # sfizz automatically connects to the system audio out jack port
 # this we do not want - so disconnect from it again
 jack_disconnect sfizz-01:output_1 system:playback_1
