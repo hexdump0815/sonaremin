@@ -20,8 +20,8 @@ else
   #DISPLAY_MODE=virtual
   #DISPLAY_MODE=headless
   # enable tuning for audio usage
-  AUDIO_TUNE=on
-  #AUDIO_TUNE=off
+  AUDIO_TUNE=yes
+  #AUDIO_TUNE=no
   # start rtpmidi server for midi over network
   #RTPMIDI=yes
   RTPMIDI=no
@@ -57,7 +57,7 @@ for i in /data/config/systems/*.sh; do
   . $i
 done
 
-if [ -x /etc/rc.audio ] && [ "$AUDIO_TUNE" = "on" ]; then
+if [ -x /etc/rc.audio ] && [ "$AUDIO_TUNE" = "yes" ]; then
   /etc/rc.audio > /tmp/rc.audio.log 2>&1
 else
   systemctl start ondemand

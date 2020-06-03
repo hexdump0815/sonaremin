@@ -7,8 +7,8 @@ DISPLAY_MODE=display
 #DISPLAY_MODE=headless
 
 # enable tuning for audio usage
-AUDIO_TUNE=on
-#AUDIO_TUNE=off
+AUDIO_TUNE=yes
+#AUDIO_TUNE=no
 
 # start qjackctl automatically
 QJACKCTL_START=yes
@@ -17,6 +17,13 @@ QJACKCTL_START=yes
 # start jackd in network mode
 #JACKD_NET=yes
 JACKD_NET=no
+
+# if jackd is running in network mode:
+# number of midi (1-8) and audio (2,4,6,8) in and out channels
+JACKD_NET_MIDI_IN=4
+JACKD_NET_MIDI_OUT=4
+JACKD_NET_AUDIO_IN=2
+JACKD_NET_AUDIO_OUT=2
 
 # start rtpmidi server for midi over network
 #RTPMIDI=yes
@@ -38,14 +45,26 @@ VCVRACK_VERSION=v1
 #MAX_CPU_CLOCK=1200000
 
 # for v1 this is by default enabled and works in a much more sophisticated way
-REALTIME_PRIORITY_V1=true
-#REALTIME_PRIORITY_V1=false
+REALTIME_PRIORITY_V1=yes
+#REALTIME_PRIORITY_V1=no
 
 # reset the v1 realtime prio setting on startup as it might result in system hangs
-RESET_REALTIME=true
-#RESET_REALTIME=false
+RESET_REALTIME=yes
+#RESET_REALTIME=no
 
 # set the cpu cores vcvrack and jack should run on - we avoid cpu0 as it has to deal
 # more with irq handling etc. - used in set-rtprio-and-cpu-affinity.sh
 DESIRED_CPU_AFFINITY=2,3
 DESIRED_CPU_AFFINITY_JACK=1
+
+# start up to 4 sfizz sfz sample engines - they can be accessed via jack audio
+# and midi from within vcvrack - the value is the sfz sample file relative to
+# /data/sfizz-samples/ - no sfz filename = do not start this sfizz instance
+SFIZZ_01=""
+SFIZZ_02=""
+SFIZZ_03=""
+SFIZZ_04=""
+
+# preload sfz sample files into the filesystem buffer
+SFIZZ_PRELOAD=yes
+#SFIZZ_PRELOAD=no

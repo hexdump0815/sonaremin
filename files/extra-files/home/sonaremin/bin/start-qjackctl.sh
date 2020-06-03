@@ -10,6 +10,11 @@ else
   # start jackd in network mode
   #JACKD_NET=yes
   JACKD_NET=no
+  # number of midi and audio in and out channels
+  JACKD_NET_MIDI_IN=4
+  JACKD_NET_MIDI_OUT=4
+  JACKD_NET_AUDIO_IN=2
+  JACKD_NET_AUDIO_OUT=2
 fi
 
 if [ -f /data/config/info.txt ]; then
@@ -33,7 +38,7 @@ if { [ "$QJACKCTL_START" = "yes" ] && [ "$QJACKCTL_PID" = "" ]; } \
     fi
   fi
   if [ "$JACKD_NET" = "yes" ]; then
-    jackd -d net -i 4 -o 4 -C 4 -P 4 & 
+    jackd -d net -i ${JACKD_NET_MIDI_IN} -o ${JACKD_NET_MIDI_OUT} -C ${JACKD_NET_AUDIO_IN} -P ${JACKD_NET_AUDIO_OUT} & 
     /home/sonaremin/bin/start-a2jmidid.sh &
     exec qjackctl
   else

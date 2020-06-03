@@ -147,6 +147,7 @@ mkdir -p myfiles/vcvrack-v1
 cp config/qjackctl/qjackctl-patchbay.xml config/qjackctl/backup
 
 cd ${BUILD_ROOT}
+tar --numeric-owner -xzf ${WORKDIR}/downloads/sfizz.${2}.tar.gz
 # unpack this before the extra-files as they bring an adapted config
 tar --numeric-owner -xzf ${WORKDIR}/files/xorgxrdp-${2}.tar.gz
 ( cd ${WORKDIR}/files/extra-files ; tar cf - . ) | tar xf -
