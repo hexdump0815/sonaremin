@@ -24,7 +24,7 @@ mkdir downloads
 # exit on errors
 set -e
 
-vcvrack_v1_release_version="v1.1.6_2"
+vcvrack_v1_release_version="v1.1.6_3"
 sfizz_release="dev-20200603/sfizz-dev"
 
 if [ "$1" = "all" ] || [ "$1" = "armv7l" ]; then
