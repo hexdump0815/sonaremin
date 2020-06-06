@@ -13,12 +13,33 @@
           "deviceName": "system",
           "offset": 0,
           "maxChannels": 8,
-          "sampleRate": 44100,
-          "blockSize": 1024
+          "sampleRate": 32000,
+          "blockSize": 256
         }
       },
       "pos": [
         0,
+        0
+      ]
+    },
+    {
+      "id": 65,
+      "plugin": "SkJack",
+      "version": "1.0.0",
+      "model": "JackAudio",
+      "params": [],
+      "port_names": [
+        "vcvrack-1",
+        "vcvrack-2",
+        "vcvrack-3",
+        "vcvrack-4",
+        "sfizz-01-1",
+        "sfizz-01-2",
+        "sfizz-02-1",
+        "sfizz-02-2"
+      ],
+      "pos": [
+        14,
         0
       ]
     }
