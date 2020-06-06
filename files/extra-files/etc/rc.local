@@ -106,9 +106,18 @@ echo /opt/gl4es >  /etc/ld.so.conf.d/aaa-libgl.conf
 echo /opt/libgl >>  /etc/ld.so.conf.d/aaa-libgl.conf
 ldconfig
 
+# better use a fresh copy of some files if their size is zero as they
+# might have gotten corrupted on an unclean shutdown maybe
+if [ ! -s /data/config/vcvrack-v1/settings.json ]; then
+  cp /data/config/vcvrack-v1/backup/settings.json /data/config/vcvrack-v1/settings.json
+fi
+if [ ! -s /data/config/qjackctl/qjackctl-patchbay.xml ]; then
+  cp /data/config/qjackctl/backup/qjackctl-patchbay.xml /data/config/qjackctl/qjackctl-patchbay.xml
+fi
+
 if [ "$DISPLAY_MODE" = "display" ]; then
   # set back cursor lock mode
-  sed -i.backup-rc-local 's/"allowCursorLock": false,/"allowCursorLock": true,/g' /data/vcvrack-v1/config/settings.json
+  sed -i.backup-rc-local 's/"allowCursorLock": false,/"allowCursorLock": true,/g' /data/config/vcvrack-v1/settings.json
   systemctl start x11.service
 else
   # get the SYSTEM_MODEL setting
@@ -132,7 +141,7 @@ else
   if [ -x /home/sonaremin/bin/start-xpra.sh ]; then
     # disable cursor lock mode to make virtual mode less sluggish
     # especially the scroll bars are very hard to use otherwise
-    sed -i.backup-rc-local 's/"allowCursorLock": true,/"allowCursorLock": false,/g' /data/vcvrack-v1/config/settings.json
+    sed -i.backup-rc-local 's/"allowCursorLock": true,/"allowCursorLock": false,/g' /data/config/vcvrack-v1/settings.json
     su -c /home/sonaremin/bin/start-xpra.sh sonaremin
   fi
 fi

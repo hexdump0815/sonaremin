@@ -141,10 +141,12 @@ rm -f etc/X11/xorg.conf.d/01-*
 mkdir -p ${BUILD_ROOT}/data
 cd ${BUILD_ROOT}/data
 cp -r ${WORKDIR}/files/data/* .
-cp -f vcvrack-v1/sonaremin.vcv vcvrack-v1/config/autosave.vcv
+cp -f vcvrack-v1/sonaremin.vcv config/vcvrack-v1/autosave.vcv
 mkdir -p config/qjackctl/backup
 mkdir -p myfiles/vcvrack-v1
 cp config/qjackctl/qjackctl-patchbay.xml config/qjackctl/backup
+mkdir -p config/vcvrack-v1/backup
+cp config/vcvrack-v1/settings.json config/vcvrack-v1/backup/settings.json 
 
 cd ${BUILD_ROOT}
 tar --numeric-owner -xzf ${WORKDIR}/downloads/sfizz.${2}.tar.gz
@@ -156,8 +158,8 @@ cd home/sonaremin
 tar --numeric-owner -xzf ${WORKDIR}/downloads/vcvrack.${2}-v1.tar.gz
 mv vcvrack.${2}-v1 vcvrack-v1
 rm -f vcvrack-v1/settings.json vcvrack-v1/autosave.vcv vcvrack-v1/template.vcv
-ln -s /data/vcvrack-v1/config/settings.json vcvrack-v1/settings.json
-cp -f ${BUILD_ROOT}/data/vcvrack-v1/config/autosave.vcv vcvrack-v1/autosave.vcv
+ln -s /data/config/vcvrack-v1/settings.json vcvrack-v1/settings.json
+cp -f ${BUILD_ROOT}/data/config/vcvrack-v1/autosave.vcv vcvrack-v1/autosave.vcv
 cp ${WORKDIR}/files/empty-template.vcv vcvrack-v1/template.vcv
 cd ../..
 chown -R 1000:1000 home/sonaremin/

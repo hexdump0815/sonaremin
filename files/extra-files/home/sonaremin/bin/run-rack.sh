@@ -16,10 +16,10 @@ else
 fi
 
 if [ "$DISPLAY_MODE" = "headless" ]; then
-  mv -f /home/sonaremin/vcvrack-${VCVRACK_VERSION}/autosave.vcv /data/vcvrack-${VCVRACK_VERSION}/config/autosave.vcv.display
+  mv -f /home/sonaremin/vcvrack-${VCVRACK_VERSION}/autosave.vcv /data/config/vcvrack-${VCVRACK_VERSION}/autosave.vcv.display
   STARTUP_FILE="/data/vcvrack-${VCVRACK_VERSION}/sonaremin.vcv"
 else
-  mv -f /data/vcvrack-${VCVRACK_VERSION}/config/autosave.vcv.display /home/sonaremin/vcvrack-${VCVRACK_VERSION}/autosave.vcv
+  mv -f /data/config/vcvrack-${VCVRACK_VERSION}/autosave.vcv.display /home/sonaremin/vcvrack-${VCVRACK_VERSION}/autosave.vcv
   if [ ! -s /home/sonaremin/vcvrack-${VCVRACK_VERSION}/autosave.vcv ]; then
     rm -f /home/sonaremin/vcvrack-${VCVRACK_VERSION}/autosave.vcv
   fi
@@ -34,6 +34,6 @@ fi
 if [ "$RESET_REALTIME" = "yes" ]; then
   # disable real time prio for vcvrack as it sometimes hangs the system on startup
   # it is reenabled later via the set-rtprio-and-cpu-affinity.sh script
-  sed -i.backup-run-rack 's/"realTime":\ true,/"realTime": false,/g' /data/vcvrack-v1/config/settings.json
+  sed -i.backup-run-rack 's/"realTime":\ true,/"realTime": false,/g' /data/config/vcvrack-v1/settings.json
 fi
 exec ./Rack -d $STARTUP_FILE
