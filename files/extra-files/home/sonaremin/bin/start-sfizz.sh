@@ -25,38 +25,70 @@ fi
 # once from disk to /dev/null
 if [ "${SFIZZ_01}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_01}" ]; then
-    SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_01} | sed 's,\.sfz$,,g'`
-    if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+    if [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+      # first assume by default we have a dir with the same base name
+      # as the sfz file containing the samples
+      SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_01} | sed 's,\.sfz$,,g'`
+      if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+        find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+      fi
+      # otherwise there is the option to explicitly define the sample dir
+      if [ "${SFIZZ_01_PRELOADDIR}" != "" ] && [ -d "/data/sfizz-samples/${SFIZZ_01_PRELOADDIR}" ]; then
+        find /data/sfizz-samples/${SFIZZ_01_PRELOADDIR} -type f -exec cat {} > /dev/null \;
+      fi
     fi
     /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_01} &
   fi
 fi
 if [ "${SFIZZ_02}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_02}" ]; then
-    SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_02} | sed 's,\.sfz$,,g'`
-    if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+    if [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+      # first assume by default we have a dir with the same base name
+      # as the sfz file containing the samples
+      SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_02} | sed 's,\.sfz$,,g'`
+      if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+        find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+      fi
+      # otherwise there is the option to explicitly define the sample dir
+      if [ "${SFIZZ_02_PRELOADDIR}" != "" ] && [ -d "/data/sfizz-samples/${SFIZZ_02_PRELOADDIR}" ]; then
+        find /data/sfizz-samples/${SFIZZ_02_PRELOADDIR} -type f -exec cat {} > /dev/null \;
+      fi
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-02 /data/sfizz-samples/${SFIZZ_02} &
+    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_02} &
   fi
 fi
 if [ "${SFIZZ_03}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_03}" ]; then
-    SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_03} | sed 's,\.sfz$,,g'`
-    if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+    if [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+      # first assume by default we have a dir with the same base name
+      # as the sfz file containing the samples
+      SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_03} | sed 's,\.sfz$,,g'`
+      if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+        find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+      fi
+      # otherwise there is the option to explicitly define the sample dir
+      if [ "${SFIZZ_03_PRELOADDIR}" != "" ] && [ -d "/data/sfizz-samples/${SFIZZ_03_PRELOADDIR}" ]; then
+        find /data/sfizz-samples/${SFIZZ_03_PRELOADDIR} -type f -exec cat {} > /dev/null \;
+      fi
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-03 /data/sfizz-samples/${SFIZZ_03} &
+    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_03} &
   fi
 fi
 if [ "${SFIZZ_04}" != "" ]; then
   if [ -f "/data/sfizz-samples/${SFIZZ_04}" ]; then
-    SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_04} | sed 's,\.sfz$,,g'`
-    if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
-      find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+    if [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+      # first assume by default we have a dir with the same base name
+      # as the sfz file containing the samples
+      SAMPLE_DIR=`echo /data/sfizz-samples/${SFIZZ_04} | sed 's,\.sfz$,,g'`
+      if [ -d "${SAMPLE_DIR}" ] && [ "${SFIZZ_PRELOAD}" == "yes" ]; then
+        find ${SAMPLE_DIR} -type f -exec cat {} > /dev/null \;
+      fi
+      # otherwise there is the option to explicitly define the sample dir
+      if [ "${SFIZZ_04_PRELOADDIR}" != "" ] && [ -d "/data/sfizz-samples/${SFIZZ_04_PRELOADDIR}" ]; then
+        find /data/sfizz-samples/${SFIZZ_04_PRELOADDIR} -type f -exec cat {} > /dev/null \;
+      fi
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-04 /data/sfizz-samples/${SFIZZ_04} &
+    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_04} &
   fi
 fi
 # wait a moment

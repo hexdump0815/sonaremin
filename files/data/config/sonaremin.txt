@@ -66,5 +66,14 @@ SFIZZ_03=""
 SFIZZ_04=""
 
 # preload sfz sample files into the filesystem buffer
+# by default the samples are assumed to be in a folder with the basename
+# of the sfz file - otherwise it can be configured by hand - see below
 SFIZZ_PRELOAD=yes
 #SFIZZ_PRELOAD=no
+
+# optional manual setup of sample dirs in case the samples are not in
+# the default location - see above
+SFIZZ_01_PRELOADDIR=""
+SFIZZ_02_PRELOADDIR=""
+SFIZZ_03_PRELOADDIR=""
+SFIZZ_04_PRELOADDIR=""
