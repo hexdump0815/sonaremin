@@ -22,7 +22,6 @@
   "frameRateLimit": 5.0,
   "frameRateSync": false,
   "autosavePeriod": 60.0,
-  "patchPath": "/data/vcvrack-v1/generative-01.vcv",
   "cableColors": [
     "#c9b70e",
     "#0c8e15",
