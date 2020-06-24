@@ -23,20 +23,20 @@
       ]
     },
     {
-      "id": 65,
+      "id": 9,
       "plugin": "SkJack",
       "version": "1.0.0",
-      "model": "JackAudio",
+      "model": "JackAudioIn8",
       "params": [],
       "port_names": [
-        "vcvrack-1",
-        "vcvrack-2",
-        "vcvrack-3",
-        "vcvrack-4",
         "sfizz-01-1",
         "sfizz-01-2",
         "sfizz-02-1",
-        "sfizz-02-2"
+        "sfizz-02-2",
+        "sfizz-03-1",
+        "sfizz-03-2",
+        "sfizz-04-1",
+        "sfizz-04-2"
       ],
       "pos": [
         14,
