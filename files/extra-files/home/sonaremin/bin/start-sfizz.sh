@@ -54,7 +54,7 @@ if [ "${SFIZZ_02}" != "" ]; then
         find /data/sfizz-samples/${SFIZZ_02_PRELOADDIR} -type f -exec cat {} > /dev/null \;
       fi
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_02} &
+    /usr/local/bin/sfizz_jack --client_name sfizz-02 /data/sfizz-samples/${SFIZZ_02} &
   fi
 fi
 if [ "${SFIZZ_03}" != "" ]; then
@@ -71,7 +71,7 @@ if [ "${SFIZZ_03}" != "" ]; then
         find /data/sfizz-samples/${SFIZZ_03_PRELOADDIR} -type f -exec cat {} > /dev/null \;
       fi
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_03} &
+    /usr/local/bin/sfizz_jack --client_name sfizz-03 /data/sfizz-samples/${SFIZZ_03} &
   fi
 fi
 if [ "${SFIZZ_04}" != "" ]; then
@@ -88,7 +88,7 @@ if [ "${SFIZZ_04}" != "" ]; then
         find /data/sfizz-samples/${SFIZZ_04_PRELOADDIR} -type f -exec cat {} > /dev/null \;
       fi
     fi
-    /usr/local/bin/sfizz_jack --client_name sfizz-01 /data/sfizz-samples/${SFIZZ_04} &
+    /usr/local/bin/sfizz_jack --client_name sfizz-04 /data/sfizz-samples/${SFIZZ_04} &
   fi
 fi
 # wait a moment
