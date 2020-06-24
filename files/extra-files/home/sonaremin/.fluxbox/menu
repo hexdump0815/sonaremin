@@ -15,6 +15,7 @@
 [exec] (russian) { setxkbmap ru } <>
 [exec] (spanish) { setxkbmap es } <>
 [end]
+[exec] (syncfs) { sync } <>
 [exec] (reboot) { sudo shutdown -r now } <>
 [exec] (shutdown) { sudo shutdown -h now } <>
 [end]
