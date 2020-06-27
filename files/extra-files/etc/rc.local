@@ -57,6 +57,12 @@ for i in /data/config/systems/*.sh; do
   . $i
 done
 
+if [ "${DISABLE_CPU_CORES}" != "" ]; then
+  for cpu in ${DISABLE_CPU_CORES}; do
+    echo 0 > /sys/devices/system/cpu/cpu${cpu}/online
+  done
+fi
+
 if [ -x /etc/rc.audio ] && [ "$AUDIO_TUNE" = "yes" ]; then
   /etc/rc.audio > /tmp/rc.audio.log 2>&1
 else
