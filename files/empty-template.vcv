@@ -21,27 +21,6 @@
         0,
         0
       ]
-    },
-    {
-      "id": 9,
-      "plugin": "SkJack",
-      "version": "1.0.0",
-      "model": "JackAudioIn8",
-      "params": [],
-      "port_names": [
-        "sfizz-01-1",
-        "sfizz-01-2",
-        "sfizz-02-1",
-        "sfizz-02-2",
-        "sfizz-03-1",
-        "sfizz-03-2",
-        "sfizz-04-1",
-        "sfizz-04-2"
-      ],
-      "pos": [
-        14,
-        0
-      ]
     }
   ],
   "cables": []
