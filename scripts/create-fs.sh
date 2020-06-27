@@ -161,6 +161,7 @@ rm -f vcvrack-v1/settings.json vcvrack-v1/autosave.vcv vcvrack-v1/template.vcv
 ln -s /data/config/vcvrack-v1/settings.json vcvrack-v1/settings.json
 cp -f ${BUILD_ROOT}/data/config/vcvrack-v1/autosave.vcv vcvrack-v1/autosave.vcv
 cp ${WORKDIR}/files/empty-template.vcv vcvrack-v1/template.vcv
+cp ${WORKDIR}/files/empty-template-sfizz.vcv vcvrack-v1/template-sfizz.vcv
 cd ../..
 chown -R 1000:1000 home/sonaremin/
 
