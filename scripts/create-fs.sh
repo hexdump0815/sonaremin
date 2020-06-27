@@ -149,7 +149,6 @@ mkdir -p config/vcvrack-v1/backup
 cp config/vcvrack-v1/settings.json config/vcvrack-v1/backup/settings.json 
 
 cd ${BUILD_ROOT}
-tar --numeric-owner -xzf ${WORKDIR}/downloads/sfizz.${2}.tar.gz
 # unpack this before the extra-files as they bring an adapted config
 tar --numeric-owner -xzf ${WORKDIR}/files/xorgxrdp-${2}.tar.gz
 ( cd ${WORKDIR}/files/extra-files ; tar cf - . ) | tar xf -
@@ -161,7 +160,6 @@ rm -f vcvrack-v1/settings.json vcvrack-v1/autosave.vcv vcvrack-v1/template.vcv
 ln -s /data/config/vcvrack-v1/settings.json vcvrack-v1/settings.json
 cp -f ${BUILD_ROOT}/data/config/vcvrack-v1/autosave.vcv vcvrack-v1/autosave.vcv
 cp ${WORKDIR}/files/empty-template.vcv vcvrack-v1/template.vcv
-cp ${WORKDIR}/files/empty-template-sfizz.vcv vcvrack-v1/template-sfizz.vcv
 cd ../..
 chown -R 1000:1000 home/sonaremin/
 

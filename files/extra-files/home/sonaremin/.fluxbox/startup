@@ -41,7 +41,6 @@ if [ "$(ps auxwww | grep /usr/bin/xpra | grep -v grep)" != "" ]; then
 fi
 
 /home/sonaremin/bin/start-qjackctl.sh &
-/home/sonaremin/bin/start-sfizz.sh &
 /home/sonaremin/bin/start-vcvrack.sh &
 /home/sonaremin/bin/start-local.sh &
 

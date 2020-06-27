@@ -25,14 +25,11 @@ mkdir downloads
 set -e
 
 vcvrack_v1_release_version="v1.1.6_3"
-sfizz_release="dev-20200603/sfizz-dev"
 
 if [ "$1" = "all" ] || [ "$1" = "armv7l" ]; then
   wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.armv7l-v1.tar.gz -O downloads/vcvrack.armv7l-v1.tar.gz
-  wget https://github.com/hexdump0815/sfizz-arm-build/releases/download/${sfizz_release}.armv7l.tar.gz -O downloads/sfizz.armv7l.tar.gz
 fi
 
 if [ "$1" = "all" ] || [ "$1" = "aarch64" ]; then
   wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.aarch64-v1.tar.gz -O downloads/vcvrack.aarch64-v1.tar.gz
-  wget https://github.com/hexdump0815/sfizz-arm-build/releases/download/${sfizz_release}.aarch64.tar.gz -O downloads/sfizz.aarch64.tar.gz
 fi

@@ -4,7 +4,6 @@
 [exec] (qjackctl) { /home/sonaremin/bin/start-qjackctl.sh menu } <>
 [exec] (vcvrack) { /home/sonaremin/bin/start-vcvrack.sh menu } <>
 [exec] (optimize) { sudo /home/sonaremin/bin/set-rtprio-and-cpu-affinity.sh } <>
-[exec] (sfizz) { /home/sonaremin/bin/start-sfizz.sh menu } <>
 [submenu] (keyboard) { layout }
 [exec] (onscreen) { matchbox-keyboard } <>
 [exec] (english) { setxkbmap us } <>

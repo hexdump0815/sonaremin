@@ -1,239 +1,151 @@
 <!DOCTYPE patchbay>
 <patchbay version="0.4.5" name="qjackctl-patchbay">
  <output-sockets>
-  <socket client="a2j" type="jack-midi" exclusive="off" name="a2j">
+  <socket exclusive="off" client="a2j" type="jack-midi" name="a2j">
    <plug>Midi Through \[14\] \(capture\): Midi Through Port-0</plug>
   </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 1">
-   <plug>vcv-jack-1-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 2">
-   <plug>vcv-jack-2-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 3">
-   <plug>vcv-jack-3-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 4">
-   <plug>vcv-jack-4-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 5">
-   <plug>vcv-jack-5-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 6">
-   <plug>vcv-jack-6-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 7">
-   <plug>vcv-jack-7-out</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack jack out 8">
-   <plug>vcv-jack-8-out</plug>
-  </socket>
-  <socket client="Midi Through" type="alsa-midi" exclusive="off" name="Midi Through">
+  <socket exclusive="off" client="Midi Through" type="alsa-midi" name="Midi Through">
    <plug>Midi Through Port-0</plug>
   </socket>
-  <socket client="Virtual Raw MIDI 2-0" type="alsa-midi" exclusive="off" name="Virtual Raw MIDI 2-0">
+  <socket exclusive="off" client="Virtual Raw MIDI 2-0" type="alsa-midi" name="Virtual Raw MIDI 2-0">
    <plug>VirMIDI 2-0</plug>
   </socket>
-  <socket client="APC Key 25" type="alsa-midi" exclusive="off" name="APC Key 25">
+  <socket exclusive="off" client="APC Key 25" type="alsa-midi" name="APC Key 25">
    <plug>APC Key 25 MIDI 1</plug>
   </socket>
-  <socket client="WORLDE MINI" type="alsa-midi" exclusive="off" name="WORLDE MINI">
+  <socket exclusive="off" client="WORLDE MINI" type="alsa-midi" name="WORLDE MINI">
    <plug>WORLDE MINI MIDI 1</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 1">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 1">
    <plug>outport 0</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 2">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 2">
    <plug>outport 1</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 3">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 3">
    <plug>outport 2</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 4">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 4">
    <plug>outport 3</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 5">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 5">
    <plug>outport 4</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 6">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 6">
    <plug>outport 5</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 7">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 7">
    <plug>outport 6</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio out 8">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio out 8">
    <plug>outport 7</plug>
   </socket>
-  <socket client="sfizz-01" type="jack-audio" exclusive="off" name="sfizz-01 out 1">
-   <plug>output_1</plug>
-  </socket>
-  <socket client="sfizz-01" type="jack-audio" exclusive="off" name="sfizz-01 out 2">
-   <plug>output_2</plug>
-  </socket>
-  <socket client="sfizz-02" type="jack-audio" exclusive="off" name="sfizz-02 out 1">
-   <plug>output_1</plug>
-  </socket>
-  <socket client="sfizz-02" type="jack-audio" exclusive="off" name="sfizz-02 out 2">
-   <plug>output_2</plug>
-  </socket>
-  <socket client="sfizz-03" type="jack-audio" exclusive="off" name="sfizz-03 out 1">
-   <plug>output_1</plug>
-  </socket>
-  <socket client="sfizz-03" type="jack-audio" exclusive="off" name="sfizz-03 out 2">
-   <plug>output_2</plug>
-  </socket>
-  <socket client="sfizz-04" type="jack-audio" exclusive="off" name="sfizz-04 out 1">
-   <plug>output_1</plug>
-  </socket>
-  <socket client="sfizz-04" type="jack-audio" exclusive="off" name="sfizz-04 out 2">
-   <plug>output_2</plug>
-  </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 1">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 1">
    <plug>capture_1</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 2">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 2">
    <plug>capture_2</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 3">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 3">
    <plug>capture_3</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 4">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 4">
    <plug>capture_4</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 5">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 5">
    <plug>capture_5</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 6">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 6">
    <plug>capture_6</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 7">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 7">
    <plug>capture_7</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System in 8">
+  <socket exclusive="off" client="system" type="jack-audio" name="System in 8">
    <plug>capture_8</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket client="a2j" type="jack-midi" exclusive="off" name="a2j">
+  <socket exclusive="off" client="a2j" type="jack-midi" name="a2j">
    <plug>Midi Through \[14\] \(playback\): Midi Through Port-0</plug>
   </socket>
-  <socket client="VCV Rack" type="alsa-midi" exclusive="off" name="VCV Rack alsa midi">
+  <socket exclusive="off" client="VCV Rack" type="alsa-midi" name="VCV Rack alsa midi">
    <plug>VCV Rack input</plug>
   </socket>
-  <socket client="Midi Through" type="alsa-midi" exclusive="off" name="Midi Through">
+  <socket exclusive="off" client="Midi Through" type="alsa-midi" name="Midi Through">
    <plug>Midi Through Port-0</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 1">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 1">
    <plug>playback_1</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 2">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 2">
    <plug>playback_2</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 3">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 3">
    <plug>playback_3</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 4">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 4">
    <plug>playback_4</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 5">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 5">
    <plug>playback_5</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 6">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 6">
    <plug>playback_6</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 7">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 7">
    <plug>playback_7</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="System out 8">
+  <socket exclusive="off" client="system" type="jack-audio" name="System out 8">
    <plug>playback_8</plug>
   </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-01 in 1">
-   <plug>sfizz-01-1-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-01 in 2">
-   <plug>sfizz-01-2-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-02 in 1">
-   <plug>sfizz-02-1-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-02 in 2">
-   <plug>sfizz-02-2-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-03 in 1">
-   <plug>sfizz-03-1-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-03 in 2">
-   <plug>sfizz-03-2-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-04 in 1">
-   <plug>sfizz-04-1-in</plug>
-  </socket>
-  <socket client="VCV Rack" type="jack-audio" exclusive="off" name="VCV Rack sfizz-04 in 2">
-   <plug>sfizz-04-2-in</plug>
-  </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 1">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 1">
    <plug>inport 0</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 2">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 2">
    <plug>inport 1</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 3">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 3">
    <plug>inport 2</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 4">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 4">
    <plug>inport 3</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 5">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 5">
    <plug>inport 4</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 6">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 6">
    <plug>inport 5</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 7">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 7">
    <plug>inport 6</plug>
   </socket>
-  <socket client="VCV Rack-01" type="jack-audio" exclusive="off" name="VCV Rack audio in 8">
+  <socket exclusive="off" client="VCV Rack-01" type="jack-audio" name="VCV Rack audio in 8">
    <plug>inport 7</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable input="VCV Rack alsa midi" output="Midi Through" type="alsa-midi"/>
-  <cable input="Midi Through" output="Virtual Raw MIDI 2-0" type="alsa-midi"/>
-  <cable input="Midi Through" output="APC Key 25" type="alsa-midi"/>
-  <cable input="Midi Through" output="WORLDE MINI" type="alsa-midi"/>
-  <cable input="System out 1" output="VCV Rack audio out 1" type="jack-audio"/>
-  <cable input="System out 2" output="VCV Rack audio out 2" type="jack-audio"/>
-  <cable input="System out 3" output="VCV Rack audio out 3" type="jack-audio"/>
-  <cable input="System out 4" output="VCV Rack audio out 4" type="jack-audio"/>
-  <cable input="System out 5" output="VCV Rack audio out 5" type="jack-audio"/>
-  <cable input="System out 6" output="VCV Rack audio out 6" type="jack-audio"/>
-  <cable input="System out 7" output="VCV Rack audio out 7" type="jack-audio"/>
-  <cable input="System out 8" output="VCV Rack audio out 8" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-01 in 1" output="sfizz-01 out 1" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-01 in 2" output="sfizz-01 out 2" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-02 in 1" output="sfizz-02 out 1" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-02 in 2" output="sfizz-02 out 2" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-03 in 1" output="sfizz-03 out 1" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-03 in 2" output="sfizz-03 out 2" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-04 in 1" output="sfizz-04 out 1" type="jack-audio"/>
-  <cable input="VCV Rack sfizz-04 in 2" output="sfizz-04 out 2" type="jack-audio"/>
-  <cable input="VCV Rack audio in 1" output="System in 1" type="jack-audio"/>
-  <cable input="VCV Rack audio in 2" output="System in 2" type="jack-audio"/>
-  <cable input="VCV Rack audio in 3" output="System in 3" type="jack-audio"/>
-  <cable input="VCV Rack audio in 4" output="System in 4" type="jack-audio"/>
-  <cable input="VCV Rack audio in 5" output="System in 5" type="jack-audio"/>
-  <cable input="VCV Rack audio in 6" output="System in 6" type="jack-audio"/>
-  <cable input="VCV Rack audio in 7" output="System in 7" type="jack-audio"/>
-  <cable input="VCV Rack audio in 8" output="System in 8" type="jack-audio"/>
-  <cable input="System out 1" output="VCV Rack jack out 1" type="jack-audio"/>
-  <cable input="System out 2" output="VCV Rack jack out 2" type="jack-audio"/>
-  <cable input="System out 3" output="VCV Rack jack out 3" type="jack-audio"/>
-  <cable input="System out 4" output="VCV Rack jack out 4" type="jack-audio"/>
-  <cable input="System out 5" output="VCV Rack jack out 5" type="jack-audio"/>
-  <cable input="System out 6" output="VCV Rack jack out 6" type="jack-audio"/>
-  <cable input="System out 7" output="VCV Rack jack out 7" type="jack-audio"/>
-  <cable input="System out 8" output="VCV Rack jack out 8" type="jack-audio"/>
+  <cable output="Midi Through" input="VCV Rack alsa midi" type="alsa-midi"/>
+  <cable output="Virtual Raw MIDI 2-0" input="Midi Through" type="alsa-midi"/>
+  <cable output="APC Key 25" input="Midi Through" type="alsa-midi"/>
+  <cable output="WORLDE MINI" input="Midi Through" type="alsa-midi"/>
+  <cable output="VCV Rack audio out 1" input="System out 1" type="jack-audio"/>
+  <cable output="VCV Rack audio out 2" input="System out 2" type="jack-audio"/>
+  <cable output="VCV Rack audio out 3" input="System out 3" type="jack-audio"/>
+  <cable output="VCV Rack audio out 4" input="System out 4" type="jack-audio"/>
+  <cable output="VCV Rack audio out 5" input="System out 5" type="jack-audio"/>
+  <cable output="VCV Rack audio out 6" input="System out 6" type="jack-audio"/>
+  <cable output="VCV Rack audio out 7" input="System out 7" type="jack-audio"/>
+  <cable output="VCV Rack audio out 8" input="System out 8" type="jack-audio"/>
+  <cable output="System in 1" input="VCV Rack audio in 1" type="jack-audio"/>
+  <cable output="System in 2" input="VCV Rack audio in 2" type="jack-audio"/>
+  <cable output="System in 3" input="VCV Rack audio in 3" type="jack-audio"/>
+  <cable output="System in 4" input="VCV Rack audio in 4" type="jack-audio"/>
+  <cable output="System in 5" input="VCV Rack audio in 5" type="jack-audio"/>
+  <cable output="System in 6" input="VCV Rack audio in 6" type="jack-audio"/>
+  <cable output="System in 7" input="VCV Rack audio in 7" type="jack-audio"/>
+  <cable output="System in 8" input="VCV Rack audio in 8" type="jack-audio"/>
  </cables>
 </patchbay>
 
