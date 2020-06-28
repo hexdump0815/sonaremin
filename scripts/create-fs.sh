@@ -10,6 +10,7 @@ if [ "$#" != "2" ]; then
   echo "- raspberry_pi (aarch64)"
   echo "- raspberry_pi_4 (aarch64)"
   echo "- amlogic_gx (aarch64)"
+  echo "- allwinner_h6 (aarch64)"
   echo ""
   echo "possible arch options:"
   echo "- armv7l (32bit)"
