@@ -57,6 +57,11 @@ for i in /data/config/systems/*.sh; do
   . $i
 done
 
+# read the sonaremin config file if it exists
+if [ -f /data/config/info.txt ]; then
+  . /data/config/info.txt
+fi
+
 if [ "${DISABLE_CPU_CORES}" != "" ]; then
   for cpu in ${DISABLE_CPU_CORES}; do
     echo 0 > /sys/devices/system/cpu/cpu${cpu}/online

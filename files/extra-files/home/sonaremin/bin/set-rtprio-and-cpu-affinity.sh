@@ -13,9 +13,9 @@
 #
 # the same is done for the realtime relevant jackbus thread
 
-# read the sonaremin config file if it exists, otherwise set default values
-if [ -f /data/config/sonaremin.txt ]; then
-  . /data/config/sonaremin.txt
+# read the sonaremin config file if it exists
+if [ -f /data/config/info.txt ]; then
+  . /data/config/info.txt
 fi
 
 if [ "${DESIRED_CPU_AFFINITY}" = "" ]; then
@@ -25,7 +25,7 @@ fi
 
 if [ "${DESIRED_CPU_AFFINITY_JACK}" = "" ]; then
   # on which cpu cores should jack run - default: 1 (0 = cpu1 etc. - i.e. 2)
-  DESIRED_CPU_AFFINITY_JACK="1"
+  DESIRED_CPU_AFFINITY_JACK="0"
 fi
 
 DESIRED_RT_PRIORITY="50"

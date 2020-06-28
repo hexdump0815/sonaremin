@@ -18,10 +18,12 @@ if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ]; then
   done
 fi
 
-# if a cpu clock limitation is defined, then set it here
-if [ -f /data/config/sonaremin.txt ]; then
-  . /data/config/sonaremin.txt
+# read the sonaremin config file if it exists
+if [ -f /data/config/info.txt ]; then
+  . /data/config/info.txt
 fi
+
+# if a cpu clock limitation is defined, then set it here
 if [ "$MAX_CPU_CLOCK" != "" ]; then
   if [ -f /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq ]; then
     for i in /sys/devices/system/cpu/cpu?/cpufreq/scaling_max_freq ; do

@@ -40,23 +40,10 @@ VCVRACK_START=yes
 # which vcvrack version to start automativally
 VCVRACK_VERSION=v1
 
-# limit the cpu clock to avoid overheating - set by default to 1200000 for the tinkerboard
-# possible values: cat /sys/devices/system/cpu/cpufreq/policy?/scaling_available_frequencies
-#MAX_CPU_CLOCK=1200000
-
-# for v1 this is by default enabled and works in a much more sophisticated way
+# set rt prio scheduling for vcvrack and jack a moment after starting them
 REALTIME_PRIORITY_V1=yes
 #REALTIME_PRIORITY_V1=no
 
 # reset the v1 realtime prio setting on startup as it might result in system hangs
 RESET_REALTIME=yes
 #RESET_REALTIME=no
-
-# set the cpu cores vcvrack and jack should run on - we avoid cpu0 as it has to deal
-# more with irq handling etc. - used in set-rtprio-and-cpu-affinity.sh
-DESIRED_CPU_AFFINITY=2,3
-DESIRED_CPU_AFFINITY_JACK=0
-
-# allow to disable certain cpu cores to reduce the heat created by the cpu the sonaremin
-# should be fine with 3 out of 4 cores for instance ... this is a space separated list
-DISABLE_CPU_CORES="1"
