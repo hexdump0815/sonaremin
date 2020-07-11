@@ -126,6 +126,11 @@ if [ ! -s /data/config/qjackctl/qjackctl-patchbay.xml ]; then
   cp /data/config/qjackctl/backup/qjackctl-patchbay.xml /data/config/qjackctl/qjackctl-patchbay.xml
 fi
 
+if [ "$SAMPLE_RATE" != "" ]; then
+  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": $SAMPLE_RATE,g' /data/config/vcvrack-v1/settings.json
+  sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=$SAMPLE_RATE,g" /data/config/qjackctl/QjackCtl.conf
+fi
+
 if [ "$DISPLAY_MODE" = "display" ]; then
   # set back cursor lock mode
   sed -i.backup-rc-local 's/"allowCursorLock": false,/"allowCursorLock": true,/g' /data/config/vcvrack-v1/settings.json

@@ -10,6 +10,9 @@ DISPLAY_MODE=display
 AUDIO_TUNE=yes
 #AUDIO_TUNE=no
 
+# samplerate used by jack and vcvrack - possible values: 22050, 32000 (default), 44100, 48000
+#SAMPLE_RATE="22050"
+
 # start qjackctl automatically
 QJACKCTL_START=yes
 #QJACKCTL_START=no
