@@ -127,7 +127,7 @@ if [ ! -s /data/config/qjackctl/qjackctl-patchbay.xml ]; then
 fi
 
 if [ "$SAMPLE_RATE" != "" ]; then
-  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": $SAMPLE_RATE,g' /data/config/vcvrack-v1/settings.json
+  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": $SAMPLE_RATE,g" /data/config/vcvrack-v1/settings.json
   sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=$SAMPLE_RATE,g" /data/config/qjackctl/QjackCtl.conf
 fi
 
