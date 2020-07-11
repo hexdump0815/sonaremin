@@ -127,8 +127,11 @@ if [ ! -s /data/config/qjackctl/qjackctl-patchbay.xml ]; then
 fi
 
 if [ "$SAMPLE_RATE" != "" ]; then
-  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": $SAMPLE_RATE,g" /data/config/vcvrack-v1/settings.json
+  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": ${SAMPLE_RATE}.0\,,g" /data/config/vcvrack-v1/settings.json
   sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=$SAMPLE_RATE,g" /data/config/qjackctl/QjackCtl.conf
+else
+  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": 32000.0\,,g" /data/config/vcvrack-v1/settings.json
+  sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=32000,g" /data/config/qjackctl/QjackCtl.conf
 fi
 
 if [ "$DISPLAY_MODE" = "display" ]; then
