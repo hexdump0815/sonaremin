@@ -31,22 +31,22 @@ fi
 DESIRED_RT_PRIORITY="50"
 
 # set this script itself to cpu core 0 and unimportant scheduling prio
-taskset -a -pc 1 $$ > /dev/null
+taskset -a -pc 0 $$ > /dev/null
 chrt -o -p $$ > /dev/null
 
 # vcvrack
 VCVRACK_PID=`pidof Rack`
 if [ "${VCVRACK_PID}" != "" ]; then
   for i in `top -p ${VCVRACK_PID} -b -n 1 -H | sed 1,7d | grep Engine | awk '{print $1}'`; do
-    CURRENT_PRIORITY=`chrt -p $i | grep priority | sed 's,.*scheduling priority: ,,g'`
-    if [ "${CURRENT_PRIORITY}" != "${DESIRED_RT_PRIORITY}" ]; then
-      # set realtime scheduling priority
-      chrt -p ${DESIRED_RT_PRIORITY} $i
-    fi
     CURRENT_AFFINITY=`taskset -pc $i | sed 's,.*list: ,,g'`
     if [ "${CURRENT_AFFINITY}" != "${DESIRED_CPU_AFFINITY}" ]; then
       # set cpu affinity
       taskset -pc ${DESIRED_CPU_AFFINITY} $i > /dev/null
+    fi
+    CURRENT_PRIORITY=`chrt -p $i | grep priority | sed 's,.*scheduling priority: ,,g'`
+    if [ "${CURRENT_PRIORITY}" != "${DESIRED_RT_PRIORITY}" ]; then
+      # set realtime scheduling priority
+      chrt -p ${DESIRED_RT_PRIORITY} $i
     fi
   done
 fi
