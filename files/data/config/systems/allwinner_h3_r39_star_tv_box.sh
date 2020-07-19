@@ -15,7 +15,7 @@ if [ "$?" = "0" ]; then
   echo "SYSTEM_MODEL_DETAILED=allwinner_h3_tv_box" >> /data/config/info.txt
   # limit the cpu clock to avoid overheating
   # possible values: cat /sys/devices/system/cpu/cpufreq/policy?/scaling_available_frequencies
-  #echo MAX_CPU_CLOCK=1080000 >> /data/config/info.txt
+  #echo MAX_CPU_CLOCK=1008000 >> /data/config/info.txt
   # set the cpu cores vcvrack and jack should run on - we avoid cpu0 as it has to deal
   # more with irq handling etc. - used in set-rtprio-and-cpu-affinity.sh
   echo DESIRED_CPU_AFFINITY=2,3 >> /data/config/info.txt
@@ -24,8 +24,6 @@ if [ "$?" = "0" ]; then
   # should be fine with 3 out of 4 cores for instance ... this is a space separated list
   # better do not disable anything on this weak system, set jack affinity to 0 in case of disabling 1 anyway
   #echo DISABLE_CPU_CORES=\"1\" >> /data/config/info.txt
-  # start vcvrack v0 with realtime scheduling priority - might result in system hangs
-  echo "REALTIME_PRIORITY_V0=false" >> /data/config/info.txt
   # change to vt8 before starting the x server
   echo CHVT="true" >> /data/config/info.txt
   # extra addition in front of the LD_LIBRARY_PATH when starting vcvrack
