@@ -3,7 +3,7 @@ if [ "$?" = "0" ]; then
   # allwinner h3 tv box
   ln -sf /opt/mali-sunxi-fbdev-armv7l /opt/libgl
   ln -sf /opt/gl4es-armv7l /opt/gl4es
-  cp /data/config/x11/xorg.conf-sunxi /etc/X11/xorg.conf.d/xorg.conf
+  cp /data/config/x11/xorg.conf-modesetting /etc/X11/xorg.conf.d/xorg.conf
   # check if a custom audio setup exists and use it in that case
   if [ -f /data/config/custom/audio-setup.sh ]; then
     . /data/config/custom/audio-setup.sh

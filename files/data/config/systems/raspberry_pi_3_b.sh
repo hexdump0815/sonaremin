@@ -8,7 +8,7 @@ if [ "$?" = "0" ]; then
     ln -sf /opt/mesa-armv7l/lib/arm-linux-gnueabihf /opt/libgl
     ln -sf /dev/null /opt/gl4es
   fi
-  cp /data/config/x11/xorg.conf-raspberrypi /etc/X11/xorg.conf.d/xorg.conf
+  cp /data/config/x11/xorg.conf-modesetting /etc/X11/xorg.conf.d/xorg.conf
   # check if a custom audio setup exists and use it in that case
   if [ -f /data/config/custom/audio-setup.sh ]; then
     . /data/config/custom/audio-setup.sh

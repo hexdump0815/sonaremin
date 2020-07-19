@@ -8,7 +8,7 @@ if [ "$?" = "0" ]; then
     ln -sf /opt/mali-h6-fbdev-armv7l /opt/libgl
     ln -sf /opt/gl4es-armv7l /opt/gl4es
   fi
-  cp /data/config/x11/xorg.conf-h6 /etc/X11/xorg.conf.d/xorg.conf
+  cp /data/config/x11/xorg.conf-modesetting /etc/X11/xorg.conf.d/xorg.conf
   # check if a custom audio setup exists and use it in that case
   if [ -f /data/config/custom/audio-setup.sh ]; then
     . /data/config/custom/audio-setup.sh

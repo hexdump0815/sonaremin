@@ -9,7 +9,7 @@ if [ "$?" = "0" ]; then
     ln -sf /opt/mali-rk3288-fbdev-armv7l /opt/libgl
   fi
   ln -sf /opt/gl4es-armv7l /opt/gl4es
-  cp /data/config/x11/xorg.conf-rk3288 /etc/X11/xorg.conf.d/xorg.conf
+  cp /data/config/x11/xorg.conf-armsoc /etc/X11/xorg.conf.d/xorg.conf
   # check if a custom audio setup exists and use it in that case
   if [ -f /data/config/custom/audio-setup.sh ]; then
     . /data/config/custom/audio-setup.sh
