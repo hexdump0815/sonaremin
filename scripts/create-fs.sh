@@ -6,6 +6,7 @@ if [ "$#" != "2" ]; then
   echo ""
   echo "possible system options:"
   echo "- tinkerboard (armv7l)"
+  echo "- allwinner_h3 (armv7l)"
   echo "- raspberry_pi (armv7l)"
   echo "- raspberry_pi (aarch64)"
   echo "- raspberry_pi_4 (aarch64)"
