@@ -48,6 +48,8 @@ if [ -f /lib/modules/`uname -r`/extra/mali.ko ]; then
   modprobe mali
 elif [ -f /lib/modules/`uname -r`/extra/mali_kbase.ko ]; then
   modprobe mali_kbase
+elif [ -f /lib/modules/`uname -r`/kernel/drivers/gpu/arm/mali/maligpu.ko ]; then
+  modprobe maligpu
 fi
 
 rm -rf /opt/libgl
