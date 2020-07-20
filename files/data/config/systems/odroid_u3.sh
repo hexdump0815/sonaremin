@@ -8,8 +8,7 @@ if [ "$?" = "0" ]; then
   if [ -f /data/config/custom/audio-setup.sh ]; then
     . /data/config/custom/audio-setup.sh
   else
-    cp /data/config/qjackctl/QjackCtl.conf-pcm2704 /data/config/qjackctl/QjackCtl.conf
-    ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "DAC \[USB AUDIO    DAC\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set PCM 64 ; fi ) &
+    cp /data/config/qjackctl/QjackCtl.conf-odroid_u3 /data/config/qjackctl/QjackCtl.conf
   fi
   echo "SYSTEM_MODEL=exynos4412" > /data/config/info.txt
   echo "SYSTEM_MODEL_DETAILED=odroid_u3" >> /data/config/info.txt
