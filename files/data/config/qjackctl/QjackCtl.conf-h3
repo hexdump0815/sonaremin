@@ -91,11 +91,11 @@ DefPreset=(default)
 Version=0.4.5
 
 [Settings]
-Audio=0
+Audio=2
 Chan=0
 Dither=0
 Driver=alsa
-Frames=256
+Frames=512
 HWMeter=false
 HWMon=false
 IgnoreHW=false
@@ -113,7 +113,7 @@ Periods=2
 PortMax=256
 Priority=5
 Realtime=true
-SampleRate=32000
+SampleRate=22050
 Server=/usr/bin/jackd
 ServerName=
 ServerSuffix=
