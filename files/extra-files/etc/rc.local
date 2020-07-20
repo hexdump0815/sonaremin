@@ -130,8 +130,14 @@ if [ "$SAMPLE_RATE" != "" ]; then
   sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": ${SAMPLE_RATE}.0\,,g" /data/config/vcvrack-v1/settings.json
   sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=$SAMPLE_RATE,g" /data/config/qjackctl/QjackCtl.conf
 else
-  sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": 32000.0\,,g" /data/config/vcvrack-v1/settings.json
-  sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=32000,g" /data/config/qjackctl/QjackCtl.conf
+  # run low performance systems with 22.05 khz sample rate by default
+  if [ "$SYSTEM_MODEL" = "h3" ]; then
+    sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": 22050.0\,,g" /data/config/vcvrack-v1/settings.json
+    sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=22050,g" /data/config/qjackctl/QjackCtl.conf
+  else
+    sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": 32000.0\,,g" /data/config/vcvrack-v1/settings.json
+    sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=32000,g" /data/config/qjackctl/QjackCtl.conf
+  fi
 fi
 
 if [ "$DISPLAY_MODE" = "display" ]; then
@@ -139,10 +145,6 @@ if [ "$DISPLAY_MODE" = "display" ]; then
   sed -i.backup-rc-local 's/"allowCursorLock": false,/"allowCursorLock": true,/g' /data/config/vcvrack-v1/settings.json
   systemctl start x11.service
 else
-  # get the SYSTEM_MODEL setting
-  if [ -f /data/config/info.txt ]; then
-  . /data/config/info.txt
-  fi
   if [ "$SYSTEM_MODEL" = "raspberrypi" ]; then
     # put the proper hdmi port into the xorgxrdp config
     MY_HDMI=`ls /sys/class/drm | grep HDMI | head -n 1 | sed 's,.*HDMI,HDMI,g;s,-.-,-,g'`
