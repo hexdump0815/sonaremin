@@ -12,7 +12,23 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
-version 1.1.6_4 (wip)
+version 1.1.6_7
+- add support for odroid u3, odroid xu4 and an allwinner h3 tv box
+
+version 1.1.6_6
+- using a new vcvrack build (1.1.16_4 - 17.07.2020) with 150 open source plugins included resulting in 1640 vcvrack modules!
+- it is now possible to set the sampling frequency in the sonaremin.conf (22050, 32000, 44100 or 48000 khz) to save cpu power or gain better quality
+- small fixes here and there
+- other/newer firmware files for rpi4, but its still only using 1gb or ram for now and still not working at all for the 8gb model
+
+version 1.1.6_5
+- remove sfizz samplers - it did not work properly: i often got very high latencies or cpu usage when using the sifzz samplers due to the requirement to have multiple audio interfaces in vcvrack (which is not working very well and very unreliable) to get the sfizz audio back into vcvrack
+- allow to disable cpu cores to reduce heat produced
+- a lot fo cleanup under the hood
+- initial support for some allwinner h6 tv boxes (tested with eachlink mini and q-plus - they have nearly as much cpu power as the raspberry pi 4, but they run very hot and thus need a lot of extra cooling, which is not easy to achieve)
+- raspberry pi 4 status: it should work on the 1gb, 2gb and 4gb model (with a hack for now to limit the used ram to 1gb) but it does not work yet on the 8gb model
+
+version 1.1.6_4
 - remove support for systems which are simply too slow for the sonaremin in reality (h3 tv boxes, raspberry pi 2)
 - remove support for vcvrack v0 (0.6.2c)
 - remove support for padthv1 and synthv1
