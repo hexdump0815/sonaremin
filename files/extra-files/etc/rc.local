@@ -33,12 +33,24 @@ fi
 # flash based storage does not need scheduling
 if [ -d /sys/block/mmcblk0 ] || [ -d /sys/block/mmcblk1 ] || [ -d /sys/block/mmcblk2 ]; then
   for i in /sys/block/mmcblk?/queue/scheduler; do
-    echo none > $i
+    # older and newer kernel differ here: old noop, new none
+    grep -q none $i
+    if [ "$?" == "0" ]; then
+      echo none > $i
+    else
+      echo noop > $i
+    fi
   done
 fi
 if [ -d /sys/block/sda ] || [ -d /sys/block/sdb ] || [ -d /sys/block/sdc ]; then
   for i in /sys/block/sd?/queue/scheduler; do
-    echo none > $i
+    # older and newer kernel differ here: old noop, new none
+    grep -q none $i
+    if [ "$?" == "0" ]; then
+      echo none > $i
+    else
+      echo noop > $i
+    fi
   done
 fi
 
@@ -133,7 +145,7 @@ if [ "$SAMPLE_RATE" != "" ]; then
   sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=$SAMPLE_RATE,g" /data/config/qjackctl/QjackCtl.conf
 else
   # run low performance systems with 22.05 khz sample rate by default
-  if [ "$SYSTEM_MODEL" = "h3" ]; then
+  if [ "$SYSTEM_MODEL" = "h3" ] || [ "$SYSTEM_MODEL" = "rk322x" ]; then
     sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": 22050.0\,,g" /data/config/vcvrack-v1/settings.json
     sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=22050,g" /data/config/qjackctl/QjackCtl.conf
   else

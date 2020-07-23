@@ -5,10 +5,11 @@ if [ "$#" != "2" ]; then
   echo "usage: $0 system arch"
   echo ""
   echo "possible system options:"
-  echo "- tinkerboard (armv7l)"
   echo "- allwinner_h3 (armv7l)"
   echo "- odroid_u3 (armv7l)"
   echo "- odroid_xu4 (armv7l)"
+  echo "- rockchip_rk322x (armv7l)"
+  echo "- tinkerboard (armv7l)"
   echo "- raspberry_pi (armv7l)"
   echo "- raspberry_pi (aarch64)"
   echo "- raspberry_pi_4 (aarch64)"
@@ -145,6 +146,10 @@ rm -f etc/X11/xorg.conf.d/01-*
 mkdir -p ${BUILD_ROOT}/data
 cd ${BUILD_ROOT}/data
 cp -r ${WORKDIR}/files/data/* .
+# rk322x is too slow for the usual default patch
+if [ "$1" = "rockchip_rk322x" ]; then
+  cp vcvrack-v1/generative-02.vcv vcvrack-v1/sonaremin.vcv
+fi
 cp -f vcvrack-v1/sonaremin.vcv config/vcvrack-v1/autosave.vcv
 mkdir -p config/qjackctl/backup
 mkdir -p myfiles/vcvrack-v1
