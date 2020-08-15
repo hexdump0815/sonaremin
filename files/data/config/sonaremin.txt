@@ -6,6 +6,10 @@ DISPLAY_MODE=display
 #DISPLAY_MODE=virtual
 #DISPLAY_MODE=headless
 
+# default keyboard language for display mode, default is us and it
+# should be a valid argument to setxkbmap like fr, de, it, pt, ru, es etc.
+#XKB_LANGUAGE=de
+
 # enable tuning for audio usage
 AUDIO_TUNE=yes
 #AUDIO_TUNE=no

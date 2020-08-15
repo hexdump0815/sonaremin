@@ -38,6 +38,19 @@ if [ "$(ps auxwww | grep /usr/bin/xpra | grep -v grep)" != "" ]; then
     sleep 3
   fi
 
+# the following is only required if we do not run via xpra
+else
+
+  # read the actual sonaremin config file if it exists
+  if [ -f /data/config/sonaremin.txt ]; then
+    . /data/config/sonaremin.txt
+  fi
+
+  # if we define a default keyboard language then set it here
+  if [ "$XKB_LANGUAGE" != "" ]; then
+    setxkbmap $XKB_LANGUAGE
+  fi
+
 fi
 
 /home/sonaremin/bin/start-qjackctl.sh &
