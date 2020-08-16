@@ -36,8 +36,8 @@ locale-gen
 # enable jack realtime settings
 mv -f /etc/security/limits.d/audio.conf.disabled /etc/security/limits.d/audio.conf
 
-# remove dmidecode (only on ubuntu) as it crashes on some arm devices on boot
-apt-get -yq remove dmidecode
+# remove snapd and dmidecode (only on ubuntu) as it crashes on some arm devices on boot
+apt-get -yq remove snapd dmidecode
 
 apt-get -yq auto-remove
 apt-get clean
