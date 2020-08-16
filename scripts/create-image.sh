@@ -106,6 +106,14 @@ ROOT_PARTUUID=$(blkid | grep "/dev/loop0p$ROOTPART" | awk '{print $5}' | sed 's,
 if [ -f ${MOUNT_POINT}/boot/menu/extlinux.conf ]; then
   sed -i "s,ROOT_PARTUUID,$ROOT_PARTUUID,g" ${MOUNT_POINT}/boot/menu/extlinux.conf
 fi
+if [ -f ${MOUNT_POINT}/boot/uEnv.ini ]; then
+  sed -i "s,ROOT_PARTUUID,$ROOT_PARTUUID,g" ${MOUNT_POINT}/boot/uEnv.ini
+fi
+
+# for the amlogic m8x we will have to shorten the kernel and initrd filenames due to a 23 char limit
+if [ "$1" = "amlogic_m8" ]; then
+  ${MOUNT_POINT}/boot/shorten-filenames.sh
+fi
 
 umount ${MOUNT_POINT}/data 
 umount ${MOUNT_POINT}/boot 
