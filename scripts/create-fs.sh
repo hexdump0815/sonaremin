@@ -6,6 +6,7 @@ if [ "$#" != "2" ]; then
   echo ""
   echo "possible system options:"
   echo "- allwinner_h3 (armv7l)"
+  echo "- amlogic_m8 (armv7l)"
   echo "- odroid_u3 (armv7l)"
   echo "- odroid_xu4 (armv7l)"
   echo "- rockchip_rk322x (armv7l)"
