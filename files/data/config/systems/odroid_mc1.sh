@@ -1,6 +1,11 @@
 grep -q 'Hardkernel Odroid MC1$' /proc/device-tree/model
 if [ "$?" = "0" ]; then
   # odroid mc1
+  if [ "$DISPLAY_MODE" = "display" ]; then
+    # no hdmi supported on this system as it has no hdmi connector
+    # so switch display mode to virtual
+    DISPLAY_MODE=virtual
+  fi
   ln -sf /opt/mali-exynos5422-fbdev-armv7l /opt/libgl
   ln -sf /opt/gl4es-armv7l /opt/gl4es
   cp /data/config/x11/xorg.conf-modesetting /etc/X11/xorg.conf.d/xorg.conf
