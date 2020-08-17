@@ -145,7 +145,7 @@ if [ "$SAMPLE_RATE" != "" ]; then
   sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=$SAMPLE_RATE,g" /data/config/qjackctl/QjackCtl.conf
 else
   # run low performance systems with 22.05 khz sample rate by default
-  if [ "$SYSTEM_MODEL" = "h3" ] || [ "$SYSTEM_MODEL" = "rk322x" ]; then
+  if [ "$SYSTEM_MODEL" = "h3" ] || [ "$SYSTEM_MODEL" = "rk322x" ] || [ "$SYSTEM_MODEL" = "s805" ]; then
     sed -i.backup-rc-local "s,\"sampleRate\":\ .*,\"sampleRate\": 22050.0\,,g" /data/config/vcvrack-v1/settings.json
     sed -i.backup-rc-local "s,SampleRate=.*,SampleRate=22050,g" /data/config/qjackctl/QjackCtl.conf
   else
