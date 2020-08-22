@@ -9,6 +9,7 @@ if [ "$?" = "0" ]; then
     . /data/config/custom/audio-setup.sh
   else
     cp /data/config/qjackctl/QjackCtl.conf-odroid_u3 /data/config/qjackctl/QjackCtl.conf
+    ( sleep 15; AUDIO_DEVICE=`aplay -l | grep "Odroid.*\[Odroid.*\]" | awk '{print $2}' | sed 's,:,,g'`; if [ "$AUDIO_DEVICE" != "" ]; then amixer -c ${AUDIO_DEVICE} set Headphone 26 ; fi ) &
   fi
   echo "SYSTEM_MODEL=exynos4412" > /data/config/info.txt
   echo "SYSTEM_MODEL_DETAILED=odroid_u3" >> /data/config/info.txt
