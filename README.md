@@ -12,6 +12,13 @@ IMPORTANT: in case you run into problems with vcvrack on the sonaremin, please c
 
 # changelog
 
+version 1.1.6_8
+- using a new vcvrack build (1.1.16_5 - 25.08.2020) with 162 open source plugins included resulting in 1700+ vcvrack modules!
+- allow setting a default kbd language for the display mode in sonaremin.txt config file
+- linux kernel and mesa 3d graphics library (where used) updated
+- raspberry pi kernel updated to v5.8.2 - still limited to using 1gb ram on the 1/2/4gb model - the 8gb model still does not work yet
+- small fixes here and there
+
 version 1.1.6_7
 - add support for odroid u3, odroid xu4 and an allwinner h3 tv box
 
