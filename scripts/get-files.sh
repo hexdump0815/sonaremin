@@ -24,7 +24,7 @@ mkdir downloads
 # exit on errors
 set -e
 
-vcvrack_v1_release_version="v1.1.6_4"
+vcvrack_v1_release_version="v1.1.6_5"
 
 if [ "$1" = "all" ] || [ "$1" = "armv7l" ]; then
   wget https://github.com/hexdump0815/vcvrack-dockerbuild-v1/releases/download/${vcvrack_v1_release_version}/vcvrack.armv7l-v1.tar.gz -O downloads/vcvrack.armv7l-v1.tar.gz
