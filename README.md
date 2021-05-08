@@ -1,3 +1,5 @@
+IMPORTANT: this repo has been superseeded by https://github.com/hexdump0815/sonaremin-ng
+
 ## the sonaremin
 
 ![sonaremin image 01](https://github.com/hexdump0815/sonaremin/raw/master/images/sonaremin-01.jpg "sonaremin image 01")
